@@ -1,3 +1,4 @@
+//JAVA PROGRAM TO CALCULATE RECTANGLES PERIMETER AND SQR SIZE
 package com.company;
 
 import java.util.Scanner;
