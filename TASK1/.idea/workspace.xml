@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6fb29d3-3040-4e69-be07-2f3114fd30ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyFirstJavaProgram.iml" beforeDir="false" />
+    <list default="true" id="cb19a46c-1e7f-4982-88cc-81babe4c47c3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TASK1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/MyFirstJavaProgram.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,23 +15,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="ProjectId" id="1QL1Kq3AEt9mN1lfKz6xsNweLVU" />
+  <component name="ProjectId" id="1QL8wSR3yth5fo4DrdTNBVqtgVd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TASK1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,30 +41,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="MyFirstJavaProgram" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d6fb29d3-3040-4e69-be07-2f3114fd30ab" name="Default Changelist" comment="" />
-      <created>1567535002155</created>
+      <changelist id="cb19a46c-1e7f-4982-88cc-81babe4c47c3" name="Default Changelist" comment="" />
+      <created>1567538753276</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567535002155</updated>
-      <workItem from="1567535008047" duration="2746000" />
-      <workItem from="1567537815411" duration="936000" />
+      <updated>1567538753276</updated>
+      <workItem from="1567538754554" duration="960000" />
     </task>
     <servers />
   </component>
@@ -78,9 +63,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
