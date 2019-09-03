@@ -9,16 +9,19 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        int a = in.nextInt();
-        System.out.println("Entered width number:" + a);
-        int b = in.nextInt();
-        System.out.println("Entered length number" + b);
+        int height = in.nextInt();
+        System.out.println("Entered width number:" + height);
+        int width = in.nextInt();
+        System.out.println("Entered length number" + width);
 
-        int c = getCircumference(a,b);
-        System.out.println("The circumference of rectangle is: " + c);
+        System.out.println("Circumference: " + getCircumference(height, width));
+        System.out.println("Square size: " + getSquareSize(height, width));
     }
 
-    static int getCircumference(int height, int length) {
-        return + 2 * height + 2 * length;
+    static int getCircumference(int height, int width) {
+        return (2 * height) + (2 * width);
+    }
+    static int getSquareSize(int height, int width) {
+        return height * width;
     }
 }
