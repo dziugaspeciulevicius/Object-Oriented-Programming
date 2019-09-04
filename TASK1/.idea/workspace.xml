@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb19a46c-1e7f-4982-88cc-81babe4c47c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TASK1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyFirstJavaProgram/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyFirstJavaProgram/MyFirstJavaProgram.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TASK1.java" beforeDir="false" afterPath="$PROJECT_DIR$/TASK1.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567538753276</updated>
-      <workItem from="1567538754554" duration="960000" />
+      <workItem from="1567538754554" duration="1574000" />
     </task>
     <servers />
   </component>
