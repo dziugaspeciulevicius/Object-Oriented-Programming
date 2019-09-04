@@ -4,4 +4,4 @@
 
 **Fullname, group:** D. Pečiulevičius, PI18E
 
-**Software used:** Visual Studio Code, PyCharm
+**Software used:** Visual Studio Code, IntelliJ IDEA
