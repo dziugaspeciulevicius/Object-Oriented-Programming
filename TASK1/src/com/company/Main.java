@@ -6,28 +6,17 @@
 //-Rectangle diagonals intersection coordinates (4t)
 //
 //EXTRA REQUIREMENT: Class Rectangle has to have single responsibility principle (5t)
+//---------------------------------------------------------------------------------------
 //SingleResponsibilityPrinciple: https://www.youtube.com/watch?v=bnKIDV-HsXA
+//Its a principle where one class is responsible no more than two different methods (functions)
+//JAVA DOCUMENTATION BELOW FOR THIS EXERCISE:
+//https://docs.oracle.com/javase/7/docs/api/java/awt/Rectangle.html#isEmpty()
+
 package com.company;
 
-import java.util.Scanner;
-
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Hello. Welcome to TASK1.");
-        System.out.println("Press \"ENTER\" to continue...");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-
-        Rectangle rectangle = new Rectangle();
-        //type    objectName = operator   initializer(constructor)
-
-        System.out.println("Please enter the width and length of a rectangle:");
-
-
-
 
     }
 }
