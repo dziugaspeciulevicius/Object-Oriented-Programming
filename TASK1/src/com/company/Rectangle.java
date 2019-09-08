@@ -4,21 +4,25 @@ public class Rectangle {
 
     public int length;
     public int width;
-    public static int xCoordinate; //x coordinate of top left rectangle corner
-    public static int yCoordinate; //y coordinate of top left rectangle corner
+    public static int x, y; //x, y coordinates of top left rectangle corner
+
 
     public Rectangle(int length, int width, int x, int y) {
         this.length = length;
         this.width = width;
-        this.xCoordinate = x;
-        this.yCoordinate = y;
+        this.x = x;
+        this.y = y;
     }
 
-    public static int getPerimeter(int height, int width) {
-        return (2 * height) + (2 * width);
+    public static int getPerimeter(int length, int width) {
+        return (2 * length) + (2 * width);
     }
 
-    public static int getSquare(int height, int width) {
-        return height * width;
+    public static int getArea(int length, int width) {
+        return length * width;
+    }
+
+    public static float getDiagonalLength(int length, int width) {
+        return (float) Math.sqrt(Math.pow(length,2)+Math.pow(width,2));
     }
 }
