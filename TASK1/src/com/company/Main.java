@@ -27,9 +27,6 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Hello, welcome to TASK1");
-        Main.promptEnterKey();
-
         System.out.println("PLease enter the length of a rectangle: ");
         int length = input.nextInt();
         System.out.println("PLease enter the width of a rectangle:");
@@ -38,6 +35,7 @@ public class Main {
 
         System.out.println("The perimeter of a rectangle is: " + Rectangle.getPerimeter(length, width));
         System.out.println("The square of a rectangle is: " + Rectangle.getArea(length, width));
-        System.out.println("Diagonal: " + Rectangle.getDiagonalLength(length, width));
+        //System.out.println("Diagonal: "  + Rectangle.getDiagonalLength(length, width));
+        System.out.printf("Diagonal %.2f", Rectangle.getDiagonalLength(length, width));
     }
 }
