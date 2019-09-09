@@ -36,10 +36,8 @@ public class Main {
         int width = input.nextInt();
         System.out.println("Length: "+ length + "\nWidth: " + width);
 
-        System.out.println("Diagonal: " + Rectangle.getDiagonalLength(length, width));
-
         System.out.println("The perimeter of a rectangle is: " + Rectangle.getPerimeter(length, width));
         System.out.println("The square of a rectangle is: " + Rectangle.getArea(length, width));
-
+        System.out.println("Diagonal: " + Rectangle.getDiagonalLength(length, width));
     }
 }
