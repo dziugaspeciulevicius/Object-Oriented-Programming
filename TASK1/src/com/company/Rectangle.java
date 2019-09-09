@@ -4,7 +4,7 @@ public class Rectangle {
 
     public int length;
     public int width;
-    public static int x, y; //x, y coordinates of top left rectangle corner
+    public int x, y; //x, y coordinates of top left rectangle corner
 
 
     public Rectangle(int length, int width, int x, int y) {
@@ -23,6 +23,6 @@ public class Rectangle {
     }
 
     public static float getDiagonalLength(int length, int width) {
-        return (float) Math.sqrt(Math.pow(length,2)+Math.pow(width,2));
+        return (float) Math.sqrt(Math.pow(length,2)+Math.pow(width,2)); //typecast
     }
 }
