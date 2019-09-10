@@ -17,25 +17,22 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void promptEnterKey(){
-        System.out.println("Press ENTER key to continue...");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-    }
-
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
         System.out.println("PLease enter the length of a rectangle: ");
-        float length = input.nextFloat();
+        float inputLength = input.nextFloat();
         System.out.println("PLease enter the width of a rectangle:");
-        float width = input.nextFloat();
-        System.out.println("Length: "+ length + "\nWidth: " + width);
+        float inputWidth = input.nextFloat();
+        System.out.println("Length: "+ inputLength + "\nWidth: " + inputWidth);
 
-        System.out.println("The perimeter of a rectangle is: " + Rectangle.getPerimeter(length, width));
-        System.out.println("The square of a rectangle is: " + Rectangle.getArea(length, width));
-        System.out.printf("Diagonal %.2f", Rectangle.getDiagonalLength(length, width));
-        Rectangle.getDiagInterCoord(length, width);
+        Rectangle rectangle1 = new Rectangle(inputLength, inputWidth, 0, 0);
+
+        System.out.println("The perimeter of a rectangle is: " + RectangleCalculations.getPerimeter(rectangle1.length, rectangle1.width));
+        System.out.println("The square of a rectangle is: " + RectangleCalculations.getArea(rectangle1.length, rectangle1.width));
+        System.out.printf("Diagonal %.2f", RectangleCalculations.getDiagonalLength(rectangle1.length, rectangle1.width));
+        RectangleCalculations.getDiagInterCoord(rectangle1.length, rectangle1.width);
+        System.out.println("\n CoordinateX: ");
     }
 }
