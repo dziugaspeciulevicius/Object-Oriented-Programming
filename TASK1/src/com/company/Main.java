@@ -28,6 +28,5 @@ public class Main {
         System.out.println("The square of a rectangle is: " + RectangleCalculations.getArea(rectangle1.length, rectangle1.width));
         System.out.printf("Diagonal %.2f", RectangleCalculations.getDiagonalLength(rectangle1.length, rectangle1.width));
         RectangleCalculations.getDiagInterCoord(rectangle1.length, rectangle1.width);
-        System.out.println("\n CoordinateX: ");
     }
 }
