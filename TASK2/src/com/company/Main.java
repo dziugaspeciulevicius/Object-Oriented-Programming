@@ -14,5 +14,17 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
+        System.out.println("Enter your name: ");
+        String inputName = input.nextLine();
+        System.out.println("Enter your surname: ");
+        String inputSurname = input.nextLine();
+        System.out.println("Enter your group name/number: ");
+        String inputGroup = input.nextLine();
+
+
+
+
+        //Student student1 = new Student()
+
     }
 }
