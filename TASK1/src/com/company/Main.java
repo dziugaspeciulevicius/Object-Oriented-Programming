@@ -27,7 +27,7 @@ public class Main {
         System.out.println("The perimeter of a rectangle is: " + rectangle1.getPerimeter());
         System.out.println("The square of a rectangle is: " + rectangle1.getArea());
         System.out.printf("Diagonal is: %.2f \n", rectangle1.getDiagonalLength());
-        System.out.println("The coordinate of X is: " + rectangle1.getDiagCoordX());
-        System.out.println("The coordinate of Y is: " + rectangle1.getDiagCoordY());
+        System.out.println("Rectangles intersection coordinates are X: "
+                + rectangle1.getXCoordinate() + " and Y: " + rectangle1.getYCoordinate());
     }
 }

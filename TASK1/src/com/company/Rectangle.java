@@ -26,11 +26,11 @@ public class Rectangle {
         //return (float) Math.sqrt(Math.pow(length, 2)+Math.pow(width, 2)); //typecast
     }
 
-    public float getDiagCoordX() {
-        return (length/2);
+    public float getXCoordinate() {
+        return length/2;
     }
 
-    public float getDiagCoordY() {
-        return (width/2);
+    public float getYCoordinate() {
+        return width/2;
     }
 }
