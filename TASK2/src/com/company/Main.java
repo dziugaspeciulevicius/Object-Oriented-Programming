@@ -21,11 +21,11 @@ public class Main {
         System.out.println("Enter your group name/number: ");
         String inputGroup = input.nextLine();
 
-        Student student1 = new Student(inputName, inputSurname, inputGroup);
 
-        System.out.println("Enter ");;
+        System.out.println("Enter the number of subjects: ");
 
-        //Student student1 = new Student()
+        
+        //Student student1 = new Student(inputName, inputSurname, inputGroup);
 
     }
 }
