@@ -24,9 +24,10 @@ public class Main {
 
         Rectangle rectangle1 = new Rectangle(inputLength, inputWidth, 0, 0);
 
-        System.out.println("The perimeter of a rectangle is: " + RectangleCalculations.getPerimeter(rectangle1.length, rectangle1.width));
-        System.out.println("The square of a rectangle is: " + RectangleCalculations.getArea(rectangle1.length, rectangle1.width));
-        System.out.printf("Diagonal %.2f", RectangleCalculations.getDiagonalLength(rectangle1.length, rectangle1.width));
-        RectangleCalculations.getDiagInterCoord(rectangle1.length, rectangle1.width);
+        System.out.println("The perimeter of a rectangle is: " + rectangle1.getPerimeter());
+        System.out.println("The square of a rectangle is: " + rectangle1.getArea());
+        System.out.printf("Diagonal is: %.2f \n", rectangle1.getDiagonalLength());
+        System.out.println("The coordinate of X is: " + rectangle1.getDiagCoordX());
+        System.out.println("The coordinate of Y is: " + rectangle1.getDiagCoordY());
     }
 }
