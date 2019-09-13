@@ -2,31 +2,35 @@ package com.company;
 
 public class Rectangle {
 
-    private float length;
-    private float width;
-    private float x, y; //x, y coordinates of top left rectangle corner
+    public float length;
+    public float width;
+    public float x, y; //x, y coordinates of top left rectangle corner
 
-    private Rectangle(float length, float width, float x, float y) {
+    public Rectangle(float length, float width, float x, float y) {
         this.length = length;
         this.width = width;
         this.x = x;
         this.y = y;
     }
 
-    public static float getPerimeter(float length, float width) {
+    public float getPerimeter() {
         return (2 * length) + (2 * width);
     }
 
-    public static float getArea(float length, float width) {
+    public float getArea() {
         return length * width;
     }
 
-    public static float getDiagonalLength(float length, float width) {
+    public float getDiagonalLength() {
         return (float) Math.sqrt(length * length + width * width);
         //return (float) Math.sqrt(Math.pow(length, 2)+Math.pow(width, 2)); //typecast
     }
 
-    public static void getDiagInterCoord(float length, float width) {
-        System.out.println("\nCoordinateX: " + (length/2) + "\nCoordinateY: " + (width/2));
+    public float getDiagCoordX() {
+        return (length/2);
+    }
+
+    public float getDiagCoordY() {
+        return (width/2);
     }
 }
