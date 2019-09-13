@@ -27,10 +27,10 @@ public class Rectangle {
     }
 
     public float getXCoordinate() {
-        return length/2;
+        return x + length/2;
     }
 
     public float getYCoordinate() {
-        return width/2;
+        return y - width/2;
     }
 }
