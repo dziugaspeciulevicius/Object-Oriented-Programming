@@ -22,9 +22,9 @@ public class Main {
         String inputGroup = input.nextLine();
 
 
-        System.out.println("Enter the number of subjects: ");
-
         
+
+        //System.out.println("Enter the number of subjects: ");
         //Student student1 = new Student(inputName, inputSurname, inputGroup);
 
     }
