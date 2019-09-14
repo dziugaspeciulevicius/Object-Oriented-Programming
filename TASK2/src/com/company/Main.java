@@ -33,11 +33,44 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int inputSubjectNumber = input.nextInt();
-        for (int i = 0; i < inputSubjectNumber; i++){
-            System.out.println("HEllo");
+        for (int i = 0; i < inputSubjectNumber + 1; i++){
+            System.out.println("Subject 1: ");
         }
 
 
+
+
+        /*
+        class Subject { Duomenys = Subject / Dalykas = subjectName
+            public String subjectName;
+
+            public Subject(String A) {
+                subjectName = A;
+            }
+
+            public String getSubjectName() {
+                return subjectName;
+            }
+
+            public void setSubjectName(String newSubjectName) {
+                this.subjectName = newSubjectName;
+            }
+        }
+
+        Scanner scan = new Scanner(System.in);
+
+        Subject S1 = new Subject(A: "Default");
+
+        String Dal;
+        System.out.println("Enter your desired subject number ");
+        int skaicius = scan.nextInt();
+        for(int i = 1; i < skaicius + 1; i++); {
+            System.out.println("Dalykas #" + 1);
+            Dal = scan.next();
+        S1.setSubjectName(Dal);
+            system.out.println("dalyko #" + i + " Pavadinimas: " + S1.getSubjectName());
+        }
+        */
 
 
 
