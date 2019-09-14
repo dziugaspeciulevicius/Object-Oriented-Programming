@@ -23,15 +23,15 @@ public class Subject {
         return credits;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setSubjectName(String newSubjectName) {
+        this.subjectName = newSubjectName;
     }
 
     public void setGrade(float subjectGrade) {
         this.grade = subjectGrade;
     }
 
-    public void setCredits(float subjectCredits) {
-        this.grade = subjectCredits;
+    public void setCredits(int subjectCredits) {
+        this.credits = subjectCredits;
     }
 }
