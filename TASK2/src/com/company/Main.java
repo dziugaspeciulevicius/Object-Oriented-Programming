@@ -57,16 +57,16 @@ public class Main {
             }
         }
 
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         Subject S1 = new Subject(A: "Default");
 
         String Dal;
         System.out.println("Enter your desired subject number ");
-        int skaicius = scan.nextInt();
+        int skaicius = input.nextInt();
         for(int i = 1; i < skaicius + 1; i++); {
             System.out.println("Dalykas #" + 1);
-            Dal = scan.next();
+            Dal = input.next();
         S1.setSubjectName(Dal);
             system.out.println("dalyko #" + i + " Pavadinimas: " + S1.getSubjectName());
         }
