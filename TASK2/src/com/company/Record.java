@@ -1,15 +1,12 @@
 package com.company;
 
-public class Student {
+public class Record {
     private String studentName;
     private String studentSurname;
     private String studentGroup;
-
-    /*public Student(String name, String surname, String group) {
-        this.name = name;
-        this.surname = surname;
-        this.group = group;
-    }*/
+    private String subjectName;
+    private float subjectGrade;
+    private int subjectCredits;
 
     public String getStudentName() {
         return studentName;
@@ -23,6 +20,18 @@ public class Student {
         return studentGroup;
     }
 
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public float getSubjectGrade() {
+        return subjectGrade;
+    }
+
+    public int getSubjectCredits() {
+        return subjectCredits;
+    }
+
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
@@ -33,5 +42,17 @@ public class Student {
 
     public void setStudentGroup(String studentGroup) {
         this.studentGroup = studentGroup;
+    }
+
+    public void setSubjectName(String newSubjectName) {
+        this.subjectName = newSubjectName;
+    }
+
+    public void setSubjectGrade(float subjectGrade) {
+        this.subjectGrade = subjectGrade;
+    }
+
+    public void setSubjectCredits(int subjectCredits) {
+        this.subjectCredits = subjectCredits;
     }
 }
