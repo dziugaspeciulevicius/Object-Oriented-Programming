@@ -14,63 +14,33 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        Student student1 = new Student();
+        Student studentInfo = new Student();
 
         System.out.println("Enter your name: ");
         String inputName = input.nextLine();
-        student1.setName(inputName);
+        studentInfo.setStudentName(inputName);
         System.out.println("Enter your surname: ");
         String inputSurname = input.nextLine();
-        student1.setSurname(inputSurname);
+        studentInfo.setStudentSurname(inputSurname);
         System.out.println("Enter your group name/number: ");
         String inputGroup = input.nextLine();
-        student1.setGroup(inputGroup);
+        studentInfo.setStudentGroup(inputGroup);
 
-        System.out.println(student1.getName());
-        System.out.println(student1.getSurname());
-        System.out.println(student1.getGroup());
+        Subject subjectsInfo = new Subject();
 
-
+        String subjectName;
+        float subjectGrade;
+        int subjectCredits;
         System.out.println("Enter the amount of subjects you are taking this semester: ");
-        int inputSubjectNumber = input.nextInt();
-        for (int i = 0; i < inputSubjectNumber + 1; i++){
-            System.out.println("Subject 1: ");
+        int numberOfSubjects = input.nextInt();
+        for (int i = 0; i < numberOfSubjects; i++) {
+            //System.out.println("Subject #" + i);
+            subjectName = input.next();
+            subjectsInfo.setSubjectName(subjectName);
+
+            System.out.println("Subject #" + i + " Name: " + subjectsInfo.getSubjectName());
         }
 
-
-
-
-        /*
-        class Subject { Duomenys = Subject / Dalykas = subjectName
-            public String subjectName;
-
-            public Subject(String A) {
-                subjectName = A;
-            }
-
-            public String getSubjectName() {
-                return subjectName;
-            }
-
-            public void setSubjectName(String newSubjectName) {
-                this.subjectName = newSubjectName;
-            }
-        }
-
-        Scanner input = new Scanner(System.in);
-
-        Subject S1 = new Subject(A: "Default");
-
-        String Dal;
-        System.out.println("Enter your desired subject number ");
-        int skaicius = input.nextInt();
-        for(int i = 1; i < skaicius + 1; i++); {
-            System.out.println("Dalykas #" + 1);
-            Dal = input.next();
-        S1.setSubjectName(Dal);
-            system.out.println("dalyko #" + i + " Pavadinimas: " + S1.getSubjectName());
-        }
-        */
 
 
 
