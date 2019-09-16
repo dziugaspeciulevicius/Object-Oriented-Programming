@@ -8,9 +8,9 @@ public class Record {
     private float subjectGrade;
     private int subjectCredits;
 
-    public String toString(){
+    /*public String toString(){
         return "\nSubject name: "+ subjectName +"\n Subject grade: " + subjectGrade + "\n Subject credits: " + subjectCredits + "\n";
-    }
+    }*/
 
     public String getStudentName() {
         return studentName;
