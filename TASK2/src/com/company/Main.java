@@ -30,7 +30,7 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
-        List<Record> listOfSubjects = new ArrayList<>(); //TRYING TO CREATE FEW OBJECT AND ADD EVERYTHING INTO ARRAY LIST
+        List<Record> listOfSubjects = new ArrayList<Record>(); //TRYING TO CREATE FEW OBJECT AND ADD EVERYTHING INTO ARRAY LIST
         for (int i = 1; i <= numberOfSubjects; i++) {
             Record subjectRecord = new Record();
             listOfSubjects.add(subjectRecord);
@@ -50,10 +50,13 @@ public class Main {
                     "\nCredits: " + subjectRecord.getSubjectCredits());
         }
 
+        //THIS PRINTS A WHOLE LIST OF ENTERED SUBJECTS, BUT FOR THIS TO WORK IT NEEDS TO HAVE A toString method in Record
+        System.out.println(listOfSubjects);
+
         //Getting first entered subject
-        System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
+        //System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
         //Getting third entered subject
-        System.out.println(listOfSubjects.get(2).getSubjectName() + listOfSubjects.get(2).getSubjectGrade() + listOfSubjects.get(2).getSubjectCredits());
+        //System.out.println(listOfSubjects.get(2).getSubjectName() + listOfSubjects.get(2).getSubjectGrade() + listOfSubjects.get(2).getSubjectCredits());
 
         //GPA FORMULA:
         //(subject grade * subject credits) = subject grade and credit evaluation (X)
