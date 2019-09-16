@@ -51,7 +51,7 @@ public class Main {
         }
 
         //THIS PRINTS A WHOLE LIST OF ENTERED SUBJECTS, BUT FOR THIS TO WORK IT NEEDS TO HAVE A toString method in Record
-        System.out.println(listOfSubjects);
+        //System.out.println(listOfSubjects);
 
         //Getting first entered subject
         //System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
