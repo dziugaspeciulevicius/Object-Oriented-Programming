@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Student {
@@ -8,37 +9,33 @@ public class Student {
     private String studentSurname;
     private String studentGroup;
 
-    class Subject {
-        private String subjectName;
-        private float subjectGrade;
-        private int subjectCredits;
-        private int numberOfSubjects;
-        Subject[] subjectList = new Subject[numberOfSubjects];
-        //type[array] name = new type[how long]
-        List<String> subjectList = new ArrayList<>();
+    static class Subject {
+        private ArrayList<String>subjectName = new ArrayList<>();
+        private ArrayList<Float>subjectGrade = new ArrayList<>();
+        private ArrayList<Integer>subjectCredits = new ArrayList<>();
 
-        public String getSubjectName() {
+        public List<String> getSubjectName() {
             return subjectName;
         }
 
-        public float getSubjectGrade() {
+        public List<Float> getSubjectGrade() {
             return subjectGrade;
         }
 
-        public int getSubjectCredits() {
-            return subjectCredits;
+        public List<Integer> getSubjectCredits() {
+            return Collections.unmodifiableList(subjectCredits);
         }
 
-        public void setSubjectName(String newSubjectName) {
-            this.subjectName = newSubjectName;
+        public void setSubjectName(String subjectName) {
+            this.subjectName.add(subjectName);
         }
 
         public void setSubjectGrade(float subjectGrade) {
-            this.subjectGrade = subjectGrade;
+            this.subjectGrade.add(subjectGrade);
         }
 
-        public void setSubjectCredits(int subjectCredits) {
-            this.subjectCredits = subjectCredits;
+        public void setSubjectCredits(int credits){
+            this.subjectCredits.add(credits);
         }
     }
 
@@ -65,10 +62,4 @@ public class Student {
     public void setStudentGroup(String studentGroup) {
         this.studentGroup = studentGroup;
     }
-
-
-
-    /*double getAverage(){
-
-    }*/
 }
