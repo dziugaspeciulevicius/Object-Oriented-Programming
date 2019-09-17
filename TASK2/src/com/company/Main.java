@@ -34,6 +34,9 @@ public class Main {
 
 
 
+
+
+
         //List<Object> list1 = new ArrayList<Object>();
         //list1.add(" ");
             //----------------------------------
@@ -59,6 +62,19 @@ public class Main {
             //    }
             // }
             //--------------------------------
+
+            //THIS PRINTS A WHOLE LIST OF ENTERED SUBJECTS, BUT FOR THIS TO WORK IT NEEDS TO HAVE A toString method in Record
+            //System.out.println(listOfSubjects);
+
+            //Getting first entered subject
+            //System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
+            //Getting third entered subject
+            //System.out.println(listOfSubjects.get(2).getSubjectName() + listOfSubjects.get(2).getSubjectGrade() + listOfSubjects.get(2).getSubjectCredits());
+
+            //GPA FORMULA:
+            //(subject grade * subject credits) = subject grade and credit evaluation (X)
+            //(X + X + X + X + X + X) = total number of all subject evaluation (Y)
+            // (Y / number of credits in a semester) = GPA
         }
 
     }
