@@ -7,6 +7,11 @@
 
 package com.company;
 
+import com.company.Student.Subject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,66 +21,80 @@ public class Main {
 
         Student studentRecord = new Student();
 
-        System.out.println("\nEnter your name: ");
+        System.out.println("Enter your name: ");
         String inputName = input.nextLine();
         studentRecord.setStudentName(inputName);
 
-        System.out.println("\nEnter your surname: ");
+        System.out.println("Enter your surname: ");
         String inputSurname = input.nextLine();
         studentRecord.setStudentSurname(inputSurname);
 
-        System.out.println("\nEnter your group: ");
+        System.out.println("Enter your group: ");
         String inputGroup = input.nextLine();
         studentRecord.setStudentGroup(inputGroup);
-        System.out.println("\nEnter the amount of subjects you are taking this semester: ");
+
+        System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
-        Student.Subject[] subjectList = new Student.Subject[numberOfSubjects];
         for (int i = 1; i <= numberOfSubjects; i++) {
+            Subject subjectList = new Subject();
 
+            System.out.println("Enter the name of a subject #" + i + ":");
+            String inputSubjectName = input.next();
+            subjectList.setSubjectName(inputSubjectName);
 
+            System.out.println("Enter the grade of a subject #" + i + ":");
+            float inputSubjectGrade = input.nextFloat();
+            subjectList.setSubjectGrade(inputSubjectGrade);
 
+            System.out.println("Enter the credit number of a subject #" + i + ":");
+            int inputSubjectCredits = input.nextInt();
+            subjectList.setSubjectCredits(inputSubjectCredits);
 
-
-
-        //List<Object> list1 = new ArrayList<Object>();
-        //list1.add(" ");
-            //----------------------------------
-
-            //Home h = new Home();
-            //Sports[] sports = new Sports[10];
-            //School[] schools = new School[10];
-            //for (int i =0; i< sports.length; i++) {
-            //    h.add(sports[i], schools[i]);
-            //}
-            //----------------------------------
-
-            //class main{
-            //    int bucky[] = {3,4,5,6,7};
-            //    change(bucky);
-            //
-            //for (int y:bucky)
-            //            System.out.println(y);
-            //}
-            //public static void change (int x[]) {
-            //   for (int counter = 0; counter<x.length; counter++)
-            //        x[counter]+=5;
-            //    }
-            // }
-            //--------------------------------
-
-            //THIS PRINTS A WHOLE LIST OF ENTERED SUBJECTS, BUT FOR THIS TO WORK IT NEEDS TO HAVE A toString method in Record
-            //System.out.println(listOfSubjects);
-
-            //Getting first entered subject
-            //System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
-            //Getting third entered subject
-            //System.out.println(listOfSubjects.get(2).getSubjectName() + listOfSubjects.get(2).getSubjectGrade() + listOfSubjects.get(2).getSubjectCredits());
-
-            //GPA FORMULA:
-            //(subject grade * subject credits) = subject grade and credit evaluation (X)
-            //(X + X + X + X + X + X) = total number of all subject evaluation (Y)
-            // (Y / number of credits in a semester) = GPA
+            System.out.println("\nSubject #" + i +
+                    "\nName: " + subjectList.getSubjectName() +
+                    "\nGrade: " + subjectList.getSubjectGrade() +
+                    "\nCredits: " + subjectList.getSubjectCredits());
         }
+        System.out.println();
 
     }
 }
+
+//List<Object> list1 = new ArrayList<Object>();
+//list1.add(" ");
+//----------------------------------
+
+//Home h = new Home();
+//Sports[] sports = new Sports[10];
+//School[] schools = new School[10];
+//for (int i =0; i< sports.length; i++) {
+//    h.add(sports[i], schools[i]);
+//}
+//----------------------------------
+
+//class main{
+//    int bucky[] = {3,4,5,6,7};
+//    change(bucky);
+//
+//for (int y:bucky)
+//    System.out.println(y);
+//}
+//public static void change (int x[]) {
+//   for (int counter = 0; counter<x.length; counter++)
+//        x[counter]+=5;
+//    }
+// }
+//--------------------------------
+
+//THIS PRINTS A WHOLE LIST OF ENTERED SUBJECTS, BUT FOR THIS TO WORK IT NEEDS TO HAVE A toString method in Record
+//System.out.println(listOfSubjects);
+
+//Getting first entered subject
+//System.out.println(listOfSubjects.get(0).getSubjectName() + listOfSubjects.get(0).getSubjectGrade() + listOfSubjects.get(0).getSubjectCredits());
+//Getting third entered subject
+//System.out.println(listOfSubjects.get(2).getSubjectName() + listOfSubjects.get(2).getSubjectGrade() + listOfSubjects.get(2).getSubjectCredits());
+
+//GPA FORMULA:
+//(subject grade * subject credits) = subject grade and credit evaluation (X)
+//(X + X + X + X + X + X) = total number of all subject evaluation (Y)
+// (Y / number of credits in a semester) = GPA
