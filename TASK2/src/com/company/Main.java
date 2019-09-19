@@ -7,6 +7,7 @@
 
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -56,7 +57,7 @@ public class Main {
                 "\nSurname: " + studentRecord.getStudentSurname() +
                 "\nGroup: " + studentRecord.getStudentGroup());
 
-        System.out.println(studentRecord.subjectList.);
+        System.out.println(Arrays.toString(studentRecord.subjectList));
     }
 }
 
