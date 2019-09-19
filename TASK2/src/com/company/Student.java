@@ -29,4 +29,5 @@ public class Student {
     public void setStudentGroup(String studentGroup) {
         this.studentGroup = studentGroup;
     }
+    //gpa
 }
