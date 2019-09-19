@@ -7,11 +7,6 @@
 
 package com.company;
 
-import com.company.Student.Subject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -35,8 +30,9 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
+        Subject[] subjectList = new Subject[numberOfSubjects];
+
         for (int i = 1; i <= numberOfSubjects; i++) {
-            Subject subjectList = new Subject();
 
             System.out.println("Enter the name of a subject #" + i + ":");
             String inputSubjectName = input.next();
@@ -55,10 +51,31 @@ public class Main {
                     "\nGrade: " + subjectList.getSubjectGrade() +
                     "\nCredits: " + subjectList.getSubjectCredits());
         }
-        System.out.println();
 
+        System.out.println("\nYour as a student information: " +
+                "\nName: " + studentRecord.getStudentName() +
+                "\nSurname: " + studentRecord.getStudentSurname() +
+                "\nGroup: " + studentRecord.getStudentGroup());
+
+        System.out.println("Your semester GPA is: ");
     }
 }
+
+
+/*
+private ArrayList<Integer>credits = new ArrayList<>(); // this is how declared array in class
+
+public void setCredits(int credits) { // this is how you create a setter for array s you could freely add stuf to array
+    this.credits.add(credits);
+}
+
+public List<Integer> getCredits() { // This is the getter that helps you get the credits
+    return Collections.unmodifiableList(this.credits);// it's will show a error to you first, but you need to click to "More actions"
+}                        // and there will be a button who will make it work
+
+Integer grades=students.getGrades().get(i) // this how you can get one item at the time in array
+*/
+//----------------------------------
 
 //List<Object> list1 = new ArrayList<Object>();
 //list1.add(" ");
