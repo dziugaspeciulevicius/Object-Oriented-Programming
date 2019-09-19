@@ -30,26 +30,25 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
-        Subject[] subjectList = new Subject[numberOfSubjects];
 
         for (int i = 1; i <= numberOfSubjects; i++) {
-
+            studentRecord.subjectList[i] = new Subject();
             System.out.println("Enter the name of a subject #" + i + ":");
             String inputSubjectName = input.next();
-            subjectList.setSubjectName(inputSubjectName);
+            studentRecord.subjectList[i].setSubjectName(inputSubjectName);
 
             System.out.println("Enter the grade of a subject #" + i + ":");
             float inputSubjectGrade = input.nextFloat();
-            subjectList.setSubjectGrade(inputSubjectGrade);
+            studentRecord.subjectList[i].setSubjectGrade(inputSubjectGrade);
 
             System.out.println("Enter the credit number of a subject #" + i + ":");
             int inputSubjectCredits = input.nextInt();
-            subjectList.setSubjectCredits(inputSubjectCredits);
+            studentRecord.subjectList[i].setSubjectCredits(inputSubjectCredits);
 
             System.out.println("\nSubject #" + i +
-                    "\nName: " + subjectList.getSubjectName() +
-                    "\nGrade: " + subjectList.getSubjectGrade() +
-                    "\nCredits: " + subjectList.getSubjectCredits());
+                    "\nName: " + studentRecord.subjectList[i].getSubjectName() +
+                    "\nGrade: " + studentRecord.subjectList[i].getSubjectGrade() +
+                    "\nCredits: " + studentRecord.subjectList[i].getSubjectCredits());
         }
 
         System.out.println("\nYour as a student information: " +
@@ -57,7 +56,7 @@ public class Main {
                 "\nSurname: " + studentRecord.getStudentSurname() +
                 "\nGroup: " + studentRecord.getStudentGroup());
 
-        System.out.println("Your semester GPA is: ");
+        System.out.println(studentRecord.subjectList.);
     }
 }
 
