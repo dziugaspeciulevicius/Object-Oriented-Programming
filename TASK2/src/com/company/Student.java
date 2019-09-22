@@ -4,7 +4,14 @@ public class Student {
     private String studentName;
     private String studentSurname;
     private String studentGroup;
-    Subject[] subjectList = new Subject[10]; //10 is for how many subjects allocated memory
+    Subject subjectList;
+
+    //public Student (String inputName, String surname, String group, Subject subjectList) {
+    //        studentName = inputName;
+    //        studentSurname = surname;
+    //        studentGroup = group;
+    //        this.subjectList = subjectList;
+    //}
 
     public String getStudentName() {
         return studentName;
