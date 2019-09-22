@@ -1,28 +1,35 @@
 package com.company;
 
-public class Subject {
+public class Subject extends Student{
     private String subjectName;
     private float subjectGrade;
     private int subjectCredits;
 
 
-    public String getSubjectName() {
+    /*public Subject (String subjectName, float grade, int credits){
+        this.subjectName = subjectName;
+        subjectGrade = grade;
+        subjectCredits = credits;
+    }*/
+
+
+    public String getSubjectName(){
         return subjectName;
     }
 
-    public float getSubjectGrade() {
+    public float getSubjectGrade(){
         return subjectGrade;
     }
 
-    public int getSubjectCredits() {
+    public int getSubjectCredits(){
         return subjectCredits;
     }
 
-    public void setSubjectName(String subjectName) {
+    public void setSubjectName(String subjectName){
         this.subjectName = subjectName;
     }
 
-    public void setSubjectGrade(float subjectGrade) {
+    public void setSubjectGrade(float subjectGrade){
         this.subjectGrade = subjectGrade;
     }
 
