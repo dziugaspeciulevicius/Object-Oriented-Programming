@@ -1,17 +1,15 @@
 package com.company;
 
-public class Subject extends Student{
+public class Subject {
     private String subjectName;
     private float subjectGrade;
     private int subjectCredits;
-
 
     /*public Subject (String subjectName, float grade, int credits){
         this.subjectName = subjectName;
         subjectGrade = grade;
         subjectCredits = credits;
     }*/
-
 
     public String getSubjectName(){
         return subjectName;
