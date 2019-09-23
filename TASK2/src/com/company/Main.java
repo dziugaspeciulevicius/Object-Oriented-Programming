@@ -30,27 +30,24 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
-
+        Subject subjectList = new Subject();
         for (int i = 1; i <= numberOfSubjects; i++) {
-            Subject[] subjectList = new Subject[numberOfSubjects];
-
             System.out.println("Enter the name of a subject #" + i + ":");
-            String inputSubjectName = input.nextLine();
-
-
+            String inputSubjectName = input.next();
+            subjectList.setSubjectName(inputSubjectName);
 
             System.out.println("Enter the grade of a subject #" + i + ":");
             float inputSubjectGrade = input.nextFloat();
-            studentRecord.subjectList.setSubjectGrade(inputSubjectGrade);
+            subjectList.setSubjectGrade(inputSubjectGrade);
 
             System.out.println("Enter the credit number of a subject #" + i + ":");
             int inputSubjectCredits = input.nextInt();
-            studentRecord.subjectList.setSubjectCredits(inputSubjectCredits);
+            subjectList.setSubjectCredits(inputSubjectCredits);
         }
-        System.out.println(studentRecord.subjectList);
-        System.out.println(studentRecord.subjectList.getSubjectName());
-        System.out.println(studentRecord.subjectList.getSubjectGrade());
-        System.out.println(studentRecord.subjectList.getSubjectCredits());
+
+        System.out.println(subjectList.getSubjectName());
+        System.out.println(subjectList.getSubjectGrade());
+        System.out.println(subjectList.getSubjectCredits());
     }
 }
 
