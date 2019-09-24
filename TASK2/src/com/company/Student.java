@@ -4,7 +4,7 @@ public class Student {
     private String studentName;
     private String studentSurname;
     private String studentGroup;
-    Subject[] subjectList = new Subject[10];
+    Subject[] subjectList = new Subject[6];
 
     /*public Student (String studentName, String studentSurname, String studentGroup, Subject subjectList) {
             this.studentName = studentName;
@@ -12,6 +12,18 @@ public class Student {
             this.studentGroup = studentGroup;
             this.subjectList = subjectList;
     }*/
+
+    public void setStudentName(String studentName){
+        this.studentName = studentName;
+    }
+
+    public void setStudentSurname(String studentSurname){
+        this.studentSurname = studentSurname;
+    }
+
+    public void setStudentGroup(String studentGroup){
+        this.studentGroup = studentGroup;
+    }
 
     public String getStudentName(){
         return studentName;
@@ -25,16 +37,13 @@ public class Student {
         return studentGroup;
     }
 
-    public void setStudentName(String studentName){
-        this.studentName = studentName;
+    public void getGPA(){
+        
     }
-
-    public void setStudentSurname(String studentSurname){
-        this.studentSurname = studentSurname;
-    }
-
-    public void setStudentGroup(String studentGroup){
-        this.studentGroup = studentGroup;
-    }
-    //gpa
+    /*
+    GPA FORMULA:
+    (subject grade * subject credits) = subject grade and credit evaluation (X)
+    (X + X + X + X + X + X) = total number of all subject evaluation (Y)
+    (Y / number of credits in a semester) = GPA
+    */
 }
