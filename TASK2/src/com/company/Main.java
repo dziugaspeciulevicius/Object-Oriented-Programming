@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
 
         Student studentRecord = new Student();
@@ -30,24 +31,27 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
-        Subject subjectList = new Subject();
         for (int i = 1; i <= numberOfSubjects; i++) {
+            studentRecord.subjectList[i] = new Subject();
+            //Subject subjectList = new Subject();
             System.out.println("Enter the name of a subject #" + i + ":");
             String inputSubjectName = input.next();
-            subjectList.setSubjectName(inputSubjectName);
+            studentRecord.subjectList[i].setSubjectName(inputSubjectName);
 
             System.out.println("Enter the grade of a subject #" + i + ":");
             float inputSubjectGrade = input.nextFloat();
-            subjectList.setSubjectGrade(inputSubjectGrade);
+            studentRecord.subjectList[i].setSubjectGrade(inputSubjectGrade);
 
             System.out.println("Enter the credit number of a subject #" + i + ":");
             int inputSubjectCredits = input.nextInt();
-            subjectList.setSubjectCredits(inputSubjectCredits);
+            studentRecord.subjectList[i].setSubjectCredits(inputSubjectCredits);
         }
 
-        System.out.println(subjectList.getSubjectName());
-        System.out.println(subjectList.getSubjectGrade());
-        System.out.println(subjectList.getSubjectCredits());
+        for (int i = 1; i <= numberOfSubjects; i++) {
+            System.out.println("Subject name: " + studentRecord.subjectList[i].getSubjectName());
+            System.out.println("Subject grade: " + studentRecord.subjectList[i].getSubjectGrade());
+            System.out.println("Subject credits: " + studentRecord.subjectList[i].getSubjectCredits());
+        }
     }
 }
 
