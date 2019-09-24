@@ -33,7 +33,6 @@ public class Main {
         int numberOfSubjects = input.nextInt();
         for (int i = 1; i <= numberOfSubjects; i++) {
             studentRecord.subjectList[i] = new Subject();
-            //Subject subjectList = new Subject();
             System.out.println("Enter the name of a subject #" + i + ":");
             String inputSubjectName = input.next();
             studentRecord.subjectList[i].setSubjectName(inputSubjectName);
@@ -54,35 +53,3 @@ public class Main {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-        System.out.println("\nYour student details are: " +
-                "\nName: " + studentRecord.getStudentName() +
-                "\nSurname: " + studentRecord.getStudentSurname() +
-                "\nGroup: " + studentRecord.getStudentGroup());
-
-        System.out.println("\nSubjects: ");
-        System.out.println(studentRecord.getSubjectName());
-        System.out.println(studentRecord.getSubjectGrade());
-        System.out.println(studentRecord.getSubjectCredits());
-*/
