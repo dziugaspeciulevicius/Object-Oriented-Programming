@@ -4,7 +4,7 @@ public class Student {
     private String studentName;
     private String studentSurname;
     private String studentGroup;
-    Subject[] subjectList;
+    Subject[] subjectList = new Subject[10];
 
     /*public Student (String studentName, String studentSurname, String studentGroup, Subject subjectList) {
             this.studentName = studentName;
