@@ -31,6 +31,8 @@ public class Main {
 
         System.out.println("Enter the amount of subjects you are taking this semester: ");
         int numberOfSubjects = input.nextInt();
+        studentRecord.setNumberOfSubjects(numberOfSubjects);
+
         for (int i = 1; i <= numberOfSubjects; i++) {
             studentRecord.subjectList[i] = new Subject();
             System.out.println("Enter the name of a subject #" + i + ":");
@@ -47,9 +49,16 @@ public class Main {
         }
 
         for (int i = 1; i <= numberOfSubjects; i++) {
-            System.out.println("Subject name: " + studentRecord.subjectList[i].getSubjectName());
+            System.out.println("\nSubject name: " + studentRecord.subjectList[i].getSubjectName());
             System.out.println("Subject grade: " + studentRecord.subjectList[i].getSubjectGrade());
             System.out.println("Subject credits: " + studentRecord.subjectList[i].getSubjectCredits());
         }
+
+        System.out.println("\nGPA: " + studentRecord.getGPA());
+
+        System.out.println("\nYOUR STUDENT INFORMATION: ");
+        System.out.println("Name: " + studentRecord.getStudentName());
+        System.out.println("Surname: " + studentRecord.getStudentSurname());
+        System.out.println("Group: " + studentRecord.getStudentGroup());
     }
 }
