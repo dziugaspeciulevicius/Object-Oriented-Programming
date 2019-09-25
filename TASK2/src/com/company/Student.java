@@ -1,10 +1,11 @@
 package com.company;
 
-public class Student {
+public class Student extends Subject{
     private String studentName;
     private String studentSurname;
     private String studentGroup;
-    Subject[] subjectList = new Subject[6];
+    private int numberOfSubjects;
+    Subject[] subjectList = new Subject[10];
 
     /*public Student (String studentName, String studentSurname, String studentGroup, Subject subjectList) {
             this.studentName = studentName;
@@ -25,6 +26,10 @@ public class Student {
         this.studentGroup = studentGroup;
     }
 
+    public void setNumberOfSubjects(int numberOfSubjects){
+        this.numberOfSubjects = numberOfSubjects;
+    }
+
     public String getStudentName(){
         return studentName;
     }
@@ -37,9 +42,24 @@ public class Student {
         return studentGroup;
     }
 
-    public void getGPA(){
-        
+    /*public static int setNumberOfSubjects(int numberOfSubjects) {
+        return numberOfSubjects;
+    }*/
+
+
+    public float getGPA(){
+        float x = 0;
+        float y = 0;
+
+        for (int i = 1; i <= numberOfSubjects; i++) {
+            //x += (x + (getSubjectCredits() * getSubjectGrade()));
+            //y += (y + getSubjectCredits());
+            x += x + subjectList[i].getSubjectCredits() * subjectList[i].getSubjectGrade();
+            y += y + subjectList[i].getSubjectCredits();
+        }
+        return x / y;
     }
+
     /*
     GPA FORMULA:
     (subject grade * subject credits) = subject grade and credit evaluation (X)
