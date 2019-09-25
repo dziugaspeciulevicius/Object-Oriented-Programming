@@ -54,8 +54,8 @@ public class Student extends Subject{
         for (int i = 1; i <= numberOfSubjects; i++) {
             //x += (x + (getSubjectCredits() * getSubjectGrade()));
             //y += (y + getSubjectCredits());
-            x += x + subjectList[i].getSubjectCredits() * subjectList[i].getSubjectGrade();
-            y += y + subjectList[i].getSubjectCredits();
+            x = x + subjectList[i].getSubjectCredits() * subjectList[i].getSubjectGrade();
+            y = y + subjectList[i].getSubjectCredits();
         }
         return x / y;
     }
