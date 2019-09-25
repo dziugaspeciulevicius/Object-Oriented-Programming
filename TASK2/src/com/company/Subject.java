@@ -11,18 +11,6 @@ public class Subject {
         subjectCredits = credits;
     }*/
 
-    public String getSubjectName(){
-        return subjectName;
-    }
-
-    public float getSubjectGrade(){
-        return subjectGrade;
-    }
-
-    public int getSubjectCredits(){
-        return subjectCredits;
-    }
-
     public void setSubjectName(String subjectName){
         this.subjectName = subjectName;
     }
@@ -33,5 +21,17 @@ public class Subject {
 
     public void setSubjectCredits(int subjectCredits){
         this.subjectCredits = subjectCredits;
+    }
+
+    public String getSubjectName(){
+        return subjectName;
+    }
+
+    public float getSubjectGrade(){
+        return subjectGrade;
+    }
+
+    public int getSubjectCredits(){
+        return subjectCredits;
     }
 }
