@@ -7,13 +7,6 @@ public class Student extends Subject{
     private int numberOfSubjects;
     Subject[] subjectList = new Subject[10];
 
-    /*public Student (String studentName, String studentSurname, String studentGroup, Subject subjectList) {
-            this.studentName = studentName;
-            this.studentSurname = studentSurname;
-            this.studentGroup = studentGroup;
-            this.subjectList = subjectList;
-    }*/
-
     public void setStudentName(String studentName){
         this.studentName = studentName;
     }
@@ -41,11 +34,6 @@ public class Student extends Subject{
     public String getStudentGroup(){
         return studentGroup;
     }
-
-    /*public static int setNumberOfSubjects(int numberOfSubjects) {
-        return numberOfSubjects;
-    }*/
-
 
     public float getGPA(){
         float x = 0;

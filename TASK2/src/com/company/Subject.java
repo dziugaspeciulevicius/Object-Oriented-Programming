@@ -5,12 +5,6 @@ public class Subject {
     private float subjectGrade;
     private int subjectCredits;
 
-    /*public Subject (String subjectName, float grade, int credits){
-        this.subjectName = subjectName;
-        subjectGrade = grade;
-        subjectCredits = credits;
-    }*/
-
     public void setSubjectName(String subjectName){
         this.subjectName = subjectName;
     }
