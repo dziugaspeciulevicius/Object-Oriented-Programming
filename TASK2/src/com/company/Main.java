@@ -54,11 +54,11 @@ public class Main {
             System.out.println("Subject credits: " + studentRecord.subjectList[i].getSubjectCredits());
         }
 
-        System.out.println("\nGPA: " + studentRecord.getGPA());
 
         System.out.println("\nYOUR STUDENT INFORMATION: ");
         System.out.println("Name: " + studentRecord.getStudentName());
         System.out.println("Surname: " + studentRecord.getStudentSurname());
         System.out.println("Group: " + studentRecord.getStudentGroup());
+        System.out.println("Average GPA: " + studentRecord.getGPA());
     }
 }
