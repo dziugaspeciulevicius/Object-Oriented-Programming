@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/AddGroup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/AddGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/WelcomeSample.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontEnd/AddGroup/AddGroup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontEnd/ChooseGroup/ChooseGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrontEnd/Welcome/WelcomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/sample/AddGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/sample/AddGroup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/sample/WelcomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/sample/WelcomeSample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/AddGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/ChooseGroup/ChooseGroup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/AddGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/AddGroup/AddGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/WelcomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/WelcomeSample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/Welcome/WelcomeSample.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,9 +70,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="JavaFXApplication" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -103,6 +110,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="recentsLimit" value="5" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MY FILES\Studies\3 SEMESTER\Object-Oriented-Programming\TASK3\src\FrontEnd\Welcome" />
+      <recent name="D:\MY FILES\Studies\3 SEMESTER\Object-Oriented-Programming\TASK3\src\FrontEnd\AddGroup" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -135,12 +148,12 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="FrontEnd.Main" />
       <module name="TASK3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="FrontEnd.AddGroup.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -199,7 +212,7 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1570802238326" duration="8414000" />
+      <workItem from="1570802238326" duration="17901000" />
     </task>
     <servers />
   </component>

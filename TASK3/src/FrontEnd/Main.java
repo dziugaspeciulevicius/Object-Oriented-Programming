@@ -1,4 +1,4 @@
-package sample;
+package FrontEnd;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +13,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage;
-
-        Parent welcomeWindow = FXMLLoader.load(getClass().getResource("WelcomeSample.fxml"));
-        Parent addGroupWindow = FXMLLoader.load(getClass().getResource("AddGroup.fxml"));
+        Parent welcomeWindow = FXMLLoader.load(getClass().getResource("Welcome/WelcomeSample.fxml"));
         window.setTitle("Academic data");
+
         window.setScene(new Scene(welcomeWindow, 600, 420));
         window.setResizable(false);
         window.show();
