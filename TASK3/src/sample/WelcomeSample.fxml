@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="375.0" prefHeight="375.0" prefWidth="601.0" style="-fx-background-color: #444444; -fx-min-height: 420; -fx-min-width: 600;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WelcomeController">
+   <children>
+      <Button layoutX="159.0" layoutY="238.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="New group" />
+      <Button layoutX="326.0" layoutY="238.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="Choose group" />
+      <Text fill="#e8e8e8" layoutX="87.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACADEMIC DATA" underline="true" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.4375" AnchorPane.topAnchor="94.0">
+         <font>
+            <Font name="System Bold" size="52.0" />
+         </font>
+      </Text>
+      <Button layoutX="448.0" layoutY="351.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="Exit" />
+      <Text fill="WHITE" layoutX="67.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an option you want to do next.">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

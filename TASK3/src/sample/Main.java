@@ -8,12 +8,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    Stage window;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        window = primaryStage;
+
+        Parent welcomeWindow = FXMLLoader.load(getClass().getResource("WelcomeSample.fxml"));
+        Parent addGroupWindow = FXMLLoader.load(getClass().getResource("AddGroup.fxml"));
+        window.setTitle("Academic data");
+        window.setScene(new Scene(welcomeWindow, 600, 420));
+        window.setResizable(false);
+        window.show();
     }
 
 
