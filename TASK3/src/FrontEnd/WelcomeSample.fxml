@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="375.0" prefHeight="375.0" prefWidth="601.0" style="-fx-background-color: #444444; -fx-min-height: 420; -fx-min-width: 600;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.Welcome.WelcomeController">
+<AnchorPane minHeight="375.0" prefHeight="375.0" prefWidth="601.0" style="-fx-background-color: #444444; -fx-min-height: 420; -fx-min-width: 600;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.WelcomeController">
    <children>
       <Button fx:id="newGroupButton" layoutX="159.0" layoutY="238.0" mnemonicParsing="false" onAction="#newGroupAction" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="New group" />
       <Button fx:id="chooseGroupButton" layoutX="326.0" layoutY="238.0" mnemonicParsing="false" onAction="#chooseGroupAction" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="Choose group" />

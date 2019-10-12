@@ -1,4 +1,4 @@
-package FrontEnd.ChooseGroup;
+package FrontEnd;
 
 public class ChooseGroup {
 }

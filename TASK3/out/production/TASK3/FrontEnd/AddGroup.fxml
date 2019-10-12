@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="504.0" prefWidth="721.0" style="-fx-background-color: #444444;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.AddGroup">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="399.0" prefWidth="685.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ChoiceBox fx:id="semester" layoutX="478.0" layoutY="-1.0" prefWidth="150.0" />
+            <Text fill="#e8e8e8" layoutX="360.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester: " wrappingWidth="112.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#e8e8e8" layoutX="61.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group name:" wrappingWidth="149.35546875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="groupTextField" layoutX="212.0" layoutY="-1.0" prefHeight="31.0" prefWidth="112.0" promptText="PI18E" />
+            <Separator layoutY="39.0" prefHeight="4.0" prefWidth="683.0" />
+            <TextField fx:id="studentSurname" layoutX="174.0" layoutY="302.0" prefHeight="31.0" prefWidth="165.0" promptText="Pečiulevičius" />
+            <Text fill="#e8e8e8" layoutX="6.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student surname:" wrappingWidth="165.35546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="studentName" layoutX="174.0" layoutY="266.0" prefHeight="31.0" prefWidth="165.0" promptText="Džiugas" />
+            <Text fill="#e8e8e8" layoutX="6.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student name:" wrappingWidth="130.35546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TableView layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0">
+              <columns>
+                <TableColumn fx:id="studentNameColumn" prefWidth="163.0" text="Name" />
+                <TableColumn fx:id="studentSurnameColumn" prefWidth="170.0" text="Surname" />
+              </columns>
+            </TableView>
+            <Separator layoutX="357.0" layoutY="60.0" opacity="0.51" orientation="VERTICAL" prefHeight="324.0" prefWidth="0.0" style="-fx-background-color: #e8e8e8;" />
+            <TableView layoutX="382.0" layoutY="61.0" prefHeight="200.0" prefWidth="294.0">
+               <columns>
+                  <TableColumn fx:id="subjectsColumn" minWidth="0.0" prefWidth="175.0" text="Subjects" />
+                  <TableColumn fx:id="creditsColumn" prefWidth="142.0" text="Credits" />
+               </columns>
+            </TableView>
+            <Text fill="#e8e8e8" layoutX="389.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject name:" wrappingWidth="130.35546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="subjectName" layoutX="538.0" layoutY="267.0" prefHeight="31.0" prefWidth="138.0" promptText="OOP" />
+            <Text fill="#e8e8e8" layoutX="389.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject credits:" wrappingWidth="165.35546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="subjectCredits" layoutX="538.0" layoutY="303.0" prefHeight="31.0" prefWidth="138.0" promptText="6" />
+            <Button fx:id="deleteStudentButton" layoutX="6.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Delete Student" />
+            <Button fx:id="addStudentButton" layoutX="174.0" layoutY="347.0" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Add Student" />
+            <Button fx:id="deleteSubjectButton" layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteSubjectAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Delete Subject" />
+            <Button fx:id="addSubjectButton" layoutX="538.0" layoutY="347.0" mnemonicParsing="false" onAction="#addSubjectAction" prefHeight="33.0" prefWidth="138.0" style="-fx-border-color: #000;" text="Add Subject" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="cancelButton" layoutX="378.0" layoutY="448.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Cancel" />
+      <Button fx:id="addGroup" layoutX="547.0" layoutY="448.0" mnemonicParsing="false" onAction="#addGroupAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Add group">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Separator layoutX="23.0" layoutY="427.0" prefHeight="4.0" prefWidth="683.0" />
+   </children>
+</AnchorPane>
