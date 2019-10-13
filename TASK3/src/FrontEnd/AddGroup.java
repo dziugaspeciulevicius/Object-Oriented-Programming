@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddGroup {
 
@@ -64,7 +65,8 @@ public class AddGroup {
 
     @FXML
     void cancelButtonAction(ActionEvent event) {
-
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

@@ -1,6 +1,5 @@
 package FrontEnd;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +8,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class WelcomeController {
 
-    @FXML
-    private Button chooseGroupButton;
-    @FXML
-    private Button newGroupButton;
     @FXML
     private Button exitButton;
 
@@ -36,9 +29,9 @@ public class WelcomeController {
     }
 
     @FXML
-    private void chooseGroupAction() {
+    private void seeGradesAction() {
         try {
-            Parent chooseGroupWindow = FXMLLoader.load(getClass().getResource("ChooseGroup.fxml"));
+            Parent chooseGroupWindow = FXMLLoader.load(getClass().getResource("SeeGrades.fxml"));
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
             window.setTitle("Choose Group");
