@@ -23,26 +23,26 @@
             </Text>
             <TextField fx:id="groupTextField" layoutX="212.0" layoutY="-1.0" prefHeight="31.0" prefWidth="112.0" promptText="PI18E" />
             <Separator layoutY="39.0" prefHeight="4.0" prefWidth="683.0" />
-            <TextField fx:id="studentSurname" layoutX="174.0" layoutY="302.0" prefHeight="31.0" prefWidth="165.0" promptText="Pečiulevičius" />
+            <TextField fx:id="studentSurnameInput" layoutX="174.0" layoutY="302.0" prefHeight="31.0" prefWidth="165.0" promptText="Pečiulevičius" />
             <Text fill="#e8e8e8" layoutX="6.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student surname:" wrappingWidth="165.35546875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="studentName" layoutX="174.0" layoutY="266.0" prefHeight="31.0" prefWidth="165.0" promptText="Džiugas" />
+            <TextField fx:id="studentNameInput" layoutX="174.0" layoutY="266.0" prefHeight="31.0" prefWidth="165.0" promptText="Džiugas" />
             <Text fill="#e8e8e8" layoutX="6.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student name:" wrappingWidth="130.35546875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TableView layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0">
+            <TableView fx:id="studentTable" layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0">
               <columns>
                 <TableColumn fx:id="studentNameColumn" prefWidth="163.0" text="Name" />
                 <TableColumn fx:id="studentSurnameColumn" prefWidth="170.0" text="Surname" />
               </columns>
             </TableView>
             <Separator layoutX="357.0" layoutY="60.0" opacity="0.51" orientation="VERTICAL" prefHeight="324.0" prefWidth="0.0" style="-fx-background-color: #e8e8e8;" />
-            <TableView layoutX="382.0" layoutY="61.0" prefHeight="200.0" prefWidth="294.0">
+            <TableView fx:id="subjectTable" layoutX="382.0" layoutY="61.0" prefHeight="200.0" prefWidth="294.0">
                <columns>
                   <TableColumn fx:id="subjectsColumn" minWidth="0.0" prefWidth="175.0" text="Subjects" />
                   <TableColumn fx:id="creditsColumn" prefWidth="142.0" text="Credits" />
@@ -53,13 +53,13 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="subjectName" layoutX="538.0" layoutY="267.0" prefHeight="31.0" prefWidth="138.0" promptText="OOP" />
+            <TextField fx:id="subjectNameInput" layoutX="538.0" layoutY="267.0" prefHeight="31.0" prefWidth="138.0" promptText="OOP" />
             <Text fill="#e8e8e8" layoutX="389.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject credits:" wrappingWidth="165.35546875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="subjectCredits" layoutX="538.0" layoutY="303.0" prefHeight="31.0" prefWidth="138.0" promptText="6" />
+            <TextField fx:id="subjectCreditsInput" layoutX="538.0" layoutY="303.0" prefHeight="31.0" prefWidth="138.0" promptText="6" />
             <Button fx:id="deleteStudentButton" layoutX="6.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Delete Student" />
             <Button fx:id="addStudentButton" layoutX="174.0" layoutY="347.0" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Add Student" />
             <Button fx:id="deleteSubjectButton" layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteSubjectAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Delete Subject" />
