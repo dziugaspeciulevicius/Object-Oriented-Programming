@@ -11,7 +11,6 @@
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="399.0" prefWidth="685.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="30.0">
          <children>
-            <ChoiceBox fx:id="semester" layoutX="478.0" layoutY="-1.0" prefWidth="150.0" />
             <Text fill="#e8e8e8" layoutX="360.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester: " wrappingWidth="112.0">
                <font>
                   <Font size="24.0" />
@@ -65,6 +64,7 @@
             <Button fx:id="addStudentButton" layoutX="174.0" layoutY="347.0" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Add Student" />
             <Button fx:id="deleteSubjectButton" layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteSubjectAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Delete Subject" />
             <Button fx:id="addSubjectButton" layoutX="538.0" layoutY="347.0" mnemonicParsing="false" onAction="#addSubjectAction" prefHeight="33.0" prefWidth="138.0" style="-fx-border-color: #000;" text="Add Subject" />
+            <TextField fx:id="semester" layoutX="479.0" layoutY="-1.0" onAction="#addSemester" prefHeight="31.0" prefWidth="112.0" promptText="1-7" />
          </children>
       </AnchorPane>
       <Button fx:id="cancelButton" layoutX="378.0" layoutY="448.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Cancel" />

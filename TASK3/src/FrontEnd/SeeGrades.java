@@ -13,43 +13,30 @@ public class SeeGrades {
 
     @FXML
     private TextField studentAverageOutput;
-
     @FXML
     private TableColumn<?, ?> creditsColumn;
-
     @FXML
     private ChoiceBox<?> semesterDropDown;
-
     @FXML
     private TableColumn<?, ?> studentSurnameColumn;
-
     @FXML
     private TextField newGradeInput;
-
     @FXML
     private Button deleteGradeButton;
-
     @FXML
     private TextField groupAverageOutput;
-
     @FXML
     private ListView<?> top3List;
-
     @FXML
     private Button addGradeButton;
-
     @FXML
     private ChoiceBox<?> groupDropDown;
-
     @FXML
     private ListView<?> studentGradesOutput;
-
     @FXML
     private TableColumn<?, ?> studentNameColumn;
-
     @FXML
     private TableColumn<?, ?> subjectsColumn;
-
     @FXML
     private Button exitButton;
 

@@ -1,5 +1,7 @@
 package FrontEnd;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,7 +33,7 @@ public class AddGroup {
     @FXML
     private TextField groupTextField;
     @FXML
-    private ChoiceBox<?> semester;
+    private TextField semester;
     @FXML
     private TableColumn<?, ?> studentNameColumn;
     @FXML
@@ -60,6 +62,11 @@ public class AddGroup {
 
     @FXML
     void addSubjectAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addSemester(ActionEvent event) {
 
     }
 
