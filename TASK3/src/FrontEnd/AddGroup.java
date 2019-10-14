@@ -3,13 +3,10 @@ package FrontEnd;
 import BackEnd.Group;
 import BackEnd.Student;
 import BackEnd.Subject;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class AddGroup {
@@ -65,27 +62,8 @@ public class AddGroup {
         }
     }
 
-    /*@FXML
-    void addStudentAction(ActionEvent event) {
-        //addStudentButton.setOnAction(e -> addStudentButtonClicked());
-        Student student = new Student();
-        student.setStudentName(studentNameInput.getText());
-        student.setStudentSurname(studentSurnameInput.getText());
-        studentTable.getItems().add(student);
-        studentNameInput.clear();
-        studentSurnameInput.clear();
-
-        //THIS PROVES THAT VALUES ARE ON THE OBJECT, BUT I CANNOT SEE THEM IN A TABLE
-        System.out.println(student.getStudentName());
-        System.out.println(student.getStudentSurname());
-    }*/
     @FXML
     void addStudentAction(ActionEvent event) {
-        addStudentButton.setOnAction(e -> initialize());
-    }
-
-        @FXML
-    public void initialize(){
         //addStudentButton.setOnAction(e -> addStudentButtonClicked());
         Student student = new Student();
         student.setStudentName(studentNameInput.getText());
@@ -97,7 +75,6 @@ public class AddGroup {
         //THIS PROVES THAT VALUES ARE ON THE OBJECT, BUT I CANNOT SEE THEM IN A TABLE
         System.out.println(student.getStudentName());
         System.out.println(student.getStudentSurname());
-
     }
 
     @FXML

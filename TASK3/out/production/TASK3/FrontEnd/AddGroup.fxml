@@ -23,13 +23,13 @@
             </Text>
             <TextField fx:id="groupTextField" layoutX="212.0" layoutY="-1.0" prefHeight="31.0" prefWidth="112.0" promptText="PI18E" />
             <Separator layoutY="39.0" prefHeight="4.0" prefWidth="683.0" />
-            <TextField fx:id="studentSurnameInput" layoutX="174.0" layoutY="302.0" prefHeight="31.0" prefWidth="165.0" promptText="Pečiulevičius" />
+            <TextField fx:id="studentSurnameInput" layoutX="174.0" layoutY="302.0" onAction="#addStudentAction" prefHeight="31.0" prefWidth="165.0" promptText="Pečiulevičius" />
             <Text fill="#e8e8e8" layoutX="6.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student surname:" wrappingWidth="165.35546875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="studentNameInput" layoutX="174.0" layoutY="266.0" prefHeight="31.0" prefWidth="165.0" promptText="Džiugas" />
+            <TextField fx:id="studentNameInput" layoutX="174.0" layoutY="266.0" onAction="#addStudentAction" prefHeight="31.0" prefWidth="165.0" promptText="Džiugas" />
             <Text fill="#e8e8e8" layoutX="6.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student name:" wrappingWidth="130.35546875">
                <font>
                   <Font size="20.0" />
