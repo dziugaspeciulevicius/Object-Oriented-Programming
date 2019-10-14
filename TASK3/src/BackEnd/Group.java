@@ -4,8 +4,8 @@ public class Group {
 
     private String groupName;
     private int semester;
-    private Student[] students;
-    private Subject[] subjects;
+    private Student[] studentList;
+    private Subject[] subjectList;
 
     public String getGroupName() {
         return groupName;
@@ -24,18 +24,18 @@ public class Group {
     }
 
     public Student[] getStudents() {
-        return students;
+        return studentList;
     }
 
     public void setStudents(Student[] students) {
-        this.students = students;
+        this.studentList = students;
     }
 
     public Subject[] getSubjects() {
-        return subjects;
+        return subjectList;
     }
 
     public void setSubjects(Subject[] subjects) {
-        this.subjects = subjects;
+        this.subjectList = subjects;
     }
 }

@@ -3,6 +3,7 @@ package FrontEnd;
 import BackEnd.Group;
 import BackEnd.Student;
 import BackEnd.Subject;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +15,13 @@ public class AddGroup {
     @FXML
     private Button addStudentButton;
     @FXML
-    private TableView<Subject> subjectTable;
+    private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
     @FXML
-    private TableView<Student> studentTable;
+    private TableView<Subject> subjectTableView;
+    @FXML
+    private ObservableList<Student> studentList = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Student> studentTableView;
     @FXML
     private Button deleteStudentButton;
     @FXML
@@ -51,58 +56,62 @@ public class AddGroup {
     @FXML
     void deleteStudentAction(ActionEvent event) {
         try {
-            ObservableList<Student> studentSelected, allStudents;
-            allStudents = studentTable.getItems();
-            studentSelected = studentTable.getSelectionModel().getSelectedItems();
-
-            studentSelected.forEach(allStudents::remove);
+            studentTableView.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue ) -> System.out.println(newValue));
+            studentList.forEach(studentList::remove);
         } catch (Exception e){
             System.out.println("Your list is now empty");
-            studentTable.setPlaceholder(new Label("Your student list is now empty"));
         }
     }
 
     @FXML
     void addStudentAction(ActionEvent event) {
         //addStudentButton.setOnAction(e -> addStudentButtonClicked());
-        Student student = new Student();
+        final String studentName = studentNameInput.getText();
+        final String studentSurname = studentSurnameInput.getText();
+
+        Student student = new Student(studentName, studentSurname);
         student.setStudentName(studentNameInput.getText());
         student.setStudentSurname(studentSurnameInput.getText());
-        studentTable.getItems().add(student);
+        studentList.add(student);
+        studentTableView.setItems(studentList);
+
         studentNameInput.clear();
         studentSurnameInput.clear();
 
-        //THIS PROVES THAT VALUES ARE ON THE OBJECT, BUT I CANNOT SEE THEM IN A TABLE
         System.out.println(student.getStudentName());
         System.out.println(student.getStudentSurname());
+        System.out.println(studentList);
     }
 
     @FXML
     void deleteSubjectAction(ActionEvent event) {
         try {
-            ObservableList<Subject> subjectSelected, allSubjects;
-            allSubjects = subjectTable.getItems();
-            subjectSelected = subjectTable.getSelectionModel().getSelectedItems();
-
-            subjectSelected.forEach(allSubjects::remove);
+            subjectTableView.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue ) -> System.out.println(newValue));
+            subjectList.forEach(subjectList::remove);
         } catch (Exception e){
-            System.out.println("Your subject list is now empty");
-            subjectTable.setPlaceholder(new Label("Your subject list is now empty"));
+            System.out.println("Your list is now empty");
         }
     }
 
+
     @FXML
     void addSubjectAction(ActionEvent event) {
-        Subject subject = new Subject();
+        //addStudentButton.setOnAction(e -> addStudentButtonClicked());
+        final String subjectName = subjectNameInput.getText();
+        final Integer subjectCredits = Integer.parseInt(subjectCreditsInput.getText());
+
+        Subject subject = new Subject(subjectName, subjectCredits);
         subject.setSubjectName(subjectNameInput.getText());
         subject.setSubjectCredits(Integer.parseInt(subjectCreditsInput.getText()));
-        subjectTable.getItems().add(subject);
+        subjectList.add(subject);
+        subjectTableView.setItems(subjectList);
+
         subjectNameInput.clear();
         subjectCreditsInput.clear();
 
-        //THIS PROVES THAT VALUES ARE ON THE OBJECT, BUT I CANNOT SEE THEM IN A TABLE
         System.out.println(subject.getSubjectName());
         System.out.println(subject.getSubjectCredits());
+        System.out.println(subjectList);
     }
 
     @FXML

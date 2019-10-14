@@ -6,6 +6,16 @@ public class Subject {
     private float subjectGrades;
     private int subjectCredits;
 
+    public Subject(){
+        this.subjectName = "";
+        this.subjectCredits = 0;
+    }
+
+    public Subject(String subjectName, Integer subjectCredits){
+        this.subjectName = subjectName;
+        this.subjectCredits = subjectCredits;
+    }
+
     public void setSubjectName(String subjectName){
         this.subjectName = subjectName;
     }

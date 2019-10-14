@@ -35,14 +35,14 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <TableView fx:id="studentTable" layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0">
+            <TableView fx:id="studentTableView" editable="true" layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0" >
               <columns>
                 <TableColumn fx:id="studentNameColumn" prefWidth="163.0" text="Name" />
                 <TableColumn fx:id="studentSurnameColumn" prefWidth="170.0" text="Surname" />
               </columns>
             </TableView>
             <Separator layoutX="357.0" layoutY="60.0" opacity="0.51" orientation="VERTICAL" prefHeight="324.0" prefWidth="0.0" style="-fx-background-color: #e8e8e8;" />
-            <TableView fx:id="subjectTable" layoutX="382.0" layoutY="61.0" prefHeight="200.0" prefWidth="294.0">
+            <TableView fx:id="subjectTableView" editable="true" layoutX="382.0" layoutY="61.0" prefHeight="200.0" prefWidth="294.0">
                <columns>
                   <TableColumn fx:id="subjectsColumn" minWidth="0.0" prefWidth="175.0" text="Subjects" />
                   <TableColumn fx:id="creditsColumn" prefWidth="142.0" text="Credits" />

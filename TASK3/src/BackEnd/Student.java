@@ -7,8 +7,8 @@ public class Student {
 
 
     public Student(){
-        this.studentName = "";
-        this.studentSurname = "";
+        this.studentName = null;
+        this.studentSurname = null;
     }
 
     public Student(String studentName, String studentSurname){
