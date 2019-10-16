@@ -1,41 +1,56 @@
 package BackEnd;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Group {
 
-    private String groupName;
-    private int semester;
+    private StringProperty groupName;
+    private IntegerProperty semester;
     private Student[] studentList;
     private Subject[] subjectList;
 
-    public String getGroupName() {
+
+    public StringProperty getGroupName() {
         return groupName;
     }
 
     public void setGroupName(String groupName) {
-        this.groupName = groupName;
+        this.groupName.set(groupName);
     }
 
-    public int getSemester() {
+    public StringProperty groupNameProperty() {
+        return groupName;
+    }
+
+
+    public IntegerProperty getSemester() {
         return semester;
     }
 
     public void setSemester(int semester) {
-        this.semester = semester;
+        this.semester.set(semester);
     }
 
-    public Student[] getStudents() {
+    public IntegerProperty semesterProperty() {
+        return semester;
+    }
+
+
+    public Student[] getStudentList() {
         return studentList;
     }
 
-    public void setStudents(Student[] students) {
-        this.studentList = students;
+    public void setStudentList(Student[] studentList) {
+        this.studentList = studentList;
     }
 
-    public Subject[] getSubjects() {
+
+    public Subject[] getSubjectList() {
         return subjectList;
     }
 
-    public void setSubjects(Subject[] subjects) {
-        this.subjectList = subjects;
+    public void setSubjectList(Subject[] subjectList) {
+        this.subjectList = subjectList;
     }
 }

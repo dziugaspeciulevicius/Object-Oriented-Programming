@@ -1,42 +1,44 @@
 package BackEnd;
 
+import javafx.beans.property.*;
+
 public class Subject {
 
-    private String subjectName;
-    private float subjectGrades;
-    private int subjectCredits;
+    private StringProperty subjectName;
+    private FloatProperty subjectGrades;
+    private IntegerProperty subjectCredits;
 
     public Subject(){
-        this.subjectName = "";
-        this.subjectCredits = 0;
+        this.subjectName = null;
+        this.subjectCredits = null;
     }
 
     public Subject(String subjectName, Integer subjectCredits){
-        this.subjectName = subjectName;
-        this.subjectCredits = subjectCredits;
+        this.subjectName = new SimpleStringProperty(subjectName);
+        this.subjectCredits = new SimpleIntegerProperty(subjectCredits);
     }
 
     public void setSubjectName(String subjectName){
-        this.subjectName = subjectName;
+        this.subjectName.set(subjectName);
     }
 
     public void setSubjectGrade(float subjectGrade){
-        this.subjectGrades = subjectGrade;
+        this.subjectGrades.set(subjectGrade);
     }
 
     public void setSubjectCredits(int subjectCredits){
-        this.subjectCredits = subjectCredits;
+        this.subjectCredits.set(subjectCredits);
     }
 
-    public String getSubjectName(){
+    public StringProperty getSubjectName(){
         return subjectName;
     }
 
-    public float getSubjectGrade(){
+    public FloatProperty getSubjectGrade(){
         return subjectGrades;
     }
 
-    public int getSubjectCredits(){
+    public IntegerProperty getSubjectCredits(){
         return subjectCredits;
     }
 }

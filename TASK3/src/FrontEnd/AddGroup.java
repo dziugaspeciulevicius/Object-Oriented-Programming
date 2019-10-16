@@ -3,33 +3,42 @@ package FrontEnd;
 import BackEnd.Group;
 import BackEnd.Student;
 import BackEnd.Subject;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class AddGroup {
 
     @FXML
+    private ObservableList<Student> studentList = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Student> studentTableView;
+    @FXML
+    private TableColumn<String, Student> studentNameColumn;
+    @FXML
+    private TableColumn<String, Student> studentSurnameColumn;
+    @FXML
     private Button addStudentButton;
+    @FXML
+    private Button deleteStudentButton;
     @FXML
     private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
     @FXML
     private TableView<Subject> subjectTableView;
     @FXML
-    private ObservableList<Student> studentList = FXCollections.observableArrayList();
-    @FXML
-    private TableView<Student> studentTableView;
-    @FXML
-    private Button deleteStudentButton;
+    private TableColumn<String, Subject> subjectsColumn;
     @FXML
     private TableColumn<Integer, Subject> creditsColumn;
     @FXML
-    private TableColumn<String, Student> studentSurnameColumn;
-    @FXML
     private Button addSubjectButton;
+    @FXML
+    private Button deleteSubjectButton;
     @FXML
     private Button cancelButton;
     @FXML
@@ -43,35 +52,56 @@ public class AddGroup {
     @FXML
     private TextField semester;
     @FXML
-    private TableColumn<String, Student> studentNameColumn;
-    @FXML
-    private TableColumn<String, Subject> subjectsColumn;
-    @FXML
     private Button addGroup;
     @FXML
     private TextField subjectNameInput;
-    @FXML
-    private Button deleteSubjectButton;
 
     @FXML
+ /*   void deleteStudentAction(ActionEvent event) {
+        try {
+            deleteStudentButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    System.out.println("Delete");
+                    Student student = studentTableView.getSelectionModel().getSelectedItem();
+                    if (student!=null) {
+                        studentList.remove(student);
+                    }
+                }
+            });
+        } catch (Exception e){
+            System.out.println("Error/List is empty");
+        }
+    }*/
+
     void deleteStudentAction(ActionEvent event) {
         try {
-            studentTableView.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue ) -> System.out.println(newValue));
-            studentList.forEach(studentList::remove);
-        } catch (Exception e){
-            System.out.println("Your list is now empty");
+            Student student = studentTableView.getSelectionModel().getSelectedItem();
+            if (student!=null) {
+                studentList.remove(student);
+            } else {
+                System.out.println("Nothing to remove");
+            }
+        } catch (Exception e) {
+            System.out.println("Error/List is empty");
         }
     }
 
+    public void initialize(){
+        final ObservableList<Student> studentList = FXCollections.observableArrayList();
+
+        studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
+        studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
+
+        studentTableView.setItems(studentList);
+    }
+    
     @FXML
     void addStudentAction(ActionEvent event) {
-        //addStudentButton.setOnAction(e -> addStudentButtonClicked());
-        final String studentName = studentNameInput.getText();
-        final String studentSurname = studentSurnameInput.getText();
-
-        Student student = new Student(studentName, studentSurname);
+        Student student = new Student();
         student.setStudentName(studentNameInput.getText());
         student.setStudentSurname(studentSurnameInput.getText());
+
         studentList.add(student);
         studentTableView.setItems(studentList);
 
@@ -89,7 +119,7 @@ public class AddGroup {
             subjectTableView.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue ) -> System.out.println(newValue));
             subjectList.forEach(subjectList::remove);
         } catch (Exception e){
-            System.out.println("Your list is now empty");
+            System.out.println("Error/List is empty");
         }
     }
 

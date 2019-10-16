@@ -1,37 +1,52 @@
 package BackEnd;
 
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Student {
 
-    private String studentName;
-    private String studentSurname;
-
+    private StringProperty studentName;
+    private StringProperty studentSurname;
 
     public Student(){
-        this.studentName = null;
-        this.studentSurname = null;
+        //this.studentName = null;
+        //this.studentSurname = null;
+        this(null, null);
     }
 
+
     public Student(String studentName, String studentSurname){
-        this.studentName = studentName;
-        this.studentSurname = studentSurname;
+        this.studentName = new SimpleStringProperty(studentName);
+        this.studentSurname = new SimpleStringProperty(studentSurname);
     }
 
     public void setStudentName(String studentName) {
-        this.studentName = studentName;
+        this.studentName.set(studentName);
     }
 
     public void setStudentSurname(String studentSurname) {
-        this.studentSurname = studentSurname;
+        this.studentSurname.set(studentSurname);
     }
 
-    public String getStudentName() {
+    public StringProperty studentSurnameProperty() {
+        return studentSurname;
+    }
+
+    public StringProperty getStudentName() {
         return studentName;
     }
 
-    public String getStudentSurname() {
+    public StringProperty getStudentSurname() {
         return studentSurname;
     }
-/*
+
+    public StringProperty studentNameProperty() {
+        return studentName;
+    }
+
+    /*
     public float getGPA() {
         float x = 0;
         float y = 0;
