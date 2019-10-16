@@ -35,7 +35,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <TableView fx:id="studentTableView" editable="true" layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0" >
+            <TableView fx:id="studentTableView" editable="true" layoutX="6.0" layoutY="60.0" prefHeight="200.0" prefWidth="334.0">
               <columns>
                 <TableColumn fx:id="studentNameColumn" prefWidth="163.0" text="Name" />
                 <TableColumn fx:id="studentSurnameColumn" prefWidth="170.0" text="Surname" />
@@ -64,7 +64,7 @@
             <Button fx:id="addStudentButton" layoutX="174.0" layoutY="347.0" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="33.0" prefWidth="165.0" style="-fx-border-color: #000;" text="Add Student" />
             <Button fx:id="deleteSubjectButton" layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteSubjectAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Delete Subject" />
             <Button fx:id="addSubjectButton" layoutX="538.0" layoutY="347.0" mnemonicParsing="false" onAction="#addSubjectAction" prefHeight="33.0" prefWidth="138.0" style="-fx-border-color: #000;" text="Add Subject" />
-            <TextField fx:id="semester" layoutX="479.0" layoutY="-1.0" onAction="#addSemester" prefHeight="31.0" prefWidth="112.0" promptText="1-7" />
+            <TextField fx:id="semester" layoutX="479.0" layoutY="-1.0" prefHeight="31.0" prefWidth="112.0" promptText="1-7" />
          </children>
       </AnchorPane>
       <Button fx:id="cancelButton" layoutX="378.0" layoutY="448.0" mnemonicParsing="false" onAction="#cancelButtonAction" prefHeight="33.0" prefWidth="149.0" style="-fx-border-color: #000;" text="Cancel" />

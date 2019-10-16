@@ -7,14 +7,12 @@
       <change beforePath="$PROJECT_DIR$/out/production/TASK3/BackEnd/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/BackEnd/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TASK3/BackEnd/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/BackEnd/Subject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TASK3/FrontEnd/AddGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/FrontEnd/AddGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TASK3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/FrontEnd/AddGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/FrontEnd/AddGroup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BackEnd/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackEnd/Group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BackEnd/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackEnd/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BackEnd/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackEnd/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontEnd/AddGroup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/AddGroup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontEnd/AddGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/AddGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd/SeeGrades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/SeeGrades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +218,7 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1570802238326" duration="55405000" />
       <workItem from="1571040947425" duration="22583000" />
-      <workItem from="1571232248449" duration="14370000" />
+      <workItem from="1571232248449" duration="28925000" />
     </task>
     <servers />
   </component>

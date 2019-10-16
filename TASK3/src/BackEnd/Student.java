@@ -11,19 +11,29 @@ public class Student {
     private StringProperty studentSurname;
 
     public Student(){
-        //this.studentName = null;
-        //this.studentSurname = null;
         this(null, null);
     }
-
 
     public Student(String studentName, String studentSurname){
         this.studentName = new SimpleStringProperty(studentName);
         this.studentSurname = new SimpleStringProperty(studentSurname);
     }
 
+
+    public StringProperty getStudentName() {
+        return studentName;
+    }
+
     public void setStudentName(String studentName) {
         this.studentName.set(studentName);
+    }
+
+    public StringProperty studentNameProperty() {
+        return studentName;
+    }
+
+    public StringProperty getStudentSurname() {
+        return studentSurname;
     }
 
     public void setStudentSurname(String studentSurname) {
@@ -33,19 +43,6 @@ public class Student {
     public StringProperty studentSurnameProperty() {
         return studentSurname;
     }
-
-    public StringProperty getStudentName() {
-        return studentName;
-    }
-
-    public StringProperty getStudentSurname() {
-        return studentSurname;
-    }
-
-    public StringProperty studentNameProperty() {
-        return studentName;
-    }
-
     /*
     public float getGPA() {
         float x = 0;
@@ -57,5 +54,4 @@ public class Student {
         }
         return x / y;
     }*/
-
 }

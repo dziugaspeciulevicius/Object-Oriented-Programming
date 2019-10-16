@@ -9,8 +9,7 @@ public class Subject {
     private IntegerProperty subjectCredits;
 
     public Subject(){
-        this.subjectName = null;
-        this.subjectCredits = null;
+        this(null, 0);
     }
 
     public Subject(String subjectName, Integer subjectCredits){
@@ -18,19 +17,15 @@ public class Subject {
         this.subjectCredits = new SimpleIntegerProperty(subjectCredits);
     }
 
+    public StringProperty getSubjectName(){
+        return subjectName;
+    }
+
     public void setSubjectName(String subjectName){
         this.subjectName.set(subjectName);
     }
 
-    public void setSubjectGrade(float subjectGrade){
-        this.subjectGrades.set(subjectGrade);
-    }
-
-    public void setSubjectCredits(int subjectCredits){
-        this.subjectCredits.set(subjectCredits);
-    }
-
-    public StringProperty getSubjectName(){
+    public StringProperty subjectNameProperty() {
         return subjectName;
     }
 
@@ -38,7 +33,23 @@ public class Subject {
         return subjectGrades;
     }
 
+    public void setSubjectGrade(float subjectGrade){
+        this.subjectGrades.set(subjectGrade);
+    }
+
+    public FloatProperty subjectGradesProperty() {
+        return subjectGrades;
+    }
+
     public IntegerProperty getSubjectCredits(){
+        return subjectCredits;
+    }
+
+    public void setSubjectCredits(int subjectCredits){
+        this.subjectCredits.set(subjectCredits);
+    }
+
+    public IntegerProperty subjectCreditsProperty() {
         return subjectCredits;
     }
 }
