@@ -1,44 +1,62 @@
 package FrontEnd;
 
+import BackEnd.Student;
+import BackEnd.Subject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SeeGrades {
 
     @FXML
-    private TextField studentAverageOutput;
+    private ChoiceBox<Group> groupDropDown;
     @FXML
-    private TableColumn<?, ?> creditsColumn;
+    private ChoiceBox<Group> semesterDropDown;
     @FXML
-    private ChoiceBox<?> semesterDropDown;
+    private TableView<Student> studentTableView;
     @FXML
-    private TableColumn<?, ?> studentSurnameColumn;
+    private TableColumn<String, Student> studentNameColumn;
     @FXML
-    private TextField newGradeInput;
+    private TableColumn<String, Student> studentSurnameColumn;
+    @FXML
+    private TableView<Subject> subjectTableView;
+    @FXML
+    private TableColumn<String, Subject> subjectsColumn;
+    @FXML
+    private TableColumn<Integer, Subject> creditsColumn;
+    @FXML
+    private Label studentGradesOutput;
+    @FXML
+    private ChoiceBox<Subject> gradeSelect;
     @FXML
     private Button deleteGradeButton;
     @FXML
-    private TextField groupAverageOutput;
-    @FXML
-    private ListView<?> top3List;
+    private TextField gradeInput;
     @FXML
     private Button addGradeButton;
     @FXML
-    private ChoiceBox<?> groupDropDown;
+    private Label studentAverageOutput;
     @FXML
-    private ListView<?> studentGradesOutput;
+    private Label groupAverageOutput;
     @FXML
-    private TableColumn<?, ?> studentNameColumn;
-    @FXML
-    private TableColumn<?, ?> subjectsColumn;
+    private ListView<Group> top3List;
     @FXML
     private Button exitButton;
+
+    @FXML
+    public void initialize(){
+
+    }
+
+    
 
     @FXML
     void addGradeAction(ActionEvent event) {
