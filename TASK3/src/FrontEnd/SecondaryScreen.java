@@ -1,8 +1,6 @@
 package FrontEnd;
 
-import BackEnd.Group;
-import BackEnd.Student;
-import BackEnd.Subject;
+import BackEnd.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,8 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import java.io.*;
 
-public class AddGroup {
+public class SecondaryScreen {
 
     @FXML
     private ObservableList<Group> groupList = FXCollections.observableArrayList();
@@ -32,7 +31,7 @@ public class AddGroup {
     @FXML
     private TableColumn<Integer, Subject> creditsColumn;
     @FXML
-    private Button cancelButton;
+    private Button addGroupButton;
     @FXML
     private TextField studentSurnameInput;
     @FXML
@@ -40,11 +39,57 @@ public class AddGroup {
     @FXML
     private TextField studentNameInput;
     @FXML
-    private TextField groupTextField;
+    private TextField groupField;
     @FXML
     private TextField semester;
     @FXML
     private TextField subjectNameInput;
+    @FXML
+    private Button addStudentButton;
+    @FXML
+    private ChoiceBox<Subject> subjectSelect;
+    @FXML
+    private Button confirmSelectionButton;
+    @FXML
+    private ListView<Student> top3List;
+    @FXML
+    private Label studentGradesOutput;
+    @FXML
+    private Button deleteSubjectButton;
+    @FXML
+    private ChoiceBox<Student> studentSelect;
+    @FXML
+    private ChoiceBox<Student> gradeSelect;
+    @FXML
+    private Button deleteStudentButton;
+    @FXML
+    private Label studentAverageOutput;
+    @FXML
+    private TextField gradeInput;
+    @FXML
+    private Button addSubjectButton;
+    @FXML
+    private Button deleteGradeButton;
+    @FXML
+    private Label groupAverageOutput;
+    @FXML
+    private Button exitButton;
+    @FXML
+    private Button addGradeButton;
+    @FXML
+    private Button clearFieldsButton;
+
+    public void initialize(){
+        final ObservableList<Student> studentList = FXCollections.observableArrayList();
+        studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
+        studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
+        studentTableView.setItems(studentList);
+
+        final ObservableList<Subject> subjectList = FXCollections.observableArrayList();
+        subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
+        creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));
+        subjectTableView.setItems(subjectList);
+    }
 
     @FXML
     void deleteStudentAction(ActionEvent event) {
@@ -64,18 +109,6 @@ public class AddGroup {
         }
     }
 
-    public void initialize(){
-        final ObservableList<Student> studentList = FXCollections.observableArrayList();
-        studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
-        studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
-        studentTableView.setItems(studentList);
-
-        final ObservableList<Subject> subjectList = FXCollections.observableArrayList();
-        subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
-        creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));
-        subjectTableView.setItems(subjectList);
-    }
-    
     @FXML
     void addStudentAction(ActionEvent event) {
         if (studentList.size() < 30) {
@@ -146,14 +179,18 @@ public class AddGroup {
     }
 
     @FXML
-    void cancelButtonAction(ActionEvent event) {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+    void clearFieldsAction(ActionEvent event) {
+        groupField.clear();
+        semester.clear();
+        studentNameInput.clear();
+        studentSurnameInput.clear();
+        subjectNameInput.clear();
+        subjectCreditsInput.clear();
     }
 
     @FXML
-    void addGroupAction(ActionEvent event) {
-        if (groupTextField.getText().isEmpty()) {
+    void addGroupAction(ActionEvent event) throws FileNotFoundException, IOException {
+        if (groupField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("EMPTY GROUP FIELD");
@@ -180,7 +217,7 @@ public class AddGroup {
         } else {
             Group group = new Group();
 
-            group.setGroupName(groupTextField.getText());
+            group.setGroupName(groupField.getText());
             group.setSemester(Integer.parseInt(semester.getText()));
             //not sure if these two below worked and added????????????
             group.setSubjectList(subjectList);
@@ -190,7 +227,7 @@ public class AddGroup {
 
             System.out.println(groupList);
 
-            groupTextField.clear();
+            groupField.clear();
             semester.clear();
             studentList.clear();
             subjectList.clear();
@@ -200,6 +237,29 @@ public class AddGroup {
             alert.setHeaderText(null);
             alert.setContentText("New group has been successfully added!");
             alert.showAndWait();
+
+            File groupFile = new File("Groups.txt");
         }
+    }
+
+    @FXML
+    void confirmSelectionAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteGradeAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addGradeAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void exitButtonAction(ActionEvent event) {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 }

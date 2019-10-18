@@ -8,18 +8,17 @@
 
 <AnchorPane minHeight="375.0" prefHeight="375.0" prefWidth="601.0" style="-fx-background-color: #444444; -fx-min-height: 420; -fx-min-width: 600;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.WelcomeController">
    <children>
-      <Button fx:id="newGroupButton" layoutX="159.0" layoutY="238.0" mnemonicParsing="false" onAction="#newGroupAction" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="New group..." />
-      <Button fx:id="seeGradesButton" layoutX="326.0" layoutY="238.0" mnemonicParsing="false" onAction="#seeGradesAction" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="Grades..." />
+      <Button fx:id="startButton" layoutX="215.0" layoutY="249.0" mnemonicParsing="false" onAction="#startButtonAction" prefHeight="52.0" prefWidth="172.0" style="-fx-border-color: #000;" text="START" />
       <Text fill="#e8e8e8" layoutX="87.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACADEMIC DATA" underline="true" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.4375" AnchorPane.topAnchor="94.0">
          <font>
             <Font name="System Bold" size="52.0" />
          </font>
       </Text>
-      <Button fx:id="exitButton" layoutX="448.0" layoutY="351.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="33.0" prefWidth="116.0" style="-fx-border-color: #000;" text="Exit">
+      <Button fx:id="exitButton" layoutX="431.0" layoutY="352.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="32.0" prefWidth="133.0" style="-fx-border-color: #000;" text="Exit">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Text fill="WHITE" layoutX="67.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an option you want to do next.">
+      <Text fill="WHITE" layoutX="128.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click 'START' to run the program">
          <font>
             <Font size="24.0" />
          </font>

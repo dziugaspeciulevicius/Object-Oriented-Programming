@@ -3,7 +3,7 @@ package BackEnd;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 
-public class Group {
+public class Group{
 
     private StringProperty groupName;
     private IntegerProperty semester;
@@ -25,7 +25,6 @@ public class Group {
         this.semester = new SimpleIntegerProperty(semester);
         this.studentList = new SimpleListProperty<Student>(studentList);
         this.subjectList = new SimpleListProperty<Subject>(subjectList);
-
     }
 
     public StringProperty getGroupName() {
