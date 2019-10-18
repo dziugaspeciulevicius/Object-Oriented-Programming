@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         window = primaryStage;
-        Parent welcomeWindow = FXMLLoader.load(getClass().getResource("FrontEnd/WelcomeSample.fxml"));
+        Parent welcomeWindow = FXMLLoader.load(getClass().getResource("Controllers/WelcomeSample.fxml"));
         window.setTitle("Academic data");
 
         window.setScene(new Scene(welcomeWindow, 600, 420));

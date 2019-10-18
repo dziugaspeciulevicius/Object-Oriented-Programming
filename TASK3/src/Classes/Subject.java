@@ -1,4 +1,4 @@
-package BackEnd;
+package Classes;
 
 import javafx.beans.property.*;
 

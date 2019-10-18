@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1145.0" style="-fx-background-color: #444444;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.SecondaryScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1145.0" style="-fx-background-color: #444444;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SecondaryScreen">
    <children>
-      <AnchorPane layoutX="8.0" layoutY="7.0" prefHeight="813.0" prefWidth="1126.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="7.0">
+      <AnchorPane layoutX="8.0" layoutY="7.0" prefHeight="755.0" prefWidth="1120.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="7.0">
          <children>
             <TextField fx:id="groupField" layoutX="134.0" layoutY="16.0" prefHeight="31.0" prefWidth="112.0" promptText="PI18E" />
             <TextField fx:id="semester" layoutX="361.0" layoutY="16.0" prefHeight="31.0" prefWidth="108.0" promptText="1-7" />
@@ -39,9 +39,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="studentSelect" layoutX="776.0" layoutY="16.0" prefHeight="24.0" prefWidth="272.0" />
-            <ChoiceBox fx:id="subjectSelect" layoutX="776.0" layoutY="61.0" prefHeight="24.0" prefWidth="272.0" />
-            <Button fx:id="confirmSelectionButton" layoutX="839.0" layoutY="107.0" mnemonicParsing="false" onAction="#confirmSelectionAction" prefHeight="33.0" prefWidth="213.0" style="-fx-border-color: #000;" text="Confirm" />
+            <Button fx:id="confirmSelectionButton" layoutX="832.0" layoutY="145.0" mnemonicParsing="false" onAction="#confirmSelectionAction" prefHeight="33.0" prefWidth="213.0" style="-fx-border-color: #000;" text="Confirm" />
             <Label fx:id="studentGradesOutput" layoutX="776.0" layoutY="189.0" prefHeight="33.0" prefWidth="272.0" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -78,7 +76,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#e8e8e8" layoutX="583.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a student:" wrappingWidth="149.35546875">
+            <Text fill="#e8e8e8" layoutX="578.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a student:" wrappingWidth="149.35546875">
                <font>
                   <Font size="18.0" />
                </font>
@@ -133,13 +131,21 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#e8e8e8" layoutX="583.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a subject:" wrappingWidth="149.35546875">
+            <Text fill="#e8e8e8" layoutX="580.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a subject:" wrappingWidth="149.35546875">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Separator layoutX="579.0" layoutY="168.0" prefHeight="4.0" prefWidth="470.0" />
+            <Separator layoutX="579.0" layoutY="187.0" prefHeight="4.0" prefWidth="470.0" />
             <Separator layoutX="579.0" layoutY="435.0" prefHeight="4.0" prefWidth="470.0" />
+            <Text fill="#e8e8e8" layoutX="580.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a group:" wrappingWidth="149.35546875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="groupSelect" layoutX="773.0" layoutY="23.0" onAction="#groupSelectAction" prefHeight="31.0" prefWidth="272.0" />
+            <ComboBox fx:id="studentSelect" layoutX="773.0" layoutY="60.0" onAction="#studentSelectAction" prefHeight="31.0" prefWidth="272.0" />
+            <ComboBox fx:id="subjectSelect" layoutX="773.0" layoutY="96.0" onAction="#subjectSelectAction" prefHeight="31.0" prefWidth="272.0" />
          </children>
       </AnchorPane>
    </children>

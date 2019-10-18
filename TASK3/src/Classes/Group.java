@@ -1,4 +1,4 @@
-package BackEnd;
+package Classes;
 
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
@@ -7,24 +7,18 @@ public class Group{
 
     private StringProperty groupName;
     private IntegerProperty semester;
-    //private Student[] studentList;
     private ListProperty<Student> studentList;
-    //private Subject[] subjectList;
     private ListProperty<Subject> subjectList;
 
     public Group(){
         this(null, 0, null, null);
-        //this.groupName = null;
-        //this.semester = null;
-        //this.studentList = null;
-        //this.subjectList = null;
     }
 
-    public Group(String groupName, Integer semester, ObservableList studentList, ObservableList subjectList){
+    public Group(String groupName, Integer semester, ObservableList<Student> studentList, ObservableList<Subject> subjectList){
         this.groupName = new SimpleStringProperty(groupName);
         this.semester = new SimpleIntegerProperty(semester);
-        this.studentList = new SimpleListProperty<Student>(studentList);
-        this.subjectList = new SimpleListProperty<Subject>(subjectList);
+        this.studentList = new SimpleListProperty<>(studentList);
+        this.subjectList = new SimpleListProperty<>(subjectList);
     }
 
     public StringProperty getGroupName() {

@@ -1,7 +1,5 @@
-package BackEnd;
+package Classes;
 
-import javafx.beans.property.FloatProperty;
-import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,6 +7,7 @@ public class Student {
 
     private StringProperty studentName;
     private StringProperty studentSurname;
+
 
     public Student(){
         this(null, null);
