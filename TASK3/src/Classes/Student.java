@@ -7,12 +7,14 @@ public class Student {
 
     private StringProperty studentName;
     private StringProperty studentSurname;
+    //private StringProperty studentName = new SimpleStringProperty(this, "studentName", "");
 
-
+    //refering to the object
     public Student(){
         this("", "");
     }
 
+    //to create new string properties to read and write to
     public Student(String studentName, String studentSurname){
         this.studentName = new SimpleStringProperty(studentName);
         this.studentSurname = new SimpleStringProperty(studentSurname);
@@ -42,6 +44,7 @@ public class Student {
     public StringProperty studentSurnameProperty() {
         return studentSurname;
     }
+
     /*
     public float getGPA() {
         float x = 0;

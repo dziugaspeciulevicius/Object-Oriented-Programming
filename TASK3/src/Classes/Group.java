@@ -3,6 +3,8 @@ package Classes;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+
 public class Group{
 
     private StringProperty groupName;
@@ -68,5 +70,4 @@ public class Group{
     public void setSubjectList(ObservableList<Subject> subjectList) {
         this.subjectList.set(subjectList);
     }
-
 }

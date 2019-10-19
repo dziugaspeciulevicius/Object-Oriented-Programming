@@ -1,8 +1,9 @@
 package Controllers;
 
 import Classes.*;
-import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
+import java.util.ArrayList;
 
 public class SecondaryScreen {
+
     @FXML
     private ObservableList<Group> groupList = FXCollections.observableArrayList();
     @FXML
@@ -109,9 +112,9 @@ public class SecondaryScreen {
             studentTableView.setItems(studentList);
             studentList.add(student);
 
-
             studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
             studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
+
 
             studentNameInput.clear();
             studentSurnameInput.clear();
@@ -151,7 +154,9 @@ public class SecondaryScreen {
             subject.setSubjectName(subjectNameInput.getText());
             subject.setSubjectCredits(Integer.parseInt(subjectCreditsInput.getText()));
             subjectList.add(subject);
+
             subjectTableView.setItems(subjectList);
+
 
             subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
             creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));
@@ -215,7 +220,6 @@ public class SecondaryScreen {
             groupSelect.setItems(groupList);
 
 
-
             groupField.clear();
             semester.clear();
             studentList.clear();
@@ -229,14 +233,12 @@ public class SecondaryScreen {
         }
     }
 
-    public ObservableList<Subject> getSubjectList(){
-        return subjectList;
-    }
-
     @FXML
     void groupSelectAction(ActionEvent event) {
-        System.out.println(getSubjectList());
-        System.out.println(subjectList);
+        groupSelect.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
+            studentSelect.setItems(studentList);
+        });
+
     }
 
     @FXML
