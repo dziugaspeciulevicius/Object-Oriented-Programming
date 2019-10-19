@@ -1,7 +1,7 @@
 package Controllers;
 
 import Classes.*;
-import javafx.beans.Observable;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,9 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SecondaryScreen {
     @FXML
@@ -20,13 +17,13 @@ public class SecondaryScreen {
     @FXML
     private ObservableList<Student> studentList = FXCollections.observableArrayList();
     @FXML
+    private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
+    @FXML
     private TableView<Student> studentTableView;
     @FXML
     private TableColumn<String, Student> studentNameColumn;
     @FXML
     private TableColumn<String, Student> studentSurnameColumn;
-    @FXML
-    private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
     @FXML
     private TableView<Subject> subjectTableView;
     @FXML
@@ -109,9 +106,9 @@ public class SecondaryScreen {
             student.setStudentName(studentNameInput.getText());
             student.setStudentSurname(studentSurnameInput.getText());
 
-
             studentTableView.setItems(studentList);
             studentList.add(student);
+
 
             studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
             studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
@@ -150,11 +147,11 @@ public class SecondaryScreen {
 
         if (subjectList.size() < 6) {
             Subject subject = new Subject();
+
             subject.setSubjectName(subjectNameInput.getText());
             subject.setSubjectCredits(Integer.parseInt(subjectCreditsInput.getText()));
-
-            subjectTableView.setItems(subjectList);
             subjectList.add(subject);
+            subjectTableView.setItems(subjectList);
 
             subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
             creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));
@@ -207,7 +204,6 @@ public class SecondaryScreen {
             alert.setContentText("CHECK and FILL subject list!");
             alert.showAndWait();
         } else {
-
             Group group = new Group();
 
             group.setGroupName(groupField.getText());
@@ -215,8 +211,10 @@ public class SecondaryScreen {
             group.setSubjectList(subjectList);
             group.setStudentList(studentList);
 
-            groupList.addAll(group);
+            groupList.add(group);
             groupSelect.setItems(groupList);
+
+
 
             groupField.clear();
             semester.clear();
@@ -231,8 +229,13 @@ public class SecondaryScreen {
         }
     }
 
+    public ObservableList<Subject> getSubjectList(){
+        return subjectList;
+    }
+
     @FXML
     void groupSelectAction(ActionEvent event) {
+        System.out.println(getSubjectList());
         System.out.println(subjectList);
     }
 

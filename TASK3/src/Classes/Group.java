@@ -11,7 +11,7 @@ public class Group{
     private ListProperty<Subject> subjectList;
 
     public Group(){
-        this(null, 0, null, null);
+        this("", 0, null, null);
     }
 
     public Group(String groupName, Integer semester, ObservableList<Student> studentList, ObservableList<Subject> subjectList){
@@ -68,4 +68,5 @@ public class Group{
     public void setSubjectList(ObservableList<Subject> subjectList) {
         this.subjectList.set(subjectList);
     }
+
 }

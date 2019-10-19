@@ -9,7 +9,7 @@ public class Subject {
     private IntegerProperty subjectCredits;
 
     public Subject(){
-        this(null, 0);
+        this("", 0);
     }
 
     public Subject(String subjectName, Integer subjectCredits){
@@ -52,4 +52,5 @@ public class Subject {
     public IntegerProperty subjectCreditsProperty() {
         return subjectCredits;
     }
+
 }

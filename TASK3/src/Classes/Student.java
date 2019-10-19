@@ -10,7 +10,7 @@ public class Student {
 
 
     public Student(){
-        this(null, null);
+        this("", "");
     }
 
     public Student(String studentName, String studentSurname){
