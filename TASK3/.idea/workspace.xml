@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/BackEnd/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BackEnd/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BackEnd/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TASK3/Classes/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Classes/Group.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TASK3/Classes/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Classes/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TASK3/Controllers/SecondaryScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Controllers/SecondaryScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classes/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Classes/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/SecondaryScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/SecondaryScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TASK3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes/Subject.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/SecondaryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/SecondaryScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +100,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TASK2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -217,7 +221,8 @@
       <workItem from="1571040947425" duration="22583000" />
       <workItem from="1571232248449" duration="60205000" />
       <workItem from="1571406417601" duration="25250000" />
-      <workItem from="1571476422997" duration="28721000" />
+      <workItem from="1571476422997" duration="30037000" />
+      <workItem from="1571562765905" duration="3641000" />
     </task>
     <servers />
   </component>

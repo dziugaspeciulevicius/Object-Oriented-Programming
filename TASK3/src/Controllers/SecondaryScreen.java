@@ -1,9 +1,7 @@
 package Controllers;
 
-import Classes.*;
-import javafx.beans.property.SimpleStringProperty;
+import BackEnd.*;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,10 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
-import java.util.ArrayList;
 
 public class SecondaryScreen {
-
     @FXML
     private ObservableList<Group> groupList = FXCollections.observableArrayList();
     @FXML
@@ -156,7 +152,6 @@ public class SecondaryScreen {
             subjectList.add(subject);
 
             subjectTableView.setItems(subjectList);
-
 
             subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
             creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));

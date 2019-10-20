@@ -1,4 +1,4 @@
-package Classes;
+package BackEnd;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

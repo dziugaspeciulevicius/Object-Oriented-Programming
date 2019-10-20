@@ -1,9 +1,7 @@
-package Classes;
+package BackEnd;
 
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
-
-import java.util.List;
 
 public class Group{
 
@@ -17,7 +15,7 @@ public class Group{
     }
 
     public Group(String groupName, Integer semester, ObservableList<Student> studentList, ObservableList<Subject> subjectList){
-        this.groupName = new SimpleStringProperty(groupName);
+        this.groupName = new SimpleStringProperty();
         this.semester = new SimpleIntegerProperty(semester);
         this.studentList = new SimpleListProperty<>(studentList);
         this.subjectList = new SimpleListProperty<>(subjectList);
