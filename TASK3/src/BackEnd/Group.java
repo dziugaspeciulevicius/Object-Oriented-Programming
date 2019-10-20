@@ -15,7 +15,7 @@ public class Group{
     }
 
     public Group(String groupName, Integer semester, ObservableList<Student> studentList, ObservableList<Subject> subjectList){
-        this.groupName = new SimpleStringProperty();
+        this.groupName = new SimpleStringProperty(groupName);
         this.semester = new SimpleIntegerProperty(semester);
         this.studentList = new SimpleListProperty<>(studentList);
         this.subjectList = new SimpleListProperty<>(subjectList);
@@ -50,7 +50,7 @@ public class Group{
     }
 
     public ListProperty<Student> studentListProperty() {
-        return studentList;
+        return (ListProperty<Student>) studentList;
     }
 
     public void setStudentList(ObservableList<Student> studentList) {

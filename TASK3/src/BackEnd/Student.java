@@ -8,6 +8,8 @@ public class Student {
     private StringProperty studentName;
     private StringProperty studentSurname;
     //private StringProperty studentName = new SimpleStringProperty(this, "studentName", "");
+    private
+
 
     //refering to the object
     public Student(){
@@ -45,15 +47,15 @@ public class Student {
         return studentSurname;
     }
 
-    /*
+
     public float getGPA() {
         float x = 0;
         float y = 0;
 
-        for (int i = 1; i <= numberOfSubjects; i++) {
+        for (int i = 1; i <= subjectGrades; i++) {
             x = x + subjectList[i].getSubjectCredits() * subjectList[i].getSubjectGrade();
             y = y + subjectList[i].getSubjectCredits();
         }
         return x / y;
-    }*/
+    }
 }

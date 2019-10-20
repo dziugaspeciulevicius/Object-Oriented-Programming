@@ -1,6 +1,7 @@
 package Controllers;
 
 import BackEnd.*;
+import com.sun.tools.javac.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
+import java.util.Dictionary;
 
 public class SecondaryScreen {
     @FXML
@@ -18,17 +20,19 @@ public class SecondaryScreen {
     @FXML
     private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
     @FXML
+    private Dictionary<Subject, Integer> subjectGrades =
+    @FXML
     private TableView<Student> studentTableView;
     @FXML
-    private TableColumn<String, Student> studentNameColumn;
+    private TableColumn<Student, String> studentNameColumn;
     @FXML
-    private TableColumn<String, Student> studentSurnameColumn;
+    private TableColumn<Student, String> studentSurnameColumn;
     @FXML
     private TableView<Subject> subjectTableView;
     @FXML
-    private TableColumn<String, Subject> subjectsColumn;
+    private TableColumn<Subject, String> subjectsColumn;
     @FXML
-    private TableColumn<Integer, Subject> creditsColumn;
+    private TableColumn<Subject, Integer> creditsColumn;
     @FXML
     private Button addGroupButton;
     @FXML
@@ -46,8 +50,6 @@ public class SecondaryScreen {
     @FXML
     private Button addStudentButton;
     @FXML
-    private ComboBox<Subject> subjectSelect;
-    @FXML
     private Button confirmSelectionButton;
     @FXML
     private ListView<Student> top3List;
@@ -59,6 +61,8 @@ public class SecondaryScreen {
     private ComboBox<Group> groupSelect;
     @FXML
     private ComboBox<Student> studentSelect;
+    @FXML
+    private ComboBox<Subject> subjectSelect;
     @FXML
     private ChoiceBox<Student> gradeSelect;
     @FXML
@@ -81,11 +85,19 @@ public class SecondaryScreen {
     private Button clearFieldsButton;
 
     @FXML
+    void initialize(){
+        groupSelect.setPromptText("Group Name");
+        studentSelect.setPromptText("Student Name");
+        subjectSelect.setPromptText("Subject Name");
+    }
+
+    @FXML
     void deleteStudentAction(ActionEvent event) {
         try {
             Student student = studentTableView.getSelectionModel().getSelectedItem();
             if (student!=null) {
                 studentList.remove(student);
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -100,26 +112,39 @@ public class SecondaryScreen {
 
     @FXML
     void addStudentAction(ActionEvent event) {
-        if (studentList.size() < 30) {
-            Student student = new Student();
-            student.setStudentName(studentNameInput.getText());
-            student.setStudentSurname(studentSurnameInput.getText());
-
-            studentTableView.setItems(studentList);
-            studentList.add(student);
-
-            studentNameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentName"));
-            studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<String, Student>("studentSurname"));
-
-
-            studentNameInput.clear();
-            studentSurnameInput.clear();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("LIST IS FULL");
-            alert.setContentText("You can only have maximum of 30 students per group!");
+        if (studentNameInput.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("EMPTY STUDENT NAME FIELD");
+            alert.setContentText("CHECK and FILL student name field!");
             alert.showAndWait();
+        } if (studentSurnameInput.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("EMPTY STUDENT SURNAME FIELD");
+            alert.setContentText("CHECK and FILL student surname field!");
+            alert.showAndWait();
+        } else{
+            if (studentList.size() < 30) {
+                Student student = new Student();
+                student.setStudentName(studentNameInput.getText());
+                student.setStudentSurname(studentSurnameInput.getText());
+
+                studentTableView.setItems(studentList);
+                studentList.add(student);
+
+                studentNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
+                studentSurnameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentSurname"));
+
+                studentNameInput.clear();
+                studentSurnameInput.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("LIST IS FULL");
+                alert.setContentText("You can only have maximum of 30 students per group!");
+                alert.showAndWait();
+            }
         }
     }
 
@@ -143,30 +168,43 @@ public class SecondaryScreen {
 
     @FXML
     void addSubjectAction(ActionEvent event) {
-
-        if (subjectList.size() < 6) {
-            Subject subject = new Subject();
-
-            subject.setSubjectName(subjectNameInput.getText());
-            subject.setSubjectCredits(Integer.parseInt(subjectCreditsInput.getText()));
-            subjectList.add(subject);
-
-            subjectTableView.setItems(subjectList);
-
-            subjectsColumn.setCellValueFactory(new PropertyValueFactory<String, Subject>("subjectName"));
-            creditsColumn.setCellValueFactory(new PropertyValueFactory<Integer, Subject>("subjectCredits"));
-
-            subjectNameInput.clear();
-            subjectCreditsInput.clear();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("LIST IS FULL");
-            alert.setContentText("You can only have maximum of 6 subjects per group!");
+        if (subjectNameInput.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("EMPTY SUBJECT NAME FIELD");
+            alert.setContentText("CHECK and FILL subject name field!");
             alert.showAndWait();
         }
-    }
+        if (subjectCreditsInput.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("EMPTY SUBJECT CREDIT FIELD");
+            alert.setContentText("CHECK and FILL subject credit field!");
+            alert.showAndWait();
+        } else {
+            if (subjectList.size() < 6) {
+                Subject subject = new Subject();
 
+                subject.setSubjectName(subjectNameInput.getText());
+                subject.setSubjectCredits(Integer.parseInt(subjectCreditsInput.getText()));
+                subjectList.add(subject);
+
+                subjectTableView.setItems(subjectList);
+
+                subjectsColumn.setCellValueFactory(new PropertyValueFactory<Subject, String>("subjectName"));
+                creditsColumn.setCellValueFactory(new PropertyValueFactory<Subject, Integer>("subjectCredits"));
+
+                subjectNameInput.clear();
+                subjectCreditsInput.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("LIST IS FULL");
+                alert.setContentText("You can only have maximum of 6 subjects per group!");
+                alert.showAndWait();
+            }
+        }
+    }
     @FXML
     void clearFieldsAction(ActionEvent event) {
         groupField.clear();
@@ -211,8 +249,9 @@ public class SecondaryScreen {
             group.setSubjectList(subjectList);
             group.setStudentList(studentList);
 
-            groupList.add(group);
+            groupList.add(toString(group));
             groupSelect.setItems(groupList);
+
 
 
             groupField.clear();
@@ -226,6 +265,10 @@ public class SecondaryScreen {
             alert.setContentText("New group has been successfully added!");
             alert.showAndWait();
         }
+    }
+
+    private Group toString(Group groupName) {
+        return groupName;
     }
 
     @FXML
