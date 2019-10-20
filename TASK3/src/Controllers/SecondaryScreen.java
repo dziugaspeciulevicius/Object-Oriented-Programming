@@ -20,8 +20,6 @@ public class SecondaryScreen {
     @FXML
     private ObservableList<Subject> subjectList = FXCollections.observableArrayList();
     @FXML
-    private Dictionary<Subject, Integer> subjectGrades =
-    @FXML
     private TableView<Student> studentTableView;
     @FXML
     private TableColumn<Student, String> studentNameColumn;

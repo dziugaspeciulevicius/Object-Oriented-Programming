@@ -8,7 +8,6 @@ public class Student {
     private StringProperty studentName;
     private StringProperty studentSurname;
     //private StringProperty studentName = new SimpleStringProperty(this, "studentName", "");
-    private
 
 
     //refering to the object
@@ -47,7 +46,7 @@ public class Student {
         return studentSurname;
     }
 
-
+/*
     public float getGPA() {
         float x = 0;
         float y = 0;
@@ -57,5 +56,5 @@ public class Student {
             y = y + subjectList[i].getSubjectCredits();
         }
         return x / y;
-    }
+    }*/
 }
