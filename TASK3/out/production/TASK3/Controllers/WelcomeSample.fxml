@@ -9,7 +9,7 @@
 <AnchorPane minHeight="375.0" prefHeight="375.0" prefWidth="601.0" style="-fx-background-color: #444444; -fx-min-height: 420; -fx-min-width: 600;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WelcomeController">
    <children>
       <Button fx:id="startButton" layoutX="215.0" layoutY="249.0" mnemonicParsing="false" onAction="#startButtonAction" prefHeight="52.0" prefWidth="172.0" style="-fx-border-color: #000; -fx-background-radius: 4; -fx-text-fill: black; -fx-background-color: lightgrey;" text="START" />
-      <Text fill="#e8e8e8" layoutX="87.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACADEMIC DATA" underline="true" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.4375" AnchorPane.topAnchor="94.0">
+      <Text fill="#e8e8e8" layoutX="101.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT DATA" underline="true" wrappingWidth="410.06640625" AnchorPane.bottomAnchor="251.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="94.0">
          <font>
             <Font name="System Bold" size="52.0" />
          </font>

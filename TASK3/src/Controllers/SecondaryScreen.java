@@ -1,7 +1,6 @@
 package Controllers;
 
 import BackEnd.*;
-import com.sun.tools.javac.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
-import java.util.Dictionary;
 
 public class SecondaryScreen {
     @FXML
@@ -86,7 +84,7 @@ public class SecondaryScreen {
     void initialize(){
         groupSelect.setPromptText("Group Name");
         studentSelect.setPromptText("Student Name");
-        subjectSelect.setPromptText("Subject Name");
+        subjectSelect.setPromptText("Subject");
     }
 
     @FXML
@@ -136,6 +134,8 @@ public class SecondaryScreen {
 
                 studentNameInput.clear();
                 studentSurnameInput.clear();
+
+                System.out.println(studentList);
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -256,6 +256,7 @@ public class SecondaryScreen {
             semester.clear();
             studentList.clear();
             subjectList.clear();
+            System.out.println(subjectList);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("GROUP HAS BEEN ADDED");
