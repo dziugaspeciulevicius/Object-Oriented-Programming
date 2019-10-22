@@ -250,8 +250,6 @@ public class SecondaryScreen {
             groupList.add(toString(group));
             groupSelect.setItems(groupList);
 
-
-
             groupField.clear();
             semester.clear();
             studentList.clear();
@@ -273,7 +271,7 @@ public class SecondaryScreen {
     @FXML
     void groupSelectAction(ActionEvent event) {
         groupSelect.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
-            studentSelect.setItems(studentList);
+                studentSelect.setItems(studentList);
         });
 
     }
