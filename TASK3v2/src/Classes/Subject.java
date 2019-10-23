@@ -1,10 +1,15 @@
 package Classes;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Subject {
     private StringProperty subjectName;
     private int subjectCredits;
+
+    public Subject(String subjectName) {
+        this.subjectName = new SimpleStringProperty(subjectName);
+    }
 
 
     public String getSubjectName() {

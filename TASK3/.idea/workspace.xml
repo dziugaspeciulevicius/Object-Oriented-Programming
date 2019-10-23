@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Grades.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupWindow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TASK3/Controllers/SecondaryScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TASK3/Controllers/SecondaryScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/artifacts/JavaFXApp/JavaFXApp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/artifacts/JavaFXApp/JavaFXApp.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/Classes/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/Classes/Group.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/Classes/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/Classes/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/AddGroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/AddGroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/AddGroupWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/AddGroupWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/GroupMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/GroupMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/GroupMenuWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/out/production/TASK3v2/sample/GroupMenuWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/Classes/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/Classes/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/Classes/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/AddGroupWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK3v2/src/sample/GroupMenuWindow.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +228,7 @@
       <workItem from="1571666075264" duration="5314000" />
       <workItem from="1571730936556" duration="438000" />
       <workItem from="1571736242819" duration="5357000" />
-      <workItem from="1571836654424" duration="5848000" />
+      <workItem from="1571836654424" duration="9564000" />
     </task>
     <servers />
   </component>

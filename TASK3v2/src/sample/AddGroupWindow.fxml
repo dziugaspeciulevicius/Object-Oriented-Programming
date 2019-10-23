@@ -96,7 +96,6 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="groupNameInput" layoutX="168.0" layoutY="85.0" prefHeight="31.0" prefWidth="150.0" promptText="PI18E" />
       <TextField fx:id="semesterInput" layoutX="448.0" layoutY="84.0" prefHeight="31.0" prefWidth="114.0" promptText="3" />
       <TextField fx:id="subjectName1" layoutX="168.0" layoutY="132.0" prefHeight="31.0" prefWidth="150.0" promptText="Subject Name" />
       <TextField fx:id="subjectCredits1" layoutX="448.0" layoutY="129.0" prefHeight="31.0" prefWidth="114.0" promptText="Credit number" />
@@ -110,5 +109,10 @@
       <TextField fx:id="subjectCredits5" layoutX="448.0" layoutY="346.0" prefHeight="31.0" prefWidth="114.0" promptText="Credit number" />
       <TextField fx:id="subjectName6" layoutX="168.0" layoutY="404.0" prefHeight="31.0" prefWidth="150.0" promptText="Subject Name" />
       <TextField fx:id="subjectCredits6" layoutX="448.0" layoutY="404.0" prefHeight="31.0" prefWidth="114.0" promptText="Credit number" />
+      <Label fx:id="groupNameDisplay" layoutX="168.0" layoutY="85.0" text="Group Name" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
