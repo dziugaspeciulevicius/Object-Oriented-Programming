@@ -12,12 +12,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GroupMenuController {
     @FXML
-    private TableColumn<String, Group> groupColumn;
+    private TableColumn<Group, String> groupColumn;
     @FXML
     private TableView<Group> groupTable;
     @FXML
@@ -26,6 +27,8 @@ public class GroupMenuController {
     private Button addGroupButton;
     @FXML
     private Button seeSelectedGroupButton;
+    @FXML
+    private Button deleteGroupButton;
     @FXML
     private Button closeButton;
     @FXML
@@ -39,6 +42,23 @@ public class GroupMenuController {
     //    studentTableController = loader.getController();
     //}
 
+    @FXML
+    void deleteGroupAction(ActionEvent event){
+        try {
+            Group group = groupTable.getSelectionModel().getSelectedItem();
+            if (group!=null) {
+                groupList.remove(group);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("LIST EMPTY");
+                alert.setContentText("Your list is empty. There is nothing to remove!");
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            System.out.println("Error/List is empty");
+        }
+    }
 
     @FXML
     void seeSelectedGroupAction(ActionEvent event) {
@@ -62,11 +82,19 @@ public class GroupMenuController {
 
             Group group = new Group();
             group.setGroupName(groupNameInput.getText());
+
             groupList.add(group);
+
+            groupColumn.setCellValueFactory(new PropertyValueFactory<Group, String>("groupName"));
+            //groupTable.setItems(groupList);
             groupTable.getItems().add(group);
+            System.out.println(group);
+            System.out.println(groupList);
+
             setAddGroupController(fxmlLoader);
             addGroupController.setGroupName(group);
 
+            groupNameInput.clear();
             window.setTitle("Add Group");
             window.setScene(new Scene(root));
             window.setResizable(true);

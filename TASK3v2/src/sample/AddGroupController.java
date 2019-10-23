@@ -65,6 +65,7 @@ public class AddGroupController {
     void addGroupAction(ActionEvent event) {
         try {
             newGroup.setSemester(Integer.parseInt(semesterInput.getText()));
+
             newGroup.subjectList.add(new Subject(subjectName1.getText()));
             newGroup.subjectList.add(new Subject(subjectName2.getText()));
             newGroup.subjectList.add(new Subject(subjectName3.getText()));
@@ -90,7 +91,7 @@ public class AddGroupController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("CAN'T ADD A GROUP");
-            alert.setContentText("Group cannot be added at the moment!");
+            alert.setContentText("Check input! Either not fully filled in or wrong information");
             alert.showAndWait();
         }
     }
