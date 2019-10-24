@@ -43,7 +43,11 @@ public class Student {
         this.gradesList = gradesList;
     }
 
-    void calculateGradeAverage (){
+    public double getGradeAverage(){
+        return studentAverage;
+    }
+
+    public void studentAverageCalculation() {
         double creditSum = 0;
         double sum = 0;
         for (int i = 0; i < gradesList.size(); i ++){

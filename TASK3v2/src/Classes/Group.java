@@ -41,5 +41,13 @@ public class Group {
         this.groupAverage = groupAverage;
     }
 
+    public void groupAverageCalculation(){
+        double sum = 0;
+        for(int i = 0; i < studentList.size(); i++){
+            sum += studentList.get(i).getGradeAverage();
+        }
+        groupAverage = sum/studentList.size();
+    }
+
 
 }
