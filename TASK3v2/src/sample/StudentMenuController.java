@@ -4,6 +4,7 @@ import java.io.StringReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Classes.Grades;
 import Classes.Group;
 import Classes.Student;
 import javafx.event.ActionEvent;
@@ -86,12 +87,12 @@ public class StudentMenuController {
         setSubjectLabel(subjectNameOut5, 4);
         setSubjectLabel(subjectNameOut6, 5);
 
-        setGradeLabel(subjectGradeOut1, 0);
-        setGradeLabel(subjectGradeOut2, 1);
-        setGradeLabel(subjectGradeOut3, 2);
-        setGradeLabel(subjectGradeOut4, 3);
-        setGradeLabel(subjectGradeOut5, 4);
-        setGradeLabel(subjectGradeOut6, 5);
+        //setGradeLabel(subjectGradeOut1, 0);
+        //setGradeLabel(subjectGradeOut2, 1);
+        //setGradeLabel(subjectGradeOut3, 2);
+        //setGradeLabel(subjectGradeOut4, 3);
+        //setGradeLabel(subjectGradeOut5, 4);
+        //setGradeLabel(subjectGradeOut6, 5);
     }
 
     private void setSubjectLabel(Label subjectLabel, int subjectArrNumber){
@@ -121,6 +122,11 @@ public class StudentMenuController {
                 Student student = new Student();
                 student.setStudentName(studentNameInput.getText());
                 student.setStudentSurname(studentSurnameInput.getText());
+
+
+                Grades grades = new Grades();
+                //student.gradeList.add(grades);
+
 
                 studentTable.setItems(selectedGroup.studentList);
                 selectedGroup.studentList.add(student);

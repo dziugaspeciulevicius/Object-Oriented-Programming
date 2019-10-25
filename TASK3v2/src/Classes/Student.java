@@ -4,6 +4,8 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Collection;
+
 public class Student {
     private StringProperty studentName;
     private StringProperty studentSurname;
@@ -34,14 +36,14 @@ public class Student {
     public void setStudentAverage(double studentAverage) {
         this.studentAverage = studentAverage;
     }
-
+/*
     public ObservableList<Grades> getGradesList() {
         return gradesList;
     }
 
     public void setGradesList(ObservableList<Grades> gradesList) {
         this.gradesList = gradesList;
-    }
+    }*/
 
     public double getGradeAverage(){
         return studentAverage;

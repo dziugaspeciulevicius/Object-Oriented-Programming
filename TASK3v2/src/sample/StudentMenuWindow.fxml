@@ -141,12 +141,12 @@
       <Label fx:id="subjectNameOut3" layoutX="619.0" layoutY="142.0" text="SubjectName" textFill="WHITE" />
       <Label fx:id="subjectNameOut5" layoutX="619.0" layoutY="208.0" text="SubjectName" textFill="WHITE" />
       <Label fx:id="subjectNameOut6" layoutX="619.0" layoutY="237.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut1" layoutX="767.0" layoutY="74.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut2" layoutX="767.0" layoutY="105.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut4" layoutX="767.0" layoutY="169.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut3" layoutX="767.0" layoutY="138.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut5" layoutX="767.0" layoutY="205.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
-      <Label fx:id="subjectGradeOut6" layoutX="767.0" layoutY="236.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut1" layoutX="767.0" layoutY="74.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut2" layoutX="767.0" layoutY="105.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut4" layoutX="767.0" layoutY="169.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut3" layoutX="767.0" layoutY="138.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut5" layoutX="767.0" layoutY="205.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
+      <Label fx:id="subjectGradeOut6" layoutX="767.0" layoutY="236.0" prefHeight="21.0" prefWidth="56.0" text="-" textFill="WHITE" />
       <Label fx:id="studentAverageOutput" layoutX="687.0" layoutY="282.0" prefHeight="21.0" prefWidth="38.0" text="-.--" textFill="WHITE" />
       <Label fx:id="groupAverageOutput" layoutX="680.0" layoutY="339.0" prefHeight="21.0" prefWidth="38.0" text="-.--" textFill="WHITE" />
    </children>
