@@ -79,8 +79,27 @@ public class StudentMenuController {
             groupAverageOutput.setText(String.valueOf(selectedGroup.getGroupAverage()));
         }
 
-        //subjectGradeOut1.setText(selectedGroup.subjectList.get());
+        setSubjectLabel(subjectNameOut1, 0);
+        setSubjectLabel(subjectNameOut2, 1);
+        setSubjectLabel(subjectNameOut3, 2);
+        setSubjectLabel(subjectNameOut4, 3);
+        setSubjectLabel(subjectNameOut5, 4);
+        setSubjectLabel(subjectNameOut6, 5);
 
+        setGradeLabel(subjectGradeOut1, 0);
+        setGradeLabel(subjectGradeOut2, 1);
+        setGradeLabel(subjectGradeOut3, 2);
+        setGradeLabel(subjectGradeOut4, 3);
+        setGradeLabel(subjectGradeOut5, 4);
+        setGradeLabel(subjectGradeOut6, 5);
+    }
+
+    private void setSubjectLabel(Label subjectLabel, int subjectArrNumber){
+        subjectLabel.setText(selectedGroup.subjectList.get(subjectArrNumber).getSubjectName());
+    }
+
+    private void setGradeLabel(Label gradeLabel, int subjectArrNumber){
+        gradeLabel.setText(selectedGroup.subjectList.get(subjectArrNumber).getSubjectName());
     }
 
     @FXML

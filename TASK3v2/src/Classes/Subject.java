@@ -11,7 +11,6 @@ public class Subject {
         this.subjectName = new SimpleStringProperty(subjectName);
     }
 
-
     public String getSubjectName() {
         return subjectName.get();
     }

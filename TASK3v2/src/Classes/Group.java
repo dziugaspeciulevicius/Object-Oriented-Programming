@@ -48,6 +48,4 @@ public class Group {
         }
         groupAverage = sum/studentList.size();
     }
-
-
 }

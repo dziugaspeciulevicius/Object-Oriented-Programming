@@ -108,7 +108,7 @@ public class GroupMenuController {
             window.initModality(Modality.APPLICATION_MODAL);
 
             setStudentMenuController(fxmlLoader);
-            StudentMenuController.initData(groupTable.getSelectionModel().getSelectedItem());
+            studentMenuController.initData(groupTable.getSelectionModel().getSelectedItem());
 
 
             //window.setTitle(groupTable.getSelectionModel().getSelectedItem().getGroupName());

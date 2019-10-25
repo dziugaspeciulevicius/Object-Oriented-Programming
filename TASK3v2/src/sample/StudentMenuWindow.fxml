@@ -136,11 +136,11 @@
          </font>
       </Text>
       <Label fx:id="subjectNameOut1" layoutX="618.0" layoutY="77.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectNameOut2" layoutX="617.0" layoutY="107.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectNameOut4" layoutX="616.0" layoutY="175.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectNameOut3" layoutX="617.0" layoutY="142.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectNameOut5" layoutX="616.0" layoutY="207.0" text="SubjectName" textFill="WHITE" />
-      <Label fx:id="subjectNameOut6" layoutX="616.0" layoutY="236.0" text="SubjectName" textFill="WHITE" />
+      <Label fx:id="subjectNameOut2" layoutX="618.0" layoutY="110.0" text="SubjectName" textFill="WHITE" />
+      <Label fx:id="subjectNameOut4" layoutX="619.0" layoutY="174.0" text="SubjectName" textFill="WHITE" />
+      <Label fx:id="subjectNameOut3" layoutX="619.0" layoutY="142.0" text="SubjectName" textFill="WHITE" />
+      <Label fx:id="subjectNameOut5" layoutX="619.0" layoutY="208.0" text="SubjectName" textFill="WHITE" />
+      <Label fx:id="subjectNameOut6" layoutX="619.0" layoutY="237.0" text="SubjectName" textFill="WHITE" />
       <Label fx:id="subjectGradeOut1" layoutX="767.0" layoutY="74.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
       <Label fx:id="subjectGradeOut2" layoutX="767.0" layoutY="105.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
       <Label fx:id="subjectGradeOut4" layoutX="767.0" layoutY="169.0" prefHeight="21.0" prefWidth="56.0" text="GradeOut" textFill="WHITE" />
