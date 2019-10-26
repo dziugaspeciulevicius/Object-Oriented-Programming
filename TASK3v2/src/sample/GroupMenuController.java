@@ -17,24 +17,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GroupMenuController {
-    @FXML
-    private TableColumn<Group, String> groupColumn;
-    @FXML
-    private TableView<Group> groupTable;
-    @FXML
-    private TextField groupNameInput;
-    @FXML
-    private Button addGroupButton;
-    @FXML
-    private Button seeSelectedGroupButton;
-    @FXML
-    private Button deleteGroupButton;
-    @FXML
-    private Button closeButton;
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
+    @FXML private TableColumn<Group, String> groupColumn;
+    @FXML private TableView<Group> groupTable;
+    @FXML private TextField groupNameInput;
+    @FXML private Button addGroupButton;
+    @FXML private Button seeSelectedGroupButton;
+    @FXML private Button deleteGroupButton;
+    @FXML private Button closeButton;
+    @FXML private ResourceBundle resources;
+    @FXML private URL location;
 
     ObservableList<Group> groupList = FXCollections.observableArrayList();
 
@@ -80,7 +71,7 @@ public class GroupMenuController {
                 groupNameInput.clear();
                 window.setTitle("Add Group");
                 window.setScene(new Scene(root));
-                window.setResizable(true);
+                window.setResizable(false);
                 window.show();
             }
         } catch (Exception e) {
@@ -114,7 +105,7 @@ public class GroupMenuController {
             //window.setTitle(groupTable.getSelectionModel().getSelectedItem().getGroupName());
             window.setTitle("Student Menu");
             window.setScene(new Scene(root));
-            window.setResizable(true);
+            window.setResizable(false);
             window.show();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -1,5 +1,6 @@
 package Classes;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,18 +8,19 @@ import javafx.collections.ObservableList;
 import java.util.Collection;
 
 public class Student {
-    private StringProperty studentName;
-    private StringProperty studentSurname;
+    private SimpleStringProperty studentName;
+    private SimpleStringProperty studentSurname;
     private double studentAverage;
-    ObservableList<Grades> gradesList = FXCollections.observableArrayList();
-
+    private ObservableList<Grades> gradesList = FXCollections.observableArrayList();
 
     public String getStudentName() {
         return studentName.get();
     }
 
     public void setStudentName(String studentName) {
-        this.studentName.set(studentName);
+        //GOT ERRORS WHILE THIS WAS NOT = TO NEW SimpleStringProperty
+        //and table was empty till Property() was empty
+        this.studentName = new SimpleStringProperty(studentName);
     }
 
     public String getStudentSurname() {
@@ -26,7 +28,9 @@ public class Student {
     }
 
     public void setStudentSurname(String studentSurname) {
-        this.studentSurname.set(studentSurname);
+        //GOT ERRORS WHILE THIS WAS NOT = TO NEW SimpleStringProperty
+        //and table was empty till Property() was empty
+        this.studentSurname = new SimpleStringProperty(studentSurname);
     }
 
     public double getStudentAverage() {
@@ -36,14 +40,14 @@ public class Student {
     public void setStudentAverage(double studentAverage) {
         this.studentAverage = studentAverage;
     }
-/*
+
     public ObservableList<Grades> getGradesList() {
         return gradesList;
     }
 
     public void setGradesList(ObservableList<Grades> gradesList) {
         this.gradesList = gradesList;
-    }*/
+    }
 
     public double getGradeAverage(){
         return studentAverage;

@@ -19,42 +19,22 @@ public class AddGroupController {
 
     private Group newGroup;
 
-    @FXML
-    private Label groupNameDisplay = new Label();
-    @FXML
-    private TextField semesterInput;
-    @FXML
-    private TextField subjectName1;
-    @FXML
-    private TextField subjectName2;
-    @FXML
-    private TextField subjectName3;
-    @FXML
-    private TextField subjectName4;
-    @FXML
-    private TextField subjectName5;
-    @FXML
-    private TextField subjectName6;
-    @FXML
-    private TextField subjectCredits1;
-    @FXML
-    private TextField subjectCredits2;
-    @FXML
-    private TextField subjectCredits3;
-    @FXML
-    private TextField subjectCredits4;
-    @FXML
-    private TextField subjectCredits5;
-    @FXML
-    private TextField subjectCredits6;
-    @FXML
-    private Button addGroupButton;
-    @FXML
-    private Button closeButton;
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
+    @FXML private Label groupNameDisplay = new Label();
+    @FXML private TextField semesterInput;
+    @FXML private TextField subjectName1;
+    @FXML private TextField subjectName2;
+    @FXML private TextField subjectName3;
+    @FXML private TextField subjectName4;
+    @FXML private TextField subjectName5;
+    @FXML private TextField subjectName6;
+    @FXML private TextField subjectCredits1;
+    @FXML private TextField subjectCredits2;
+    @FXML private TextField subjectCredits3;
+    @FXML private TextField subjectCredits4;
+    @FXML private TextField subjectCredits5;
+    @FXML private TextField subjectCredits6;
+    @FXML private Button closeButton;
+
 
     public void setGroupName(Group group){
         newGroup = group;

@@ -1,5 +1,6 @@
 package sample;
 
+import java.awt.event.MouseEvent;
 import java.io.StringReader;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,61 +10,45 @@ import Classes.Group;
 import Classes.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class StudentMenuController {
 
-    @FXML
-    private TableView<Student> studentTable;
-    @FXML
-    private TableColumn<Student, String> nameColumn;
-    @FXML
-    private TableColumn<Student, String> surnameColumn;
-    @FXML
-    private Button showStudentInformationButton;
-    @FXML
-    private TextField studentNameInput;
-    @FXML
-    private TextField studentSurnameInput;
-    @FXML
-    private Button addStudentButton;
-    @FXML
-    private Button deleteStudentButton;
-    @FXML
-    private Button addStudentGradesButton;
-    @FXML
-    private Label subjectNameOut1;
-    @FXML
-    private Label subjectNameOut2;
-    @FXML
-    private Label subjectNameOut3;
-    @FXML
-    private Label subjectNameOut4;
-    @FXML
-    private Label subjectNameOut5;
-    @FXML
-    private Label subjectNameOut6;
-    @FXML
-    private Label subjectGradeOut1;
-    @FXML
-    private Label subjectGradeOut2;
-    @FXML
-    private Label subjectGradeOut3;
-    @FXML
-    private Label subjectGradeOut4;
-    @FXML
-    private Label subjectGradeOut5;
-    @FXML
-    private Label subjectGradeOut6;
-    @FXML
-    private Label studentAverageOutput;
-    @FXML
-    private Label groupAverageOutput;
-    @FXML
-    private Button closeButton;
+    @FXML private TableView<Student> studentTable;
+    @FXML private TableColumn<Student, String> nameColumn;
+    @FXML private TableColumn<Student, String> surnameColumn;
+    @FXML private Button showStudentInformationButton;
+    @FXML private TextField studentNameInput;
+    @FXML private TextField studentSurnameInput;
+    @FXML private Button addStudentButton;
+    @FXML private Button deleteStudentButton;
+    @FXML private Button addStudentGradesButton;
+    @FXML private Label studentNameDisplay;
+    @FXML private Label groupNameDisplay;
+    @FXML private Label semesterDisplay;
+    @FXML private Label subjectNameOut1;
+    @FXML private Label subjectNameOut2;
+    @FXML private Label subjectNameOut3;
+    @FXML private Label subjectNameOut4;
+    @FXML private Label subjectNameOut5;
+    @FXML private Label subjectNameOut6;
+    @FXML private Label subjectGradeOut1;
+    @FXML private Label subjectGradeOut2;
+    @FXML private Label subjectGradeOut3;
+    @FXML private Label subjectGradeOut4;
+    @FXML private Label subjectGradeOut5;
+    @FXML private Label subjectGradeOut6;
+    @FXML private Label studentAverageOutput;
+    @FXML private Label groupAverageOutput;
+    @FXML private Button closeButton;
 
     //reference to selected group from main window
     private Group selectedGroup;
@@ -80,6 +65,12 @@ public class StudentMenuController {
             groupAverageOutput.setText(String.valueOf(selectedGroup.getGroupAverage()));
         }
 
+        //student group display
+        groupNameDisplay.setText(group.getGroupName());
+        //student group semester display
+        semesterDisplay.setText(String.valueOf(group.getSemester()));
+
+        //student subjects
         setSubjectLabel(subjectNameOut1, 0);
         setSubjectLabel(subjectNameOut2, 1);
         setSubjectLabel(subjectNameOut3, 2);
@@ -117,20 +108,23 @@ public class StudentMenuController {
             alert.setHeaderText("EMPTY STUDENT SURNAME FIELD");
             alert.setContentText("CHECK and FILL student surname field!");
             alert.showAndWait();
-        } else{
+        } else {
             if (selectedGroup.studentList.size() < 30) {
                 Student student = new Student();
                 student.setStudentName(studentNameInput.getText());
                 student.setStudentSurname(studentSurnameInput.getText());
 
-
-                Grades grades = new Grades();
-                //student.gradeList.add(grades);
-
+                for (int i = 0; i< selectedGroup.subjectList.size(); i++){
+                    Grades grades = new Grades();
+                    //GRADES LIST BELOW DOES NOT WORK PROPERLY, AND I DUNNO WHY yet
+                    //CANT I DO THIS WITHOUT A GETTER? Doesnt even work if attribute is public
+                    student.getGradesList().add(grades);
+                }
 
                 studentTable.setItems(selectedGroup.studentList);
                 selectedGroup.studentList.add(student);
 
+                //set columns
                 nameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
                 surnameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentSurname"));
 
@@ -168,7 +162,30 @@ public class StudentMenuController {
 
     @FXML
     void addStudentGradesAction(ActionEvent event) {
+        try {
+            //Tried try catch but today is not the day
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StudentGradesWindow.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);
 
+            //set controller
+            StudentGradesController studentGradesController = fxmlLoader.getController();
+            //load the selected data into this window
+            studentGradesController.initData(studentTable.getSelectionModel().getSelectedItem(), selectedGroup);
+
+            window.setTitle("Add grades");
+            window.setScene(new Scene(root));
+            window.setResizable(false);
+            window.show();
+
+        } catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("CAN'T LOAD");
+            alert.setContentText("The window you have tried opening, could not be opened!");
+            alert.showAndWait();
+        }
     }
 
     @FXML

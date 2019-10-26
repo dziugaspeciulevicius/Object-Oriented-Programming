@@ -1,7 +1,8 @@
 package Classes;
 
 public class Grades {
-    Subject subject;
+    //reference to setGrade method in studentGradesController
+    public Subject subject;
     private double grade;
 
     public double getGrade() {
