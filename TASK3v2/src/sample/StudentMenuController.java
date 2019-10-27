@@ -48,10 +48,12 @@ public class StudentMenuController {
     @FXML private Label subjectGradeOut6;
     @FXML private Label studentAverageOutput;
     @FXML private Label groupAverageOutput;
+    @FXML private Button refreshWindowButton;
     @FXML private Button closeButton;
 
     //reference to selected group from main window
-    private Group selectedGroup;
+    Group selectedGroup;
+    Student selectedStudent;
 
     public void initData(Group group) {
         //set selected group reference
@@ -70,6 +72,7 @@ public class StudentMenuController {
         //student group semester display
         semesterDisplay.setText(String.valueOf(group.getSemester()));
 
+
         //student subjects
         setSubjectLabel(subjectNameOut1, 0);
         setSubjectLabel(subjectNameOut2, 1);
@@ -84,15 +87,13 @@ public class StudentMenuController {
         //setGradeLabel(subjectGradeOut4, 3);
         //setGradeLabel(subjectGradeOut5, 4);
         //setGradeLabel(subjectGradeOut6, 5);
+
     }
 
     private void setSubjectLabel(Label subjectLabel, int subjectArrNumber){
         subjectLabel.setText(selectedGroup.subjectList.get(subjectArrNumber).getSubjectName());
     }
 
-    private void setGradeLabel(Label gradeLabel, int subjectArrNumber){
-        gradeLabel.setText(selectedGroup.subjectList.get(subjectArrNumber).getSubjectName());
-    }
 
     @FXML
     void addStudentAction(ActionEvent event) {
@@ -165,7 +166,7 @@ public class StudentMenuController {
         try {
             //Tried try catch but today is not the day
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StudentGradesWindow.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
+            Parent studentGrades = (Parent) fxmlLoader.load();
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
 
@@ -175,7 +176,7 @@ public class StudentMenuController {
             studentGradesController.initData(studentTable.getSelectionModel().getSelectedItem(), selectedGroup);
 
             window.setTitle("Add grades");
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(studentGrades));
             window.setResizable(false);
             window.show();
 
@@ -188,11 +189,47 @@ public class StudentMenuController {
         }
     }
 
+    /*
+    //method to set studentInformationController
+    StudentInformationController studentInformationController;
+    private void setStudentInformationController(FXMLLoader loader){
+        studentInformationController = loader.getController();
+    }
+*/
+    //when pushed, shows selected students information from the table and his average
     @FXML
     void showStudentInformationAction(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StudentInformationWindow.fxml"));
+            Parent studentInformation = (Parent) fxmlLoader.load();
 
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);
+
+            //setting controller
+            //setStudentInformationController(fxmlLoader);
+            StudentInformationController studentInformationController = fxmlLoader.getController();
+            //loading controller data into a window
+            studentInformationController.initData(studentTable.getSelectionModel().getSelectedItem(), selectedGroup);
+
+            window.setTitle("Student information");
+            window.setScene(new Scene(studentInformation));
+            window.setResizable(false);
+            window.show();
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("CAN'T LOAD");
+            alert.setContentText("The window you have tried opening, could not be opened!");
+            alert.showAndWait();
+        }
     }
 
+    @FXML
+    void refreshWindowAction(ActionEvent event) {
+        selectedGroup.groupAverageCalculation();
+        groupAverageOutput.setText(String.valueOf(selectedGroup.getGroupAverage()));
+    }
     @FXML
     void closeButtonAction(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();

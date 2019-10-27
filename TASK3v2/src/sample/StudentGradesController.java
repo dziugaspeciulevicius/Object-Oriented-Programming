@@ -51,7 +51,7 @@ public class StudentGradesController {
         group = selectedGroup;
 
         //setting student full name display
-        studentNameDisplay.setText(student.getStudentName() + " " + selectedStudent.getStudentSurname());
+        studentNameDisplay.setText(student.getStudentName() + " " + student.getStudentSurname());
         //setting student group display
         groupNameDisplay.setText(group.getGroupName());
         //setting student group semester display
@@ -80,7 +80,7 @@ public class StudentGradesController {
 
     @FXML
     void addGradesAction(ActionEvent event) {
-        //setting grade information
+        //setting grades entered
         setGrade(subjectGrade1, 0);
         setGrade(subjectGrade2, 1);
         setGrade(subjectGrade3, 2);
