@@ -1,10 +1,5 @@
 package sample;
 
-import java.awt.event.MouseEvent;
-import java.io.StringReader;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Classes.Grades;
 import Classes.Group;
 import Classes.Student;
@@ -15,8 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.text.Text;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -25,13 +19,8 @@ public class StudentMenuController {
     @FXML private TableView<Student> studentTable;
     @FXML private TableColumn<Student, String> nameColumn;
     @FXML private TableColumn<Student, String> surnameColumn;
-    @FXML private Button showStudentInformationButton;
     @FXML private TextField studentNameInput;
     @FXML private TextField studentSurnameInput;
-    @FXML private Button addStudentButton;
-    @FXML private Button deleteStudentButton;
-    @FXML private Button addStudentGradesButton;
-    @FXML private Label studentNameDisplay;
     @FXML private Label groupNameDisplay;
     @FXML private Label semesterDisplay;
     @FXML private Label subjectNameOut1;
@@ -40,15 +29,7 @@ public class StudentMenuController {
     @FXML private Label subjectNameOut4;
     @FXML private Label subjectNameOut5;
     @FXML private Label subjectNameOut6;
-    @FXML private Label subjectGradeOut1;
-    @FXML private Label subjectGradeOut2;
-    @FXML private Label subjectGradeOut3;
-    @FXML private Label subjectGradeOut4;
-    @FXML private Label subjectGradeOut5;
-    @FXML private Label subjectGradeOut6;
-    @FXML private Label studentAverageOutput;
     @FXML private Label groupAverageOutput;
-    @FXML private Button refreshWindowButton;
     @FXML private Button closeButton;
 
     //reference to selected group from main window
@@ -87,13 +68,11 @@ public class StudentMenuController {
         //setGradeLabel(subjectGradeOut4, 3);
         //setGradeLabel(subjectGradeOut5, 4);
         //setGradeLabel(subjectGradeOut6, 5);
-
     }
 
     private void setSubjectLabel(Label subjectLabel, int subjectArrNumber){
         subjectLabel.setText(selectedGroup.subjectList.get(subjectArrNumber).getSubjectName());
     }
-
 
     @FXML
     void addStudentAction(ActionEvent event) {
