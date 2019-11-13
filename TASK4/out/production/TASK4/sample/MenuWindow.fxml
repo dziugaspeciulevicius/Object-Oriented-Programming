@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1046.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="topbar" prefHeight="79.0" prefWidth="1046.0" style="-fx-background-color: #3D4956;" />
+      <AnchorPane fx:id="menuDishes" layoutY="81.0" prefHeight="625.0" prefWidth="1046.0" style="-fx-background-color: #3D4956;" />
+   </children>
+</AnchorPane>
