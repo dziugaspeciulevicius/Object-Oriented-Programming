@@ -10,11 +10,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1046.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1046.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
    <children>
       <AnchorPane fx:id="topbar" prefHeight="78.0" prefWidth="1046.0" style="-fx-background-color: #3D4956;">
          <children>
-            <ImageView fitHeight="65.0" fitWidth="66.0" layoutX="960.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="shoppingCart" fitHeight="65.0" fitWidth="66.0" layoutX="960.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/shoppingCart.png" />
                </image>
@@ -147,132 +147,132 @@
          </children></AnchorPane>
       <AnchorPane fx:id="menuDishes" layoutY="95.0" prefHeight="614.0" prefWidth="1046.0" style="-fx-background-color: #3D4956;">
          <children>
-            <Button layoutX="42.0" layoutY="245.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish1" layoutX="42.0" layoutY="248.0" mnemonicParsing="false" onAction="#aboutDish1Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="171.0" layoutY="244.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <Button fx:id="addDishToCart1" layoutX="171.0" layoutY="244.0" mnemonicParsing="false" onAction="#addDishToCart1Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="39.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="46.0" layoutY="194.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName1" textFill="WHITE">
+            <Label fx:id="foodName1" layoutX="46.0" layoutY="194.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName1" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="184.0" layoutY="194.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice1" textFill="WHITE">
+            <Label fx:id="foodPrice1" layoutX="184.0" layoutY="194.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice1" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="518.0" layoutY="192.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice2" textFill="WHITE">
+            <Label fx:id="foodPrice2" layoutX="518.0" layoutY="192.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice2" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="380.0" layoutY="192.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName2" textFill="WHITE">
+            <Label fx:id="foodName2" layoutX="380.0" layoutY="192.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName2" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="373.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="506.0" layoutY="242.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <Button fx:id="addDishToCart2" layoutX="506.0" layoutY="242.0" mnemonicParsing="false" onAction="#addDishToCart2Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="376.0" layoutY="243.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish2" layoutX="376.0" layoutY="243.0" mnemonicParsing="false" onAction="#aboutDish2Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="730.0" layoutY="244.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish3" layoutX="730.0" layoutY="244.0" mnemonicParsing="false" onAction="#aboutDish3Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="863.0" layoutY="243.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <Button fx:id="addDishToCart3" layoutX="863.0" layoutY="243.0" mnemonicParsing="false" onAction="#addDishToCart3Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="731.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="734.0" layoutY="193.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName3" textFill="WHITE">
+            <Label fx:id="foodName3" layoutX="734.0" layoutY="193.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName3" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="872.0" layoutY="193.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice3" textFill="WHITE">
+            <Label fx:id="foodPrice3" layoutX="872.0" layoutY="193.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice3" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="878.0" layoutY="475.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice6" textFill="WHITE">
+            <Label fx:id="foodPrice6" layoutX="878.0" layoutY="475.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice6" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="740.0" layoutY="475.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName6" textFill="WHITE">
+            <Label fx:id="foodName6" layoutX="740.0" layoutY="475.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName6" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="733.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="867.0" layoutY="525.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <ImageView fx:id="foodPicture6" fitHeight="150.0" fitWidth="258.0" layoutX="733.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="addDishToCart6" layoutX="867.0" layoutY="525.0" mnemonicParsing="false" onAction="#addDishToCart6Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="736.0" layoutY="526.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish6" layoutX="736.0" layoutY="526.0" mnemonicParsing="false" onAction="#aboutDish6Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="382.0" layoutY="525.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish5" layoutX="382.0" layoutY="525.0" mnemonicParsing="false" onAction="#aboutDish5Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="515.0" layoutY="522.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <Button fx:id="addDishToCart5" layoutX="515.0" layoutY="522.0" mnemonicParsing="false" onAction="#addDishToCart5Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="379.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="386.0" layoutY="474.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName5" textFill="WHITE">
+            <ImageView fx:id="foodPicture5" fitHeight="150.0" fitWidth="258.0" layoutX="379.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="foodName5" layoutX="386.0" layoutY="474.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName5" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="524.0" layoutY="474.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice5" textFill="WHITE">
+            <Label fx:id="foodPrice5" layoutX="524.0" layoutY="474.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice5" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="190.0" layoutY="476.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice4" textFill="WHITE">
+            <Label fx:id="foodPrice4" layoutX="190.0" layoutY="476.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice4" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="52.0" layoutY="476.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName4" textFill="WHITE">
+            <Label fx:id="foodName4" layoutX="52.0" layoutY="476.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName4" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="258.0" layoutX="45.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="177.0" layoutY="526.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
+            <ImageView fx:id="foodPicture4" fitHeight="150.0" fitWidth="258.0" layoutX="45.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="addDishToCart4" layoutX="177.0" layoutY="526.0" mnemonicParsing="false" onAction="#addDishToCart4Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #eda678; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="Add To Cart">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="48.0" layoutY="527.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
+            <Button fx:id="aboutDish4" layoutX="42.0" layoutY="526.0" mnemonicParsing="false" onAction="#aboutDish4Action" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: #515d6d; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="About the dish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
+            <ImageView fx:id="foodPicture1" fitHeight="150.0" fitWidth="258.0" layoutX="42.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="foodPicture2" fitHeight="150.0" fitWidth="258.0" layoutX="376.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="foodPicture3" fitHeight="150.0" fitWidth="258.0" layoutX="730.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
