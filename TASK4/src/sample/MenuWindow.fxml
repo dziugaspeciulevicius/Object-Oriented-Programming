@@ -19,17 +19,17 @@
                   <Image url="@../Images/shoppingCart.png" />
                </image>
             </ImageView>
-            <Label layoutX="20.0" layoutY="13.0" prefHeight="46.0" prefWidth="148.0" text="Menu" textFill="WHITE">
+            <Label layoutX="36.0" layoutY="13.0" prefHeight="46.0" prefWidth="148.0" text="Menu" textFill="WHITE">
                <font>
-                  <Font name="Harrington" size="41.0" />
+                  <Font name="Harrington" size="48.0" />
                </font>
             </Label>
-            <Label layoutX="218.0" layoutY="17.0" text="Please note:" textFill="#ffa8a8">
+            <Label layoutX="216.0" layoutY="24.0" text="Please note:" textFill="#ffa8a8">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="216.0" layoutY="38.0" prefHeight="19.0" prefWidth="635.0" text="When you're ready to place order, click on the cart on the right and confirm the order!" textFill="WHITE">
+            <Label layoutX="214.0" layoutY="45.0" prefHeight="19.0" prefWidth="635.0" text="When you're ready to place order, click on the cart on the right and confirm the order!" textFill="WHITE">
                <font>
                   <Font name="Harrington" size="16.0" />
                </font>
@@ -59,7 +59,7 @@
                   <Image url="@../Images/forknKnife.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="83.0" layoutX="228.0" layoutY="6.0" opacity="0.33" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 305;">
+            <ImageView fitHeight="100.0" fitWidth="83.0" layoutX="245.0" layoutY="11.0" opacity="0.33" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 305;">
                <image>
                   <Image url="@../Images/restaurantTable.png" />
                </image>
@@ -74,7 +74,7 @@
                   <Image url="@../Images/glass.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="62.0" fitWidth="64.0" layoutX="178.0" layoutY="7.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="62.0" fitWidth="64.0" layoutX="172.0" layoutY="16.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/glass.png" />
                </image>
@@ -134,7 +134,7 @@
                   <Image url="@../Images/waiter.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="69.0" layoutX="206.0" layoutY="-21.0" opacity="0.33" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
+            <ImageView fitHeight="69.0" fitWidth="69.0" layoutX="135.0" layoutY="-12.0" opacity="0.33" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
                <image>
                   <Image url="@../Images/forknKnife.png" />
                </image>
