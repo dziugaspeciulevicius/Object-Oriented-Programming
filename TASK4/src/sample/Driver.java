@@ -1,25 +1,46 @@
 package sample;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
 
-public class Driver {
+public class Driver extends Application {
 
-    public static void main(String[] args){
-        createTable();
-        insert();
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("MenuWindow.fxml"));
+        primaryStage.setTitle("Menu");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
-    private static Connection connection(String database){
+    public static void main(String[] args){
+        launch(args);
+        //createTable();
+        //insert();
+    }
+
+    private static Connection connection(String database) throws SQLException {
         Connection conn = null;
         try {
             Class.forName("org.sqlite.JDBC"); //calling JDBC class to connect
             conn = DriverManager.getConnection("jdbc:sqlite:"+database+".db");
         } catch (Exception e){
             System.out.println(e);
+        } finally {
+            if (conn.isClosed() == false) {
+                conn.close();
+            }
         }
-        return conn;
+
+        //return conn;
     }
 
     private static void createTable(){
@@ -29,9 +50,9 @@ public class Driver {
             stmt = conn.createStatement();
             String sql =
                     "CREATE TABLE dish" +
-                    "(dish_name VARCHAR(15) PRIMARY KEY NOT NULL, " +
-                    "dish_price DOUBLE NOT NULL, " +
-                    "dish_description VARCHAR(255) NOT NULL, " + //VARCHAR can max 255, TEXT a lot more
+                    "(dish_name VARCHAR(15) PRIMARY KEY NOT NULL," +
+                    "dish_price DOUBLE NOT NULL," +
+                    "dish_description VARCHAR(255) NOT NULL," + //VARCHAR can max 255, TEXT a lot more
                     "dish_picture BLOB NOT NULL)";
             stmt.executeUpdate(sql);
             stmt.close();
@@ -73,21 +94,4 @@ public class Driver {
             System.out.println(e);
         }
     }
-
-
-
-
-
-
-
-    /*
-    public static Driver Connector(){
-        try {
-            Class.forName("org.sqlite.JDBC"); //calling JDBC class to connect
-            Driver conn = (Driver) DriverManager.getConnection("jdbc:sqlite:dish.db"); //connecting to existing db
-            return conn;
-        } catch (Exception e){
-            return null;
-        }
-    }*/
 }
