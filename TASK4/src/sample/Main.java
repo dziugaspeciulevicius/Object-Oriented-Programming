@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.sql.*;
 
-public class Driver extends Application {
+public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -19,9 +19,19 @@ public class Driver extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
+        connection("dish.db");
         launch(args);
     }
+
+
+
+
+
+
+
+
+
 
     private static Connection connection(String dish) {
         Connection conn = null;
@@ -38,7 +48,7 @@ public class Driver extends Application {
         return conn;
     }
 }
-
+//------------------------------------------------------------------------------------------------
     /*
     private static Connection connection(String dish) throws SQLException {
         Connection conn = null;
@@ -54,7 +64,7 @@ public class Driver extends Application {
             return conn;
         }
     */
-
+//------------------------------------------------------------------------------------------------
 /*
         private static void insert(){
         try {
@@ -89,7 +99,7 @@ public class Driver extends Application {
         }
     }
 */
-
+//------------------------------------------------------------------------------------------------
     /*
         Connection conn = null;
         PreparedStatement ps = null;
@@ -122,7 +132,7 @@ public class Driver extends Application {
                 System.out.println(e.getMessage());
             }
         }*/
-
+//------------------------------------------------------------------------------------------------
 /*
     private static void createTable(){
         Connection conn = connection("dish");
