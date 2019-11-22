@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.sql.*;
+import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -20,9 +21,92 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        connection("dish.db");
         launch(args);
+
+        Connection conn = null;
+        try {
+            String url = "jdbc:sqlite:dish.db";
+            conn = DriverManager.getConnection(url);
+
+            while (true) {
+                System.out.println("\n1 - List the content");
+                System.out.println("2 - Add new record");
+                System.out.println("3 - Update record");
+                System.out.println("4 - Delete record");
+                System.out.println("5 - Exit application\n");
+                System.out.print("Enter menu item number: ");
+                Scanner scanner = new Scanner((System.in));
+                String item = scanner.nextLine();
+
+                if (item.equals("1")) {
+                    // Nuskaitymas iš DB
+                    String sql = "SELECT * FROM Dish";
+                    Statement stmt  = conn.createStatement();
+                    ResultSet rs    = stmt.executeQuery(sql);
+                    while (rs.next()) {
+                        System.out.println("Pavadinimas: " + rs.getString(1) +  "\tKaina: " + rs.getDouble(2));
+                    }
+                }
+                else if (item.equals("2")) {
+                    System.out.print("Enter item name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter item price: ");
+                    String priceStr = scanner.nextLine();
+                    double price = Double.parseDouble(priceStr);
+
+                    // Įrašymas į DB parametrizuota užklausa (rekomenduojamas būdas)
+                    String sql = "INSERT INTO Preke VALUES(?,?)";
+                    PreparedStatement pstmt = conn.prepareStatement(sql);
+                    pstmt.setString(1, name);
+                    pstmt.setDouble(2, price);
+                    pstmt.executeUpdate();
+                }
+                else if (item.equals("3")) {
+                    System.out.print("Enter item name, you want to modify: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter new item price: ");
+                    String priceStr = scanner.nextLine();
+                    double price = Double.parseDouble(priceStr);
+
+                    // Įrašo DB atnaujinimas parametrizuota užklausa (rekomenduojamas būdas)
+                    String sql = "update Preke set price=? where name=?";
+                    PreparedStatement pstmt = conn.prepareStatement(sql);
+                    pstmt.setString(2, name);
+                    pstmt.setDouble(1, price);
+                    pstmt.executeUpdate();
+                }
+                else if (item.equals("4")) {
+                    System.out.print("Enter item name, you want to delete: ");
+                    String name = scanner.nextLine();
+
+                    // Įrašo šalinimas iš DB parametrizuota užklausa (rekomenduojamas būdas)
+                    String sql = "delete from Preke where name=?";
+                    PreparedStatement pstmt = conn.prepareStatement(sql);
+                    pstmt.setString(1, name);
+                    pstmt.executeUpdate();
+                }
+                else
+                    break;
+            }
+        }
+        catch (Exception exc) {
+            System.out.println(exc.getMessage());
+        }
+        finally {
+            if (conn.isClosed() == false) {
+                conn.close();
+            }
+        }
+
+
+
+
+
+
+
+        //connection("dish.db");
     }
+}
 
 
 
@@ -30,9 +114,8 @@ public class Main extends Application {
 
 
 
-
-
-
+//------------------------------------------------------------------------------------------------
+/*
     private static Connection connection(String dish) {
         Connection conn = null;
         try {
@@ -47,7 +130,7 @@ public class Main extends Application {
         }
         return conn;
     }
-}
+*/
 //------------------------------------------------------------------------------------------------
     /*
     private static Connection connection(String dish) throws SQLException {
