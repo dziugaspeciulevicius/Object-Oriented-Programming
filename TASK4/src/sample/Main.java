@@ -5,11 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
 import java.sql.*;
 import java.util.Scanner;
 
 public class Main extends Application {
+
+    private FileInputStream fis;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -21,19 +24,16 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        launch(args);
 
         Connection conn = null;
         try {
             String url = "jdbc:sqlite:dish.db";
             conn = DriverManager.getConnection(url);
-
+            System.out.println("\nConnected!");
             while (true) {
                 System.out.println("\n1 - List the content");
                 System.out.println("2 - Add new record");
-                System.out.println("3 - Update record");
-                System.out.println("4 - Delete record");
-                System.out.println("5 - Exit application\n");
+                System.out.println("3 - I'm done. Open the interface for me. Thank you. \n");
                 System.out.print("Enter menu item number: ");
                 Scanner scanner = new Scanner((System.in));
                 String item = scanner.nextLine();
@@ -44,45 +44,26 @@ public class Main extends Application {
                     Statement stmt  = conn.createStatement();
                     ResultSet rs    = stmt.executeQuery(sql);
                     while (rs.next()) {
-                        System.out.println("Pavadinimas: " + rs.getString(1) +  "\tKaina: " + rs.getDouble(2));
+                        System.out.println("Name: " + rs.getString(1) +  "\nPrice: " + rs.getDouble(2) +
+                                "\nDescription: " + rs.getString(3) + "\nPicture: ");
                     }
                 }
                 else if (item.equals("2")) {
-                    System.out.print("Enter item name: ");
-                    String name = scanner.nextLine();
+                    System.out.print("Enter dish name: ");
+                    String dish_name = scanner.nextLine();
                     System.out.print("Enter item price: ");
                     String priceStr = scanner.nextLine();
-                    double price = Double.parseDouble(priceStr);
-
-                    // Įrašymas į DB parametrizuota užklausa (rekomenduojamas būdas)
-                    String sql = "INSERT INTO Preke VALUES(?,?)";
+                    double dish_price = Double.parseDouble(priceStr);
+                    System.out.println("Enter item description: ");
+                    String dish_description = scanner.nextLine();
+                    
+                    String sql = "INSERT INTO Dish(dish_name, dish_price, dish_description, dish_picture) VALUES(?,?,?,?)";
                     PreparedStatement pstmt = conn.prepareStatement(sql);
-                    pstmt.setString(1, name);
-                    pstmt.setDouble(2, price);
-                    pstmt.executeUpdate();
-                }
-                else if (item.equals("3")) {
-                    System.out.print("Enter item name, you want to modify: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Enter new item price: ");
-                    String priceStr = scanner.nextLine();
-                    double price = Double.parseDouble(priceStr);
+                    pstmt.setString(1, dish_name);
+                    pstmt.setDouble(2, dish_price);
+                    pstmt.setString(3, dish_description);
+                    //fis = new FileInputStream(file);
 
-                    // Įrašo DB atnaujinimas parametrizuota užklausa (rekomenduojamas būdas)
-                    String sql = "update Preke set price=? where name=?";
-                    PreparedStatement pstmt = conn.prepareStatement(sql);
-                    pstmt.setString(2, name);
-                    pstmt.setDouble(1, price);
-                    pstmt.executeUpdate();
-                }
-                else if (item.equals("4")) {
-                    System.out.print("Enter item name, you want to delete: ");
-                    String name = scanner.nextLine();
-
-                    // Įrašo šalinimas iš DB parametrizuota užklausa (rekomenduojamas būdas)
-                    String sql = "delete from Preke where name=?";
-                    PreparedStatement pstmt = conn.prepareStatement(sql);
-                    pstmt.setString(1, name);
                     pstmt.executeUpdate();
                 }
                 else
@@ -97,14 +78,7 @@ public class Main extends Application {
                 conn.close();
             }
         }
-
-
-
-
-
-
-
-        //connection("dish.db");
+        launch(args);
     }
 }
 
