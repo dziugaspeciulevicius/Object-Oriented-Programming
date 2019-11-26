@@ -1,6 +1,8 @@
 package sample;
 import Classes.Constraints;
+import Classes.Dish;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +11,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.*;
 import java.sql.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -24,12 +27,15 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+
     public static void main(String[] args) throws Exception {
         Connection conn = null;
         try {
+
             String url = "jdbc:sqlite:dish.db";
             conn = DriverManager.getConnection(url);
             System.out.println("\nConnected!");
+
             while (true) {
                 System.out.println("\n1 - List the content");
                 System.out.println("2 - I'm done. Open the interface for me pls. Thank you. \n");
@@ -38,10 +44,13 @@ public class Main extends Application {
                 String item = scanner.nextLine();
 
                 if (item.equals("1")) {
+                    //List<Dish> dishList;
                     String sql = "SELECT * FROM Dish";
                     Statement stmt  = conn.createStatement();
                     ResultSet rs    = stmt.executeQuery(sql);
                     while (rs.next()) {
+                        //String current = rs.getString("1") + rs.getDouble(2) + rs.getString(3);
+                        //dishList.add(current);
                         System.out.println("Name: " + rs.getString(1) +  "\nPrice: " + rs.getDouble(2) +
                                 "\nDescription: " + rs.getString(3));
                     }
