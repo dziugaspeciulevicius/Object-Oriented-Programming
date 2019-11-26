@@ -654,7 +654,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Button>
-            <Label layoutX="48.0" layoutY="83.0" style="-fx-font-weight: 700; -fx-font-size: 35;" text="Shopping Cart" textFill="WHITE" underline="true">
+            <Label layoutX="45.0" layoutY="32.0" style="-fx-font-weight: 700; -fx-font-size: 50;" text="Shopping Cart" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>

@@ -146,6 +146,7 @@
                   <Image url="@../Images/forknKnife.png" />
                </image>
             </ImageView>
+            <Button fx:id="openShoppingCartButton" layoutX="960.0" layoutY="9.0" mnemonicParsing="false" onAction="#openShoppingCart" opacity="0.0" prefHeight="72.0" prefWidth="65.0" text="Button" />
          </children></AnchorPane>
       <AnchorPane fx:id="menuDishes" layoutY="95.0" prefHeight="614.0" prefWidth="1046.0" style="-fx-background-color: #3D4956;">
          <children>
