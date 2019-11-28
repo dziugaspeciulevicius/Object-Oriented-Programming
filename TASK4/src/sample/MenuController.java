@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Classes.Dish;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -65,7 +67,14 @@ public class MenuController<input> {
     @FXML private Button addDishToCart5;
     @FXML private Button addDishToCart6;
 
+    //List of dishes
+    ObservableList<Dish> dishes;
+    //Cart manager?
+    //Cart cart;
 
+//    void loadDishes(){
+//        dishes = Main.LoadDishes();
+//    }
 
     @FXML
     void openShoppingCart(ActionEvent event) {

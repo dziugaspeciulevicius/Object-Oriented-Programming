@@ -8,6 +8,7 @@ public class Dish {
     private String dishDescription;
     private double dishPrice;
     private String picture;
+    public static double VAT = 0.21;
 
     public String getDishName() {
         return dishName;
@@ -39,6 +40,10 @@ public class Dish {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public double getFullPrice(){
+        return (1 + VAT) * dishPrice;
     }
 
 }
