@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Classes.Dish;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -68,7 +69,7 @@ public class MenuController<input> {
     @FXML private Button addDishToCart6;
 
     //List of dishes
-    ObservableList<Dish> dishes;
+    ObservableList<Dish> dishes = FXCollections.observableArrayList();
     //Cart manager?
     //Cart cart;
 

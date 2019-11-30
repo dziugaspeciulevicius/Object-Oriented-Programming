@@ -2,29 +2,15 @@ package Classes;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Dish {
-    private String dishName;
-    private String dishDescription;
+
+    private SimpleStringProperty dishName;
+    private SimpleStringProperty dishDescription;
     private double dishPrice;
-    private String picture;
+    private SimpleStringProperty picture;
     public static double VAT = 0.21;
-
-    public String getDishName() {
-        return dishName;
-    }
-
-    public void setDishName(String dishName) {
-        this.dishName = dishName;
-    }
-
-    public String getDishDescription() {
-        return dishDescription;
-    }
-
-    public void setDishDescription(String dishDescription) {
-        this.dishDescription = dishDescription;
-    }
 
     public double getDishPrice() {
         return dishPrice;
@@ -34,16 +20,47 @@ public class Dish {
         this.dishPrice = dishPrice;
     }
 
+    public SimpleStringProperty dishNameProperty() {
+        return dishName;
+    }
+
+    public String getDishDescription() {
+        return dishDescription.get();
+    }
+
+    public SimpleStringProperty dishDescriptionProperty() {
+        return dishDescription;
+    }
+
+    public void setDishDescription(String dishDescription) {
+        this.dishDescription.set(dishDescription);
+    }
+
     public String getPicture() {
+        return picture.get();
+    }
+
+    public SimpleStringProperty pictureProperty() {
         return picture;
     }
 
     public void setPicture(String picture) {
-        this.picture = picture;
+        this.picture.set(picture);
     }
 
-    public double getFullPrice(){
-        return (1 + VAT) * dishPrice;
+    public static double getVAT() {
+        return VAT;
     }
 
+    public static void setVAT(double VAT) {
+        Dish.VAT = VAT;
+    }
+
+    public String getDishName() {
+        return dishName.get();
+    }
+
+    public void setDishName(String dishName) {
+        this.dishName.set(dishName);
+    }
 }
