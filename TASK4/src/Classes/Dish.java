@@ -59,7 +59,6 @@ public class Dish {
     public String getDishName() {
         return dishName.get();
     }
-
     public void setDishName(String dishName) {
         this.dishName.set(dishName);
     }
