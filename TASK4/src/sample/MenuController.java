@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,39 +38,14 @@ public class MenuController<input> {
     @FXML private AnchorPane menuDishes;
     @FXML private ImageView shoppingCart;
     @FXML private Button openShoppingCartButton;
-    @FXML private ImageView foodPicture1;
-    @FXML private ImageView foodPicture2;
-    @FXML private ImageView foodPicture3;
-    @FXML private ImageView foodPicture4;
-    @FXML private ImageView foodPicture5;
-    @FXML private ImageView foodPicture6;
-    @FXML private Label foodName1;
-    @FXML private Label foodName2;
-    @FXML private Label foodName3;
-    @FXML private Label foodName4;
-    @FXML private Label foodName5;
-    @FXML private Label foodName6;
-    @FXML private Label foodPrice1;
-    @FXML private Label foodPrice2;
-    @FXML private Label foodPrice3;
-    @FXML private Label foodPrice4;
-    @FXML private Label foodPrice5;
-    @FXML private Label foodPrice6;
-    @FXML private Button aboutDish1;
-    @FXML private Button aboutDish2;
-    @FXML private Button aboutDish3;
-    @FXML private Button aboutDish4;
-    @FXML private Button aboutDish5;
-    @FXML private Button aboutDish6;
-    @FXML private Button addDishToCart1;
-    @FXML private Button addDishToCart2;
-    @FXML private Button addDishToCart3;
-    @FXML private Button addDishToCart4;
-    @FXML private Button addDishToCart5;
-    @FXML private Button addDishToCart6;
-
+    @FXML private ImageView foodPicture;
+    @FXML private Label foodName;
+    @FXML private Label foodPrice;
+    @FXML private Button addDishToCart;
+    @FXML private TableView<Dish> DishTable;
     //List of dishes
     ObservableList<Dish> dishList = FXCollections.observableArrayList();
+
     //Cart manager?
     //Cart cart;
 
@@ -94,11 +70,6 @@ public class MenuController<input> {
             alert.setContentText("Window you are trying to open cannot be reached at the moment!");
             alert.showAndWait();
         }
-    }
-
-    @FXML
-    void aboutDishAction(ActionEvent event) {
-
     }
 
     @FXML
