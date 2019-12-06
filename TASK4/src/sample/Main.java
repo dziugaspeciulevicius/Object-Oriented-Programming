@@ -1,5 +1,8 @@
 package sample;
+import Classes.Dish;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +15,16 @@ public class Main extends Application {
 
     private FileInputStream fis;
 
+    public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
+
+    public Main(){
+        Driver.ConnectionDB();
+    }
+
+    public static ObservableList<Dish> getDishList(){
+        return dishList;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MenuWindow.fxml"));
@@ -22,43 +35,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-        Connection conn = null;
-        try {
-            String url = "jdbc:sqlite:dish.db";
-            conn = DriverManager.getConnection(url);
-            System.out.println("\nConnected!");
-
-            while (true) {
-                System.out.println("\n1 - List the content");
-                System.out.println("2 - I'm done. Open the interface for me pls. Thank you. \n");
-                System.out.print("Enter menu item number: ");
-                Scanner scanner = new Scanner((System.in));
-                String item = scanner.nextLine();
-
-                if (item.equals("1")) {
-                    //List<Dish> dishList;
-                    String sql = "SELECT * FROM Dish";
-                    Statement stmt  = conn.createStatement();
-                    ResultSet rs    = stmt.executeQuery(sql);
-                    while (rs.next()) {
-                        //String current = rs.getString("1") + rs.getDouble(2) + rs.getString(3);
-                        //dishList.add(current);
-                        System.out.println("Name: " + rs.getString(1) +  "\nPrice: " + rs.getDouble(2) +
-                                "\nDescription: " + rs.getString(3) + "\nPicture: " + rs.getString(4));
-                    }
-                } else
-                    break;
-            }
-        }
-        catch (Exception exc) {
-            System.out.println(exc.getMessage());
-        }
-        finally {
-            launch(args);
-            if (conn.isClosed() == false) {
-                conn.close();
-                System.out.println("Connection closed");
-            }
-        }
+        launch(args);
     }
 }

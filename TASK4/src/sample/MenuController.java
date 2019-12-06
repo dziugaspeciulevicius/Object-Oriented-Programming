@@ -69,7 +69,7 @@ public class MenuController<input> {
     @FXML private Button addDishToCart6;
 
     //List of dishes
-    ObservableList<Dish> dishes = FXCollections.observableArrayList();
+    ObservableList<Dish> dishList = FXCollections.observableArrayList();
     //Cart manager?
     //Cart cart;
 
@@ -97,62 +97,12 @@ public class MenuController<input> {
     }
 
     @FXML
-    void aboutDish1Action(ActionEvent event) {
+    void aboutDishAction(ActionEvent event) {
 
     }
 
     @FXML
-    void addDishToCart1Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void aboutDish2Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addDishToCart2Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void aboutDish3Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addDishToCart3Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void aboutDish4Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addDishToCart4Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void aboutDish5Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addDishToCart5Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void aboutDish6Action(ActionEvent event) {
-
-    }
-
-    @FXML
-    void addDishToCart6Action(ActionEvent event) {
+    void addDishToCartAction(ActionEvent event) {
 
     }
 }

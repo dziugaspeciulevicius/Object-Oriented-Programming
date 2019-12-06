@@ -2,21 +2,34 @@ package Classes;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Dish {
 
     private SimpleStringProperty dishName;
     private SimpleStringProperty dishDescription;
-    private double dishPrice;
-    private SimpleStringProperty picture;
+    private SimpleDoubleProperty dishPrice;
+    private FileInputStream picture;
     public static double VAT = 0.21;
 
-    public double getDishPrice() {
+    public Dish(String dishName, String dishDescription, double dishPrice, String picture) {
+        this.dishName = new SimpleStringProperty(dishName);
+        this.dishDescription = new SimpleStringProperty(dishDescription);
+        this.dishPrice = new SimpleDoubleProperty(dishPrice);
+        try {
+            this.picture = new FileInputStream(String.valueOf(picture));
+        } catch (Exception e){
+            System.out.println("Ths method for the picture does not work");
+        }
+    }
+
+    public SimpleDoubleProperty getDishPrice() {
         return dishPrice;
     }
 
-    public void setDishPrice(double dishPrice) {
+    public void setDishPrice(SimpleDoubleProperty dishPrice) {
         this.dishPrice = dishPrice;
     }
 
@@ -36,16 +49,16 @@ public class Dish {
         this.dishDescription.set(dishDescription);
     }
 
-    public String getPicture() {
-        return picture.get();
-    }
-
-    public SimpleStringProperty pictureProperty() {
+    public FileInputStream getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
-        this.picture.set(picture);
+    public FileInputStream pictureProperty() {
+        return picture;
+    }
+
+    public void setPicture(FileInputStream picture) {
+        this.picture = picture;
     }
 
     public static double getVAT() {
