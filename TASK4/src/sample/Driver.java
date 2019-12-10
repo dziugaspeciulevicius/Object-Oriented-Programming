@@ -1,80 +1,141 @@
 package sample;
 
-import Classes.Dish;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Driver {
+public class Driver{
+    private ObservableList<Dish> data;
 
-    public static void ConnectionDB(){
-        Connection conn = null;
-        Statement stmt = null;
-        try {
-            String url = "jdbc:sqlite:dish.db";
-            conn = DriverManager.getConnection(url);
-
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Dish;");
-
-            while ( rs.next() ) {
-                String dishName = rs.getString("dish_name");
-                String dishDescription = rs.getString("dish_description");
-                double dishPrice = rs.getInt("dish_price");
-                String picture = rs.getString("dish_picture");
-
-                Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
-            }
-            rs.close();
-            stmt.close();
-            conn.close();
-        } catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-        }
-        System.out.println("Operation done successfully");
+    public ObservableList<Dish> getData() {
+        return data;
     }
+
+    public static void ConnectionDB(TableView<Dish> dishTable){
+    Connection conn = null;
+    Statement stmt = null;
+    try {
+        String url = "jdbc:sqlite:dish.db";
+        conn = DriverManager.getConnection(url);
+
+        //data = FXCollections.observableArrayList();
+
+        stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT dish_name, dish_description, dish_price, dish_picture FROM Dish;");
+
+        while ( rs.next() ) {
+            String dishName = rs.getString("dish_name");
+            String dishDescription = rs.getString("dish_description");
+            double dishPrice = rs.getInt("dish_price");
+            String picture = rs.getString("dish_picture");
+
+/*            String path = rs.getString("dish_picture");
+            Image Images = new Image(path);
+            Image imageView = new ImageView();
+
+            imageView.setPicture(Images);
+            imageView.setFitWidth(200);
+            imageView.setFitHeight(200);
+            newDish.setImage(imageView);
+
+            data.add(newDish);*/
+
+            Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+    } catch ( Exception e ) {
+        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        System.exit(0);
+    }
+    System.out.println("OK");
 }
 
-//public static void main(String[] args) throws SQLException {
-//    launch(args);
+
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+//public static void ConnectionDB(){
 //    Connection conn = null;
+//    Statement stmt = null;
+//    try {
+//        String url = "jdbc:sqlite:dish.db";
+//        conn = DriverManager.getConnection(url);
+//
+//        //data = FXCollections.observableArrayList();
+//
+//        stmt = conn.createStatement();
+//        ResultSet rs = stmt.executeQuery("SELECT * FROM Dish;");
+//
+//        while ( rs.next() ) {
+//            String dishName = rs.getString("dish_name");
+//            String dishDescription = rs.getString("dish_description");
+//            double dishPrice = rs.getInt("dish_price");
+//            String picture = rs.getString("dish_picture");
+//
+//            Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+//        }
+//        rs.close();
+//        stmt.close();
+//        conn.close();
+//    } catch ( Exception e ) {
+//        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+//        System.exit(0);
+//    }
+//    System.out.println("Operation done successfully");
+//}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+
+//    public static void ConnectionDB(){
+//        Connection conn = null;
+//        Statement stmt = null;
 //        try {
-//                String url = "jdbc:sqlite:dish.db";
-//                conn = DriverManager.getConnection(url);
-//                System.out.println("\nConnected!");
+//            String url = "jdbc:sqlite:dish.db";
+//            conn = DriverManager.getConnection(url);
+//            conn.setAutoCommit(false);
 //
-//                while (true) {
-//                System.out.println("\n1 - List the content");
-//                System.out.println("2 - I'm done. Open the interface for me pls. Thank you. \n");
-//                System.out.print("Enter menu item number: ");
-//                Scanner scanner = new Scanner((System.in));
-//                String item = scanner.nextLine();
+//            //data = FXCollections.observableArrayList();
 //
-//                if (item.equals("1")) {
-//                //List<Dish> dishList;
-//                String sql = "SELECT * FROM Dish";
-//                Statement stmt  = conn.createStatement();
-//                ResultSet rs    = stmt.executeQuery(sql);
+//            try {
+//                String sql = "SELECT dish_name, dish_price, dish_description, dish_picture";
+//                stmt = conn.createStatement();
+//                ResultSet rs = stmt.executeQuery(sql);
 //                while (rs.next()) {
-//                //String current = rs.getString("1") + rs.getDouble(2) + rs.getString(3);
-//                //dishList.add(current);
-//                System.out.println("Name: " + rs.getString(1) +  "\nPrice: " + rs.getDouble(2) +
-//                "\nDescription: " + rs.getString(3) + "\nPicture: " + rs.getString(4));
+//                    Dish newDish = new Dish();
+//
+//                    newDish.setDishName(rs.getString("dish_name"));
+//                    newDish.setDishPrice(rs.getDouble("dish_price"));
+//                    newDish.setDishDescription(rs.getString("dish_description"));
+//
+//                    String path = rs.getString("dish_picture");
+//                    Image img = new Image(path);
+//                    Image imageView = new ImageView();
+//
+//                    imageView.setPicture(img);
+//                    imageView.setFitWidth(200);
+//                    imageView.setFitHeight(200);
+//                    newDish.setImage(imageView);
+//
+//                    data.add(newDish);
 //                }
-//                } else
-//                  break;
-//                }
-//                }
-//                catch (Exception exc) {
-//                System.out.println(exc.getMessage());
-//                }
-//                finally {
-//                if (conn.isClosed() == false) {
-//                conn.close();
-//                System.out.println("Connection closed");
-//                }
+//                tableView.setItems(data);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                System.out.println("Error building data");
 //            }
-//         }
+//        } catch (Exception e1) {
+//            System.out.println(e1.getMessage());
+//        } finally {
+//            if (conn.isClosed() == false){
+//                conn.close();
+//            }
+//        }
+//    }

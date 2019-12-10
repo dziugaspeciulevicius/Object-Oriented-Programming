@@ -1,79 +1,111 @@
 package sample;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import Classes.Dish;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-public class MenuController<input> {
-    @FXML private ResourceBundle resources;
-    @FXML private URL location;
+import static sample.Main.dishList;
+
+public class MenuController {
+
     @FXML private AnchorPane topbar;
     @FXML private AnchorPane menuDishes;
-    @FXML private ImageView shoppingCart;
-    @FXML private Button openShoppingCartButton;
+    @FXML private ResourceBundle resources;
+    @FXML private URL location;
+    @FXML private TableView<Dish> dishTable;
+    @FXML private TableColumn<Dish, String> nameColumn;
     @FXML private ImageView foodPicture;
     @FXML private Label foodName;
     @FXML private Label foodPrice;
+    @FXML private Label dishDescription;
+    @FXML private TableView<Dish> orderTable;
+    @FXML private TableColumn<Dish, String> orderColumn;
     @FXML private Button addDishToCart;
-    @FXML private TableView<Dish> DishTable;
-    //List of dishes
-    ObservableList<Dish> dishList = FXCollections.observableArrayList();
+    @FXML private Label subtotalPriceLabel;
+    @FXML private Label VATLabel;
+    @FXML private Label totalPriceLabel;
+    @FXML private Button buyButton;
 
-    //Cart manager?
-    //Cart cart;
+    private Main main;
 
-//    void loadDishes(){
-//        dishes = Main.LoadDishes();
-//    }
+    Driver database = new Driver();
+    ShoppingCart shoppingCart = new ShoppingCart();
 
     @FXML
-    void openShoppingCart(ActionEvent event) {
+    private void initialize(URL url, ResourceBundle resourceBundle) {
+/*
+        nameColumn.setCellValueFactory(cellData -> cellData.getValue().dishNameProperty());
+        orderColumn.setCellValueFactory(celLData -> celLData.getValue().dishNameProperty());
+
+        showDishes(null);
+        showShoppingCart(null);
+
+        dishTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue)-> showDishes(newValue));
+        //orderTable.getSelectionModel().selectedItemProperty().addListener(
+        //        (observable, oldValue, newValue)-> showShoppingCart(newValue));
+*/
+/**------------------------------------------------------------------------------------------**/
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        orderColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
         try {
-            Parent shoppingCartWindow = FXMLLoader.load(getClass().getResource("ShoppingCartWindow.fxml"));
-            Stage window = new Stage();
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.setTitle("Shopping Cart");
-            window.setScene(new Scene(shoppingCartWindow));
-            window.setResizable(false);
-            window.show();
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("CAN'T LOAD A WINDOW");
-            alert.setContentText("Window you are trying to open cannot be reached at the moment!");
-            alert.showAndWait();
+            database.ConnectionDB(dishTable);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showDishes(Dish dish){
+        if(dish != null) {
+            //PICTURE
+            //foodPicture.setImage(dish.getPicture());
+            foodName.setText(dish.getDishName());
+            dishDescription.setText(dish.getDishDescription());
+            foodPrice.setText(Double.toString(dish.getDishPrice()));
+        } else {
+            foodName.setText("");
+            dishDescription.setText("");
+            foodPrice.setText("");
+        }
+    }
+
+    private void showShoppingCart(ShoppingCart shoppingCart){
+        if (shoppingCart != null) {
+            subtotalPriceLabel.setText(Double.toString(shoppingCart.getFinalPrice()));
+            totalPriceLabel.setText(Double.toString(shoppingCart.getFinalPriceVAT()));
+        } else {
+            subtotalPriceLabel.setText("");
+            totalPriceLabel.setText("");
         }
     }
 
     @FXML
     void addDishToCartAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void buyButtonAction(ActionEvent event) {
+
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+
+        //Adding observable lists data to the tables
+        dishTable.setItems(main.getDishList());
+        orderTable.setItems(main.getCartList());
     }
 }

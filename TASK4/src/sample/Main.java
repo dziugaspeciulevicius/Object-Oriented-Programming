@@ -1,5 +1,4 @@
 package sample;
-import Classes.Dish;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,26 +8,28 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.*;
 import java.sql.*;
-import java.util.Scanner;
 
 public class Main extends Application {
 
     private FileInputStream fis;
 
     public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
-
-    public Main(){
-        Driver.ConnectionDB();
-    }
-
+    public static ObservableList<Dish> cartList = FXCollections.observableArrayList();
     public static ObservableList<Dish> getDishList(){
         return dishList;
+    }
+    public static ObservableList<Dish> getCartList(){
+        return cartList;
+    }
+
+    public Main(){
+        Driver.ConnectionDB(dishTable);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuWindow.fxml"));
         primaryStage.setTitle("Menu");
+        Parent root = FXMLLoader.load(getClass().getResource("MenuWindow.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
