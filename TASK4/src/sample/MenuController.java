@@ -34,10 +34,10 @@ public class MenuController {
     @FXML private Label totalPriceLabel;
     @FXML private Button buyButton;
 
-    private Main main;
+    private Main mainWindow;
 
-//    Driver database = new Driver();
-//    ShoppingCart shoppingCart = new ShoppingCart();
+    Driver database = new Driver();
+    ShoppingCart shoppingCart = new ShoppingCart();
 
     @FXML
     private void initialize() {
@@ -51,6 +51,10 @@ public class MenuController {
                 (observable, oldValue, newValue)-> showDishes(newValue));
         orderTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue)-> showShoppingCart(newValue));
+
+
+        dishTable.setItems(Main.getDishList());
+
 /**------------------------------------------------------------------------------------------**/
 //        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 //        orderColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -60,7 +64,6 @@ public class MenuController {
     }
 
     private void showDishes(Dish dish){
-        dishTable.setItems(main.getDishList());
         if(dish != null) {
             //PICTURE
             //foodPicture.setImage(dish.getPicture());
@@ -96,10 +99,10 @@ public class MenuController {
     }
 
     public void setMain(Main main) {
-        this.main = main;
+        this.mainWindow = main;
 
         //Adding observable lists data to the tables
-        dishTable.setItems(main.getDishList());
+        dishTable.setItems(Main.getDishList());
         //orderTable.setItems(main.getCartList());
     }
 }

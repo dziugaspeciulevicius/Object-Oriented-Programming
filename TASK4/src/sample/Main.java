@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.*;
 import java.sql.*;
@@ -39,6 +41,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+
 
     public static void main(String[] args) throws SQLException {
         launch(args);
