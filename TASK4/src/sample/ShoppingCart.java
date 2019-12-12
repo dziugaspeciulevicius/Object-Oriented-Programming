@@ -9,13 +9,6 @@ public class ShoppingCart {
     private ArrayList<Dish> shoppingCartArray = new ArrayList<>();
 //    ObservableList<Dish> dishList = FXCollections.observableArrayList();
 
-
-    public ShoppingCart(double finalPrice, double finalPriceVAT, ArrayList<Dish> shoppingCartArray) {
-        this.finalPrice = finalPrice;
-        this.finalPriceVAT = finalPriceVAT;
-        this.shoppingCartArray = shoppingCartArray;
-    }
-
     public ArrayList<Dish> getOrderArray() {
         return shoppingCartArray;
     }

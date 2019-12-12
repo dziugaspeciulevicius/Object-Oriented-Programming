@@ -1,62 +1,68 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
-public class Driver{
+public class Driver {
+    Connection conn = null;
     private ObservableList<Dish> data;
 
     public ObservableList<Dish> getData() {
         return data;
     }
 
-    public static void ConnectionDB(TableView<Dish> dishTable){
-    Connection conn = null;
-    Statement stmt = null;
-    try {
-        String url = "jdbc:sqlite:dish.db";
-        conn = DriverManager.getConnection(url);
+    public void ConnectionDB(TableView tableView) throws SQLException {
+        //Statement stmt = null;
+        try {
+            String url = "jdbc:sqlite:dish.db";
+            conn = DriverManager.getConnection(url);
+            data = FXCollections.observableArrayList();
 
-        //data = FXCollections.observableArrayList();
+            try {
+                String sql = "SELECT dish_name, dish_description, dish_price, dish_picture FROM Dish";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    Dish newDish = new Dish();
 
-        stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT dish_name, dish_description, dish_price, dish_picture FROM Dish;");
+                    newDish.setDishName(rs.getString("dish_name"));
+                    //String dishName = rs.getString("dish_name");
+                    newDish.setDishDescription(rs.getString("dish_description"));
+                    //String dishDescription = rs.getString("dish_description");
+                    newDish.setDishPrice(rs.getDouble("dish_price"));
 
-        while ( rs.next() ) {
-            String dishName = rs.getString("dish_name");
-            String dishDescription = rs.getString("dish_description");
-            double dishPrice = rs.getInt("dish_price");
-            String picture = rs.getString("dish_picture");
+                    String picture = rs.getString("dish_picture");
+                    Image Images = new Image(picture);
 
-/*            String path = rs.getString("dish_picture");
-            Image Images = new Image(path);
-            Image imageView = new ImageView();
+                    ImageView imageView = new ImageView();
 
-            imageView.setPicture(Images);
-            imageView.setFitWidth(200);
-            imageView.setFitHeight(200);
-            newDish.setImage(imageView);
+                    imageView.setImage(Images);
+                    imageView.setFitWidth(200);
+                    imageView.setFitHeight(200);
+                    newDish.setPicture(imageView);
 
-            data.add(newDish);*/
+                    data.add(newDish);
 
-            Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+                    //Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+                }
+                tableView.setItems(data);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error on building data");
+            }
+        } catch (Exception e1) {
+            System.out.println(e1.getMessage());
+        } finally {
+            if (conn.isClosed() == false) {
+                conn.close();
+            }
         }
-        rs.close();
-        stmt.close();
-        conn.close();
-    } catch ( Exception e ) {
-        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-        System.exit(0);
     }
-    System.out.println("OK");
-}
-
-
 }
 
 

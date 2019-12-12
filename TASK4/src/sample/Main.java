@@ -2,14 +2,19 @@ package sample;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import java.io.*;
 import java.sql.*;
 
 public class Main extends Application {
+    @FXML
+    private TableView<Dish> dishTable;
+
 
     private FileInputStream fis;
 
@@ -23,7 +28,7 @@ public class Main extends Application {
     }
 
     public Main(){
-        Driver.ConnectionDB(dishTable);
+        Driver.ConnectionDB();
     }
 
     @Override

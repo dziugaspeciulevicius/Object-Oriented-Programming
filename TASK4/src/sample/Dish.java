@@ -9,12 +9,9 @@ public class Dish {
 
     private SimpleStringProperty dishName = new SimpleStringProperty();
     private SimpleStringProperty dishDescription = new SimpleStringProperty();
-    private SimpleDoubleProperty dishPrice = new SimpleDoubleProperty();
     private ObjectProperty picture = new SimpleObjectProperty();
-    public static double VAT = 0.21;
-
-    public Dish(String dishName, String dishDescription, double dishPrice, String picture) {
-    }
+    private SimpleDoubleProperty dishPrice = new SimpleDoubleProperty();
+    private static double VAT = 1.21;
 
     public String getDishName() {
         return dishName.get();
