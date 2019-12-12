@@ -1,23 +1,31 @@
 package sample;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.*;
 
 public class Dish {
 
-    private SimpleStringProperty dishName = new SimpleStringProperty();
-    private SimpleStringProperty dishDescription = new SimpleStringProperty();
-    private ObjectProperty picture = new SimpleObjectProperty();
-    private SimpleDoubleProperty dishPrice = new SimpleDoubleProperty();
+    private StringProperty dishName;
+    private StringProperty dishDescription;
+    private ObjectProperty picture;
+    private DoubleProperty dishPrice;
     private static double VAT = 1.21;
+
+    public Dish() {
+        this(null, null, 0.0, null);
+    }
+
+    public Dish(String dishName, String dishDescription, Double dishPrice, Object picture) {
+        this.dishName = new SimpleStringProperty(dishName) ;
+        this.dishDescription = new SimpleStringProperty(dishDescription);
+        this.dishPrice = new SimpleDoubleProperty(dishPrice);
+        this.picture = new SimpleObjectProperty(picture);
+    }
 
     public String getDishName() {
         return dishName.get();
     }
 
-    public SimpleStringProperty dishNameProperty() {
+    public StringProperty dishNameProperty() {
         return dishName;
     }
 
@@ -29,24 +37,12 @@ public class Dish {
         return dishDescription.get();
     }
 
-    public SimpleStringProperty dishDescriptionProperty() {
+    public StringProperty dishDescriptionProperty() {
         return dishDescription;
     }
 
     public void setDishDescription(String dishDescription) {
         this.dishDescription.set(dishDescription);
-    }
-
-    public double getDishPrice() {
-        return dishPrice.get();
-    }
-
-    public SimpleDoubleProperty dishPriceProperty() {
-        return dishPrice;
-    }
-
-    public void setDishPrice(double dishPrice) {
-        this.dishPrice.set(dishPrice);
     }
 
     public Object getPicture() {
@@ -59,6 +55,18 @@ public class Dish {
 
     public void setPicture(Object picture) {
         this.picture.set(picture);
+    }
+
+    public double getDishPrice() {
+        return dishPrice.get();
+    }
+
+    public DoubleProperty dishPriceProperty() {
+        return dishPrice;
+    }
+
+    public void setDishPrice(double dishPrice) {
+        this.dishPrice.set(dishPrice);
     }
 
     public static double getVAT() {

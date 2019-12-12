@@ -1,6 +1,7 @@
 package sample;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -25,8 +26,8 @@ public class MenuController {
     @FXML private Label foodName;
     @FXML private Label foodPrice;
     @FXML private Label dishDescription;
-    @FXML private TableView<Dish> orderTable;
-    @FXML private TableColumn<Dish, String> orderColumn;
+    @FXML private TableView<ShoppingCart> orderTable;
+    @FXML private TableColumn<ShoppingCart, String> orderColumn;
     @FXML private Button addDishToCart;
     @FXML private Label subtotalPriceLabel;
     @FXML private Label VATLabel;
@@ -35,12 +36,11 @@ public class MenuController {
 
     private Main main;
 
-    Driver database = new Driver();
-    ShoppingCart shoppingCart = new ShoppingCart();
+//    Driver database = new Driver();
+//    ShoppingCart shoppingCart = new ShoppingCart();
 
     @FXML
-    private void initialize(URL url, ResourceBundle resourceBundle) {
-/*
+    private void initialize() {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().dishNameProperty());
         orderColumn.setCellValueFactory(celLData -> celLData.getValue().dishNameProperty());
 
@@ -49,18 +49,18 @@ public class MenuController {
 
         dishTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue)-> showDishes(newValue));
-        //orderTable.getSelectionModel().selectedItemProperty().addListener(
-        //        (observable, oldValue, newValue)-> showShoppingCart(newValue));
-*/
+        orderTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue)-> showShoppingCart(newValue));
 /**------------------------------------------------------------------------------------------**/
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        orderColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        database.ConnectionDB();
+//        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+//        orderColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+//
+//        database.ConnectionDB(dishTable);
 
     }
 
     private void showDishes(Dish dish){
+        dishTable.setItems(main.getDishList());
         if(dish != null) {
             //PICTURE
             //foodPicture.setImage(dish.getPicture());
@@ -75,9 +75,10 @@ public class MenuController {
     }
 
     private void showShoppingCart(ShoppingCart shoppingCart){
+//        orderTable.setItems(main.getCartList());
         if (shoppingCart != null) {
-            subtotalPriceLabel.setText(Double.toString(shoppingCart.getFinalPrice()));
-            totalPriceLabel.setText(Double.toString(shoppingCart.getFinalPriceVAT()));
+            subtotalPriceLabel.setText(Double.toString(shoppingCart.getTotal()));
+            totalPriceLabel.setText(Double.toString(shoppingCart.getTotalVat()));
         } else {
             subtotalPriceLabel.setText("");
             totalPriceLabel.setText("");
@@ -99,6 +100,6 @@ public class MenuController {
 
         //Adding observable lists data to the tables
         dishTable.setItems(main.getDishList());
-        orderTable.setItems(main.getCartList());
+        //orderTable.setItems(main.getCartList());
     }
 }
