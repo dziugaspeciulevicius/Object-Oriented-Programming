@@ -88,8 +88,8 @@ public class ShoppingCart {
     }
 
     public double getTotal() {
-        for (int i = 0; i < Main.getCartList().size(); i++){
-            total = total + Main.getCartList().get(i).getDishPrice();
+        for (int i = 0; i < MenuController.getCartList().size(); i++){
+            total = total + MenuController.getCartList().get(i).getDishPrice();
         }
         return total;
     }

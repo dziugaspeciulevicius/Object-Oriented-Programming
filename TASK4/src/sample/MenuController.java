@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,6 +36,16 @@ public class MenuController {
     @FXML private Label totalPriceLabel;
     @FXML private Button buyButton;
 
+    public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
+    public static ObservableList<Dish> cartList = FXCollections.observableArrayList();
+
+    public static ObservableList<Dish> getDishList(){
+        return dishList;
+    }
+    public static ObservableList<Dish> getCartList(){
+        return cartList;
+    }
+
     private Main mainWindow;
 
     Driver database = new Driver();
@@ -53,7 +65,7 @@ public class MenuController {
                 (observable, oldValue, newValue)-> showShoppingCart(newValue));
 
 
-        dishTable.setItems(Main.getDishList());
+        //dishTable.setItems(getDishList());
 
 /**------------------------------------------------------------------------------------------**/
 //        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -102,7 +114,7 @@ public class MenuController {
         this.mainWindow = main;
 
         //Adding observable lists data to the tables
-        dishTable.setItems(Main.getDishList());
+        dishTable.setItems(getDishList());
         //orderTable.setItems(main.getCartList());
     }
 }

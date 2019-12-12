@@ -28,7 +28,7 @@ public class Driver {
                 String picture = rs.getString("dish_picture");
                 Image Images = new Image(picture);
 
-                Main.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+                MenuController.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
             }
             rs.close();
             stmt.close();

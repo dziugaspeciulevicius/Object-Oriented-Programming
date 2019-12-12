@@ -18,20 +18,11 @@ public class Main extends Application {
 //    private TableView<Dish> dishTable;
 //    private FileInputStream fis;
 
-    public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
-    public static ObservableList<Dish> cartList = FXCollections.observableArrayList();
-
     public Main(){
         //Add some sample data
         Driver.ConnectionDB();
     }
 
-    public static ObservableList<Dish> getDishList(){
-        return dishList;
-    }
-    public static ObservableList<Dish> getCartList(){
-        return cartList;
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
