@@ -23,7 +23,6 @@ public class Main extends Application {
         Driver.ConnectionDB();
     }
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Menu");

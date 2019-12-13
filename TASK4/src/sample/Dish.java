@@ -2,7 +2,7 @@ package sample;
 
 import javafx.beans.property.*;
 
-public class Dish {
+public class Dish extends ShoppingCart {
 
     private StringProperty dishName;
     private StringProperty dishDescription;
@@ -73,7 +73,4 @@ public class Dish {
         return VAT;
     }
 
-    public static void setVAT(double VAT) {
-        Dish.VAT = VAT;
-    }
 }

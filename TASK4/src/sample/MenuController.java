@@ -13,15 +13,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class MenuController {
 
-    @FXML private AnchorPane topbar;
-    @FXML private AnchorPane menuDishes;
-    @FXML private ResourceBundle resources;
-    @FXML private URL location;
     @FXML private TableView<Dish> dishTable;
     @FXML private TableColumn<Dish, String> nameColumn;
     @FXML private ImageView foodPicture;
@@ -32,9 +29,12 @@ public class MenuController {
     @FXML private TableColumn<ShoppingCart, String> orderColumn;
     @FXML private Button addDishToCart;
     @FXML private Label subtotalPriceLabel;
-    @FXML private Label VATLabel;
     @FXML private Label totalPriceLabel;
     @FXML private Button buyButton;
+    @FXML private Button refreshButton;
+    @FXML private Button deleteButton;
+
+    ShoppingCart shoppingCart = new ShoppingCart();
 
     public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
     public static ObservableList<Dish> cartList = FXCollections.observableArrayList();
@@ -42,14 +42,10 @@ public class MenuController {
     public static ObservableList<Dish> getDishList(){
         return dishList;
     }
+
     public static ObservableList<Dish> getCartList(){
         return cartList;
     }
-
-    private Main mainWindow;
-
-    Driver database = new Driver();
-    ShoppingCart shoppingCart = new ShoppingCart();
 
     @FXML
     private void initialize() {
@@ -64,21 +60,14 @@ public class MenuController {
         orderTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue)-> showShoppingCart(newValue));
 
-
-        //dishTable.setItems(getDishList());
-
-/**------------------------------------------------------------------------------------------**/
-//        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        orderColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//
-//        database.ConnectionDB(dishTable);
-
+        dishTable.setItems(getDishList());
     }
 
     private void showDishes(Dish dish){
         if(dish != null) {
             //PICTURE
-            //foodPicture.setImage(dish.getPicture());
+            //foodPicture.setImage((Image) dish.getPicture());
+            //casts error when trying to display an image
             foodName.setText(dish.getDishName());
             dishDescription.setText(dish.getDishDescription());
             foodPrice.setText(Double.toString(dish.getDishPrice()));
@@ -92,8 +81,8 @@ public class MenuController {
     private void showShoppingCart(ShoppingCart shoppingCart){
 //        orderTable.setItems(main.getCartList());
         if (shoppingCart != null) {
-            subtotalPriceLabel.setText(Double.toString(shoppingCart.getTotal()));
-            totalPriceLabel.setText(Double.toString(shoppingCart.getTotalVat()));
+            subtotalPriceLabel.setText(Double.toString(shoppingCart.getFinalPrice()));
+            totalPriceLabel.setText(Double.toString(shoppingCart.getFinalPriceVAT()));
         } else {
             subtotalPriceLabel.setText("");
             totalPriceLabel.setText("");
@@ -102,19 +91,49 @@ public class MenuController {
 
     @FXML
     void addDishToCartAction(ActionEvent event) {
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("disName"));
+        //get selected items
+        Dish selectedItem = dishTable.getSelectionModel().getSelectedItem();
+        //adds selected item to shopping cart
+        shoppingCart.setShoppingCartArray(selectedItem);
+        //adds selected item to the tableview
+        if (selectedItem != null) {
+            orderTable.getItems().add(selectedItem);
+        }
+        setPrice();
+    }
+
+    @FXML
+    void deleteItemAction(ActionEvent event) {
+        ShoppingCart selectedItem = orderTable.getSelectionModel().getSelectedItem();
+        //removes selected item from the order list
+        shoppingCart.getShoppingCartArray().remove(selectedItem);
+        //removes selected item from the table view
+        if (selectedItem != null) {
+            orderTable.getItems().remove(selectedItem);
+        }
+        setPrice();
+    }
+
+    //function to set final price
+    private void setPrice(){
+        //set price labels
+        //formats to string
+        String price = String.format("%.2f", shoppingCart.getFinalPrice());
+        subtotalPriceLabel.setText(price);
+        //with VAT
+
+        price = String.format("%.2f", shoppingCart.getFinalPriceVAT());
+        totalPriceLabel.setText(price);
+    }
+
+    @FXML
+    private void buyButtonAction(){
 
     }
 
     @FXML
-    void buyButtonAction(ActionEvent event) {
-
-    }
-
-    public void setMain(Main main) {
-        this.mainWindow = main;
-
-        //Adding observable lists data to the tables
-        dishTable.setItems(getDishList());
-        //orderTable.setItems(main.getCartList());
+    private void refresh(){
+        orderTable.refresh();
     }
 }

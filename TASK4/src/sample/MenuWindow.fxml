@@ -65,12 +65,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Label fx:id="foodName" layoutX="492.0" layoutY="253.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName" textFill="WHITE">
+            <Label fx:id="foodName" layoutX="450.0" layoutY="259.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodName" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label fx:id="foodPrice" layoutX="803.0" layoutY="250.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice" textFill="WHITE">
+            <Label fx:id="foodPrice" layoutX="831.0" layoutY="258.0" prefHeight="30.0" prefWidth="58.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="FoodPrice" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -350,7 +350,7 @@
                   <Image url="@../Images/restaurantMenu.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="73.0" fitWidth="72.0" layoutX="825.0" layoutY="232.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="72.0" fitWidth="66.0" layoutX="829.0" layoutY="198.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/restaurantMenu.png" />
                </image>
@@ -833,17 +833,12 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3d4956" height="521.0" layoutX="1015.0" layoutY="21.0" opacity="0.72" stroke="#a1a1a1" strokeLineCap="ROUND" strokeType="INSIDE" width="436.0" />
-            <Label fx:id="totalPriceLabel" layoutX="1339.0" layoutY="402.0" style="-fx-font-weight: 900; -fx-font-size: 30;" text="-" textFill="WHITE">
+            <Label fx:id="totalPriceLabel" layoutX="1322.0" layoutY="400.0" style="-fx-font-weight: 900; -fx-font-size: 30;" text="-" textFill="WHITE">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label fx:id="VATLabel" layoutX="1355.0" layoutY="356.0" prefHeight="30.0" prefWidth="58.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="-" textFill="WHITE">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Label fx:id="subtotalPriceLabel" layoutX="1354.0" layoutY="332.0" prefHeight="30.0" prefWidth="57.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="-" textFill="WHITE">
+            <Label fx:id="subtotalPriceLabel" layoutX="1323.0" layoutY="359.0" prefHeight="30.0" prefWidth="80.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="-" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -854,12 +849,7 @@
                </font>
             </Label>
             <Separator layoutX="1032.0" layoutY="395.0" opacity="0.3" prefHeight="0.0" prefWidth="402.0" style="-fx-background-color: #3D4956;" />
-            <Label layoutX="1044.0" layoutY="356.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="VAT:" textFill="WHITE">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Label layoutX="1044.0" layoutY="325.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="Subtotal:" textFill="WHITE">
+            <Label layoutX="1044.0" layoutY="356.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="Subtotal:" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -874,24 +864,19 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Button>
-            <TableView fx:id="orderTable" layoutX="1039.0" layoutY="87.0" opacity="0.47" prefHeight="229.0" prefWidth="389.0" style="-fx-background-color: white;">
+            <TableView fx:id="orderTable" layoutX="1039.0" layoutY="87.0" opacity="0.47" prefHeight="264.0" prefWidth="389.0" style="-fx-background-color: white;">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <columns>
-                  <TableColumn fx:id="orderColumn" prefWidth="81.0" text="Choose a dish" visible="false" />
+                  <TableColumn fx:id="orderColumn" prefWidth="81.0" text="Your order:" />
                </columns>
                <effect>
                   <ColorAdjust />
                </effect>
             </TableView>
             <ImageView fx:id="foodPicture" fitHeight="204.0" fitWidth="406.0" layoutX="488.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="1416.0" layoutY="331.0" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="€" textFill="WHITE">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Label layoutX="1416.0" layoutY="356.0" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="€" textFill="WHITE">
+            <Label layoutX="1416.0" layoutY="362.0" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="€" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -903,7 +888,7 @@
             </Label>
             <TableView fx:id="dishTable" editable="true" layoutX="50.0" layoutY="20.0" opacity="0.47" prefHeight="513.0" prefWidth="304.0" style="-fx-background-color: white;">
               <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="81.0" text="Choose a dish" visible="false" />
+                <TableColumn fx:id="nameColumn" prefWidth="81.0" text="Choose a dish:" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -912,11 +897,24 @@
                   <ColorAdjust />
                </effect>
             </TableView>
-            <Label fx:id="dishDescription" layoutX="441.0" layoutY="292.0" prefHeight="164.0" prefWidth="484.0" style="-fx-font-weight: 700; -fx-font-size: 20;" textFill="WHITE" wrapText="true">
+            <Label fx:id="dishDescription" layoutX="441.0" layoutY="292.0" prefHeight="164.0" prefWidth="484.0" style="-fx-font-weight: 500; -fx-font-size: 15;" textFill="WHITE" wrapText="true" />
+            <Label layoutX="886.0" layoutY="248.0" style="-fx-font-weight: 900; -fx-font-size: 30;" text="€" textFill="WHITE">
                <font>
-                  <Font size="30.0" />
+                  <Font size="28.0" />
                </font>
             </Label>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1323.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/refresh.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="refreshButton" layoutX="1313.0" layoutY="33.0" mnemonicParsing="false" onAction="#refresh" opacity="0.0" prefHeight="51.0" prefWidth="65.0" />
+            <ImageView fitHeight="59.0" fitWidth="51.0" layoutX="1377.0" layoutY="32.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/delete.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="deleteButton" layoutX="1379.0" layoutY="35.0" mnemonicParsing="false" onAction="#deleteItemAction" opacity="0.0" prefHeight="51.0" prefWidth="65.0" />
          </children>
       </AnchorPane>
    </children>
