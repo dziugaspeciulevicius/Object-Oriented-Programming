@@ -875,7 +875,7 @@
                   <ColorAdjust />
                </effect>
             </TableView>
-            <ImageView fx:id="foodPicture" fitHeight="204.0" fitWidth="406.0" layoutX="488.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="foodPicture" fitHeight="204.0" fitWidth="325.0" layoutX="569.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="1416.0" layoutY="362.0" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: 700; -fx-font-size: 20;" text="€" textFill="WHITE">
                <font>
                   <Font size="30.0" />
