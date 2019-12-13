@@ -38,7 +38,6 @@ public class MenuController {
 
     public static ObservableList<Dish> dishList = FXCollections.observableArrayList();
     public static ObservableList<Dish> cartList = FXCollections.observableArrayList();
-
     public static ObservableList<Dish> getDishList(){
         return dishList;
     }

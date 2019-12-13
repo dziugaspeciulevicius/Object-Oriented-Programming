@@ -14,9 +14,6 @@ import java.io.*;
 import java.sql.*;
 
 public class Main extends Application {
-//    @FXML
-//    private TableView<Dish> dishTable;
-//    private FileInputStream fis;
 
     public Main(){
         //Add some sample data

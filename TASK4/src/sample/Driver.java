@@ -7,7 +7,6 @@ import java.sql.*;
 
 public class Driver {
 
-
     public static void ConnectionDB() {
         Connection conn = null;
         Statement stmt = null;
