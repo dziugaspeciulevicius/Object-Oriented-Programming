@@ -6,13 +6,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.*;
 import java.sql.*;
 
 public class Driver {
 
+
     public static void ConnectionDB() {
         Connection conn = null;
         Statement stmt = null;
+        FileInputStream fis;
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:dish.db");
@@ -22,13 +25,41 @@ public class Driver {
             ResultSet rs = stmt.executeQuery("SELECT * FROM Dish");
 
             while (rs.next()) {
-                String dishName = rs.getString("dish_name");
-                String dishDescription = rs.getString("dish_description");
-                Double dishPrice = rs.getDouble("dish_price");
-                String picture = rs.getString("dish_picture");
-                Image Images = new Image(picture);
+                Dish newDish = new Dish();
+                newDish.setDishName(rs.getString("dish_name"));
+                //String dishName = rs.getString("dish_name");
+                newDish.setDishDescription(rs.getString("dish_description"));
+                //String dishDescription = rs.getString("dish_description");
+                newDish.setDishPrice(rs.getDouble("dish_price"));
+                //Double dishPrice = rs.getDouble("dish_price");
 
-                MenuController.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
+                //String picture = rs.getString("dish_picture");
+                //Image Images = new Image(picture);
+                //InputStream picture = rs.getBinaryStream("dish_picture");
+                //OutputStream os = new FileOutputStream(new File("photo.jpg"));
+                //byte[] content = new byte[1024];
+                //int size = 0;
+
+                //while (size == picture.read(content)){
+                //    os.write(content, 0, size);
+                //}
+
+                InputStream input = rs.getBinaryStream("dish_picture");
+                InputStreamReader inputReader = new InputStreamReader(input);
+                if(inputReader.ready())
+                {
+                    File tempFile = new File("tempFile.jpg");
+
+                    FileOutputStream fos = new FileOutputStream(tempFile);
+                    byte[] buffer = new byte[1024];
+                    while(input.read(buffer) > 0){
+                        fos.write(buffer);
+                    }
+                    Image image = new Image(tempFile.toURI().toURL().toString());
+                    newDish.setPicture(image);
+                }
+                MenuController.dishList.add(newDish);
+                //MenuController.dishList.add(new Dish(dishName, dishDescription, dishPrice, picture));
             }
             rs.close();
             stmt.close();

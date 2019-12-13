@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -31,7 +32,6 @@ public class MenuController {
     @FXML private Label subtotalPriceLabel;
     @FXML private Label totalPriceLabel;
     @FXML private Button buyButton;
-    @FXML private Button refreshButton;
     @FXML private Button deleteButton;
 
     ShoppingCart shoppingCart = new ShoppingCart();
@@ -57,8 +57,9 @@ public class MenuController {
 
         dishTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue)-> showDishes(newValue));
-        orderTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue)-> showShoppingCart(newValue));
+//        orderTable.getSelectionModel().selectedItemProperty().addListener(
+//                (observable, oldValue, newValue)-> showShoppingCart(newValue));
+        //This caused for prices to show 0.00 euros
 
         dishTable.setItems(getDishList());
     }
@@ -67,7 +68,8 @@ public class MenuController {
         if(dish != null) {
             //PICTURE
             //foodPicture.setImage((Image) dish.getPicture());
-            //casts error when trying to display an image
+            //casts error when trying to display an image'
+            foodPicture.setImage(dish.getPicture());
             foodName.setText(dish.getDishName());
             dishDescription.setText(dish.getDishDescription());
             foodPrice.setText(Double.toString(dish.getDishPrice()));
@@ -130,10 +132,5 @@ public class MenuController {
     @FXML
     private void buyButtonAction(){
 
-    }
-
-    @FXML
-    private void refresh(){
-        orderTable.refresh();
     }
 }

@@ -1,12 +1,13 @@
 package sample;
 
 import javafx.beans.property.*;
+import javafx.scene.image.Image;
 
 public class Dish extends ShoppingCart {
 
     private StringProperty dishName;
     private StringProperty dishDescription;
-    private ObjectProperty picture;
+    private SimpleObjectProperty picture;
     private DoubleProperty dishPrice;
     private static double VAT = 1.21;
 
@@ -19,6 +20,7 @@ public class Dish extends ShoppingCart {
         this.dishDescription = new SimpleStringProperty(dishDescription);
         this.dishPrice = new SimpleDoubleProperty(dishPrice);
         this.picture = new SimpleObjectProperty(picture);
+
     }
 
     public String getDishName() {
@@ -45,8 +47,8 @@ public class Dish extends ShoppingCart {
         this.dishDescription.set(dishDescription);
     }
 
-    public Object getPicture() {
-        return picture.get();
+    public Image getPicture() {
+        return (Image) picture.get();
     }
 
     public ObjectProperty pictureProperty() {

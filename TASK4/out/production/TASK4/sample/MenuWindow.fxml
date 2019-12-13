@@ -854,7 +854,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="1042.0" layoutY="32.0" style="-fx-font-weight: 700; -fx-font-size: 35;" text="Order Summary" textFill="WHITE" underline="true">
+            <Label layoutX="1042.0" layoutY="32.0" style="-fx-font-weight: 700; -fx-font-size: 35;" text="Order Summary:" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -903,12 +903,6 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1323.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/refresh.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="refreshButton" layoutX="1313.0" layoutY="33.0" mnemonicParsing="false" onAction="#refresh" opacity="0.0" prefHeight="51.0" prefWidth="65.0" />
             <ImageView fitHeight="59.0" fitWidth="51.0" layoutX="1377.0" layoutY="32.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/delete.png" />
