@@ -74,5 +74,4 @@ public class Dish extends ShoppingCart {
     public static double getVAT() {
         return VAT;
     }
-
 }

@@ -20,7 +20,6 @@ public class ShoppingCart {
         this(null, null,0.0);
     }
 
-
 //    public ShoppingCart(String dishName, String dishDescription, Object picture, Double dishPrice) {
 //        this.dishName = new SimpleStringProperty(dishName);
 //        this.dishDescription = new SimpleStringProperty(dishDescription);

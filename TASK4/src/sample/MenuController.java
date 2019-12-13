@@ -60,15 +60,11 @@ public class MenuController {
 //        orderTable.getSelectionModel().selectedItemProperty().addListener(
 //                (observable, oldValue, newValue)-> showShoppingCart(newValue));
         //This caused for prices to show 0.00 euros
-
         dishTable.setItems(getDishList());
     }
 
     private void showDishes(Dish dish){
         if(dish != null) {
-            //PICTURE
-            //foodPicture.setImage((Image) dish.getPicture());
-            //casts error when trying to display an image'
             foodPicture.setImage(dish.getPicture());
             foodName.setText(dish.getDishName());
             dishDescription.setText(dish.getDishDescription());
@@ -81,7 +77,6 @@ public class MenuController {
     }
 
     private void showShoppingCart(ShoppingCart shoppingCart){
-//        orderTable.setItems(main.getCartList());
         if (shoppingCart != null) {
             subtotalPriceLabel.setText(Double.toString(shoppingCart.getFinalPrice()));
             totalPriceLabel.setText(Double.toString(shoppingCart.getFinalPriceVAT()));
