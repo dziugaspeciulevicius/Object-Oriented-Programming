@@ -4,18 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DbConnect {
+public class Driver {
 
-    private DbConnect(){
+    private Driver(){
 
     }
 
-    public static DbConnect getInstance(){
-        return new DbConnect();
+    public static Driver getInstance(){
+        return new Driver();
     }
 
     public Connection getConnection() {
-        String connect_string = "jdbc:sqlite:data.db";
+        String connect_string = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
         Connection connection = null;
 
         try {

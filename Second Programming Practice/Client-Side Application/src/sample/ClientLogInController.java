@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class LogInController implements Initializable {
+public class ClientLogInController implements Initializable {
 
 
     @FXML private PasswordField login_password;
@@ -33,13 +33,13 @@ public class LogInController implements Initializable {
         username =  login_username.getText();
         password = login_password.getText();
 
-        Connection connection = DbConnect.getInstance().getConnection();
+        Connection connection = Driver.getInstance().getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet =  statement.executeQuery("SELECT * FROM users WHERE username" +
                 " = '" + username + "' OR email = '" + login_password + "' AND password = '" + password + "'");
 
         if (resultSet.next()) {
-            //try {
+            try {
                 Parent appWindow = FXMLLoader.load(getClass().getResource("clientApp.fxml"));
                 Stage window = new Stage();
                 //Node node = (Node) event.getSource();
@@ -48,14 +48,14 @@ public class LogInController implements Initializable {
                 window.setScene(new Scene(appWindow));
                 window.setResizable(true);
                 window.show();
-            //} catch (Exception e) {
-            //    System.out.println(e);
-            //    Alert alert = new Alert(Alert.AlertType.ERROR);
-            //    alert.setTitle("Error");
-            //    alert.setHeaderText("CAN'T LOAD A WINDOW");
-            //    alert.setContentText("Window you are trying to open cannot be reached at the moment!");
-            //    alert.showAndWait();
-            //}
+            } catch (Exception e) {
+                System.out.println(e);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("CAN'T LOAD A WINDOW");
+                alert.setContentText("Window you are trying to open cannot be reached at the moment!");
+                alert.showAndWait();
+            }
         }
 
     }
@@ -63,7 +63,7 @@ public class LogInController implements Initializable {
     @FXML
     private void signup() throws IOException {
         try {
-            Parent signupWindow = FXMLLoader.load(getClass().getResource("signup.fxml"));
+            Parent signupWindow = FXMLLoader.load(getClass().getResource("clientSignUp.fxml"));
             Stage window = new Stage();
             //Node node = (Node) event.getSource();
             window.initModality(Modality.APPLICATION_MODAL);

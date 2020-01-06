@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,8 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -22,7 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class SignUpController implements Initializable {
+public class ClientSignUpController implements Initializable {
 
     @FXML private TextField signup_email;
     @FXML private TextField signup_username;
@@ -30,7 +27,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     void signup(ActionEvent event) {
-        Connection connection = DbConnect.getInstance().getConnection();
+        Connection connection = Driver.getInstance().getConnection();
 
         if (signup_username.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -83,7 +80,7 @@ public class SignUpController implements Initializable {
     @FXML
     void login() throws IOException {
         try {
-            Parent loginWindow = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent loginWindow = FXMLLoader.load(getClass().getResource("clientLogin.fxml"));
             Stage window = new Stage();
             //Node node = (Node) event.getSource();
             //Stage stage = (Stage) node.getScene().getWindow();
