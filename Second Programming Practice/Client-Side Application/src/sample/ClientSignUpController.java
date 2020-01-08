@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -14,9 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ClientSignUpController implements Initializable {
@@ -24,53 +23,62 @@ public class ClientSignUpController implements Initializable {
     @FXML private TextField signup_email;
     @FXML private TextField signup_username;
     @FXML private PasswordField signup_password;
+    @FXML private PasswordField signup_passwordConfirm;
 
     @FXML
     void signup(ActionEvent event) {
         Connection connection = Driver.getInstance().getConnection();
 
-        if (signup_username.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Username field is empty");
-            alert.setContentText("Please fill username field and try again!");
-            alert.showAndWait();
-            return;
-        }
-
-        if (signup_email.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Email field is empty");
-            alert.setContentText("Please fill email field and try again!");
-            alert.showAndWait();
-            return;
-        }
-        if (signup_password.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Password field is empty");
-            alert.setContentText("Please fill password field and try again!");
-            alert.showAndWait();
-            return;
-        }
-
         try {
+            if (signup_username.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Username field is empty");
+                alert.setContentText("Please fill username field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (signup_email.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Email field is empty");
+                alert.setContentText("Please fill email field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (signup_password.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Password field is empty");
+                alert.setContentText("Please fill password field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (!(signup_passwordConfirm.getText().equals(signup_password.getText()))) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Password don't match");
+                alert.setContentText("Please make sure you enter matching passwords!");
+                alert.showAndWait();
+                return;
+            }
+
             String username = signup_username.getText();
             String email = signup_email.getText();
             String password = signup_password.getText();
 
-            Statement statement = connection.createStatement();
-            int status = statement.executeUpdate("insert into users (username, email, password) " +
-                    "values ( ' "+username+ "','"+email+"','"+password+"')");
+            String sql = "INSERT INTO users (username, email, password) VALUES(?, ?, ?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, password);
+            preparedStatement.executeUpdate();
 
-            if (status > 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registration successful!");
-                alert.setHeaderText(null);
-                alert.setContentText("You have registered successfully and can now login into your account!");
-                alert.showAndWait();
-            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registration successful!");
+            alert.setHeaderText(null);
+            alert.setContentText("You have registered successfully and can now login into your account!");
+            alert.showAndWait();
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -14,51 +17,66 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ClientLogInController implements Initializable {
 
-
     @FXML private PasswordField login_password;
     @FXML private TextField login_username;
 
+    public static ObservableList<User> userData = FXCollections.observableArrayList();
+    User user;
+
     @FXML
-    void login(ActionEvent event) throws SQLException, IOException {
+    private void login(ActionEvent event) throws SQLException, IOException {
+        //checks if provided credentials exist in the database
+        if(isValid(login_username.getText(), login_password.getText())){
+            Parent appWindow = FXMLLoader.load(getClass().getResource("clientApp.fxml"));
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);
 
-        String username, password;
-        username =  login_username.getText();
-        password = login_password.getText();
+            window.setScene(new Scene(appWindow));
+            window.setResizable(true);
+            window.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Incorrect information");
+            alert.setContentText("Check your details and try again");
+            alert.showAndWait();
+        }
+    }
 
-        Connection connection = Driver.getInstance().getConnection();
-        Statement statement = connection.createStatement();
-        ResultSet resultSet =  statement.executeQuery("SELECT * FROM users WHERE username" +
-                " = '" + username + "' OR email = '" + login_password + "' AND password = '" + password + "'");
 
-        if (resultSet.next()) {
-            try {
-                Parent appWindow = FXMLLoader.load(getClass().getResource("clientApp.fxml"));
-                Stage window = new Stage();
-                //Node node = (Node) event.getSource();
-                //Stage stage = (Stage) node.getScene().getWindow();
-                window.initModality(Modality.APPLICATION_MODAL);
-                window.setScene(new Scene(appWindow));
-                window.setResizable(true);
-                window.show();
-            } catch (Exception e) {
-                System.out.println(e);
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("CAN'T LOAD A WINDOW");
-                alert.setContentText("Window you are trying to open cannot be reached at the moment!");
-                alert.showAndWait();
+
+
+
+    public boolean isValid(String username, String password) throws SQLException {
+        Connection conn = null;
+        boolean valid = false;
+
+        try {
+            String url = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
+            conn = DriverManager.getConnection(url);
+            String sql = "SELECT username, password FROM users WHERE username = '" + username + "'" + "AND password= " + "'" + password + "'";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (!rs.next()) {
+                System.out.println("Wrong username or password");
+            } else {
+                valid = true;
+            }
+        } catch (Exception exc) {
+            System.out.println(exc.getMessage());
+        } finally {
+            if (conn.isClosed() == false) {
+                conn.close();
             }
         }
-
+        return valid;
     }
+
 
     @FXML
     private void signup() throws IOException {
@@ -82,7 +100,7 @@ public class ClientLogInController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

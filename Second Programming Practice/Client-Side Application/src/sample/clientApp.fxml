@@ -16,17 +16,59 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1391.0" style="-fx-background-color: transparent;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientAppController">
    <children>
       <StackPane layoutX="364.0" layoutY="205.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox style="-fx-background-color: #2D3A51;" HBox.hgrow="ALWAYS" />
+                  <VBox style="-fx-background-color: white;" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="570.0" prefWidth="1250.0" style="-fx-background-color: white;">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </StackPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fill="WHITE" layoutX="613.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 2em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="BRAND" />
+                  <Text fill="WHITE" layoutX="22.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Choose a product to add to cart." />
+                  <Separator layoutX="14.0" layoutY="64.0" prefHeight="0.0" prefWidth="1309.0" style="-fx-background-color: #3B969B;" />
+                  <TableView fx:id="productTable" editable="true" layoutX="14.0" layoutY="109.0" prefHeight="487.0" prefWidth="252.0" style="-fx-background-color: white;">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <columns>
+                        <TableColumn fx:id="nameColumn" prefWidth="179.0" text="Choose a dish:" visible="false" />
+                     </columns>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </TableView>
+                  <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="1168.0" layoutY="17.0">
+                     <image>
+                        <Image url="@images/user_128px.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="992.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Welcome, " />
+                  <Label fx:id="usernameShow" layoutX="1066.0" layoutY="26.0" prefHeight="21.0" prefWidth="96.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-text-fill: #3B969B;" text="---------------" />
+                  <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="1224.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shopping_bag_128px.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="283.0" layoutY="85.0" orientation="VERTICAL" prefHeight="518.0" prefWidth="0.0" style="-fx-background-color: #3B969B;" />
+                  <ImageView fx:id="itemPicture" fitHeight="165.0" fitWidth="276.0" layoutX="317.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="359.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Description of your item." />
+                  <Text fx:id="itemName" fill="WHITE" layoutX="317.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Name" />
+                  <Text fx:id="itemPrice" fill="WHITE" layoutX="525.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="ItemPrice" />
+                  <Text fx:id="itemDescription" fill="WHITE" layoutX="317.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Name" textAlignment="CENTER" wrappingWidth="276.0" />
+               </children>
+            </AnchorPane>
+         </children>
          <effect>
             <DropShadow />
          </effect>
       </StackPane>
-      <HBox prefHeight="673.0" prefWidth="1391.0">
-         <children>
-            <VBox style="-fx-background-color: #2D3A51;" HBox.hgrow="ALWAYS" />
-            <VBox style="-fx-background-color: white;" HBox.hgrow="ALWAYS" />
-
-              
-               </children>
-      </HBox>
    </children>
 </AnchorPane>
