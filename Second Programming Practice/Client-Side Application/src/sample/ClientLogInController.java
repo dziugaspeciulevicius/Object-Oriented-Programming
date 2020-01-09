@@ -25,13 +25,10 @@ public class ClientLogInController implements Initializable {
     @FXML private PasswordField login_password;
     @FXML private TextField login_username;
 
-    public static ObservableList<User> userData = FXCollections.observableArrayList();
-    User user;
-
     @FXML
     private void login(ActionEvent event) throws SQLException, IOException {
         //checks if provided credentials exist in the database
-        if(isValid(login_username.getText(), login_password.getText())){
+        if(detailValidation(login_username.getText(), login_password.getText())){
             Parent appWindow = FXMLLoader.load(getClass().getResource("clientApp.fxml"));
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
@@ -48,11 +45,7 @@ public class ClientLogInController implements Initializable {
         }
     }
 
-
-
-
-
-    public boolean isValid(String username, String password) throws SQLException {
+    public boolean detailValidation(String username, String password) throws SQLException {
         Connection conn = null;
         boolean valid = false;
 

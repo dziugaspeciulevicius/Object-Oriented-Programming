@@ -2,22 +2,24 @@ package sample;
 
 import javafx.beans.property.*;
 
-public class Item extends ShoppingCart {
+public class Item {
     private StringProperty itemName;
     private StringProperty itemDescription;
     private SimpleObjectProperty itemImage;
     private DoubleProperty itemPrice;
+    private IntegerProperty itemInventory;
     private static double VAT = 1.21;
 
 
     public Item() {
-        this(null, null, 0.0, null);
+        this(null, null, 0.0,0,null);
     }
 
-    public Item(String itemName, String itemDescription, Double itemPrice, Object itemImage) {
-        this.itemName = new SimpleStringProperty(itemName) ;
+    public Item(String itemName, String itemDescription, Double itemPrice, Integer itemInventory, Object itemImage) {
+        this.itemName = new SimpleStringProperty(itemName);
         this.itemDescription = new SimpleStringProperty(itemDescription);
         this.itemPrice = new SimpleDoubleProperty(itemPrice);
+        this.itemInventory = new SimpleIntegerProperty(itemInventory);
         this.itemImage = new SimpleObjectProperty(itemImage);
 
     }
@@ -74,4 +76,19 @@ public class Item extends ShoppingCart {
         return VAT;
     }
 
+    public int getItemInventory() {
+        return itemInventory.get();
+    }
+
+    public IntegerProperty itemInventoryProperty() {
+        return itemInventory;
+    }
+
+    public void setItemInventory(int itemInventory) {
+        this.itemInventory.set(itemInventory);
+    }
+
+    public static void setVAT(double VAT) {
+        Item.VAT = VAT;
+    }
 }
