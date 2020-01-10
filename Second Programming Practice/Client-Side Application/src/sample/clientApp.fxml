@@ -83,7 +83,7 @@
                         <ColorAdjust />
                      </effect>
                   </TableView>
-                  <Text fill="WHITE" layoutX="670.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="ORDER SUMMARY." />
+                  <Text fill="WHITE" layoutX="669.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="ORDER SUMMARY." />
                   <Text fill="WHITE" layoutX="1164.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Your basket:" wrappingWidth="92.15240478515625" />
                   <Button fx:id="buyButton" layoutX="887.0" layoutY="534.0" mnemonicParsing="false" onAction="#buyButtonAction" prefHeight="52.0" prefWidth="207.0" style="-fx-background-color: #3B969B; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 50px;" text="BUY" />
                   <Label layoutX="681.0" layoutY="275.0" style="-fx-font-size: 0.9em; -fx-font-family: Quicksand; -fx-text-fill: #3B969B;" text="Make sure your details are correct before you place an order!" />
@@ -120,7 +120,7 @@
                         <Font size="12.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="674.0" layoutY="137.0" style="-fx-font-size: 1.1em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Shipping address:">
+                  <Label layoutX="671.0" layoutY="115.0" style="-fx-font-size: 1.1em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Shipping address:">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -131,6 +131,16 @@
                   <Separator layoutX="668.0" layoutY="391.0" prefHeight="0.0" prefWidth="640.0" />
                   <Label layoutX="674.0" layoutY="448.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Shipping:" />
                   <Label layoutX="1224.0" layoutY="456.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Free" textAlignment="RIGHT" />
+                  <TextField fx:id="lastNameTextField" layoutX="888.0" layoutY="143.0" prefHeight="25.0" prefWidth="159.0" promptText="Last name">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="firstNameTextField" layoutX="676.0" layoutY="144.0" prefHeight="25.0" prefWidth="199.0" promptText="First name (Optional)">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
          </children>

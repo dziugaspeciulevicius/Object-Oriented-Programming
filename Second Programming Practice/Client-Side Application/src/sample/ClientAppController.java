@@ -40,6 +40,8 @@ public class ClientAppController {
     @FXML private TextField postalCodeTextField;
     @FXML private TextField addressTextField;
     @FXML private TextField apartmentTextField;
+    @FXML private TextField firstNameTextField;
+    @FXML private TextField lastNameTextField;
     @FXML private Button buyButton;
 
     public static ObservableList<Item> itemList = FXCollections.observableArrayList();
@@ -118,13 +120,14 @@ public class ClientAppController {
                 ps.execute();
                 conn.commit();
                 shoppingCart.setShoppingCartArray(selection);
-                orderTable.getItems().add(selection);
+                orderTable.getItems().add(new ShoppingCart(selection.getItemName(), selection.getItemDescription(), selection.getItemPrice(), selection.getItemInventory()));
+                cartList.add(selection);
                 conn.close();
+            System.out.println("Item added successfully");
             }catch ( Exception e ) {
                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 
             }
-            System.out.println("Item added successfully");
         }
         setPrice();
     }
@@ -163,13 +166,158 @@ public class ClientAppController {
 
     @FXML
     void buyButtonAction(ActionEvent event) {
-        Driver.addToOrder();
+        Connection connection = Driver.addToOrder();
+
+        ShoppingCart shoppingCart = new ShoppingCart();
+//        Connection conn;
+//        Statement stmt = null;
+//        PreparedStatement ps =null;
+//        String username = ClientLogInController.userData.get(0).getUsername();
+//        String password = ClientLogInController.userData.get(0).getPassword();
+//        double total = shoppingCart.getFinalPriceVAT();
+        Connection conn;
+        Statement stmt = null;
+        PreparedStatement ps = null;
+
+        try {
+            if (lastNameTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Last name field is empty");
+                alert.setContentText("Please fill last name field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (addressTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Address field is empty");
+                alert.setContentText("Please fill address field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (countryTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Country field is empty");
+                alert.setContentText("Please fill country field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (postalCodeTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Postal code field is empty");
+                alert.setContentText("Please fill postal code field and try again!");
+                alert.showAndWait();
+                return;
+            }
+            if (cityTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("City field is empty");
+                alert.setContentText("Please fill city field and try again!");
+                alert.showAndWait();
+                return;
+            }
+
+            String first_name = firstNameTextField.getText();
+            String last_name = lastNameTextField.getText();
+            String country = countryTextField.getText();
+            String city = cityTextField.getText();
+            String address = addressTextField.getText();
+            String apartment = apartmentTextField.getText();
+            String postal_code = postalCodeTextField.getText();
+//            String item_name = shoppingCart.getItemName();
+//            double item_cost = shoppingCart.getFinalPriceVAT();
+
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db");
+
+            connection.setAutoCommit(false);
+            stmt = connection.createStatement();
+
+                stmt.executeUpdate("INSERT INTO Orders (first_name, last_name, country, city, address, apartment," +
+                        "postal_code) VALUES('" + first_name + "','" + last_name +"','" + country +"','" + city +"','" + address +"','" + apartment +"'" +
+                        ",'" + postal_code +"')");
+//            for (int i = 0; i <cartList.size() ; i++) {
+//            }
+
+
+
+
+
+//            for (int i = 0; i < cartList.size(); i++) {
+//                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code," +
+//                        "item_name, item_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+//                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//                preparedStatement.setString(1, first_name);
+//                preparedStatement.setString(2, last_name);
+//                preparedStatement.setString(3, country);
+//                preparedStatement.setString(4, city);
+//                preparedStatement.setString(5, address);
+//                preparedStatement.setString(6, apartment);
+//                preparedStatement.setString(7, postal_code);
+//                preparedStatement.setString(8, cartList.get(i).getItemName());
+//                preparedStatement.setString(9, String.valueOf(item_cost));
+//                preparedStatement.executeUpdate();
+//            }
+
+            ps.execute();
+            connection.commit();
+            connection.close();
+            System.out.println("Order is inserted in database successfully");
+        } catch (Exception e) {
+//            System.out.println(e);
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+}
+
+        @FXML
+    void discountCodeApplyAction(ActionEvent event) throws SQLException {
+        if (discountCodeValidation(discountCodeField.getText())){
+            String price = String.format("%.2f", shoppingCart.getFinalFirstOrderDiscountPrice());
+            subtotalPriceLabel.setText(price);
+            price = String.format("%.2f", shoppingCart.getFinalDiscountPriceVAT());
+            totalPriceLabel.setText(price);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Discount code applied!");
+            alert.setHeaderText(null);
+            alert.setContentText("You have successfully applied your discount code!");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Incorrect discount code");
+            alert.setContentText("The discount code you entered is invalid");
+            alert.showAndWait();
+        }
 
     }
 
-    @FXML
-    void discountCodeApplyAction(ActionEvent event) {
-
+    public boolean discountCodeValidation(String discountCode) throws SQLException {
+        Connection conn = null;
+        boolean valid = false;
+        try {
+            String url = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
+            conn = DriverManager.getConnection(url);
+            String sql = "SELECT discount_code, discount_price FROM Discounts WHERE discount_code = '" + discountCode + "'";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (!rs.next()) {
+                System.out.println("Wrong discount code");
+            } else {
+                valid = true;
+            }
+        } catch (Exception exc) {
+            System.out.println(exc.getMessage());
+        } finally {
+            if (conn.isClosed() == false) {
+                conn.close();
+            }
+        }
+        return valid;
     }
 
     //function to set final price

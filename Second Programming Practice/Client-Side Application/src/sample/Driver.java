@@ -61,11 +61,24 @@ public class Driver {
     }
 
 
-    public static void addToOrder(){
+    public static Connection addToOrder(){
+        String connect_string = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
+        Connection connection = null;
 
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection(connect_string);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return connection;
     }
 
-    public static Connection registerUserGetConnection() {
+
+    public static Connection connection() {
         String connect_string = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
         Connection connection = null;
 

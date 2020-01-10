@@ -27,7 +27,7 @@ public class ClientSignUpController implements Initializable {
 
     @FXML
     void signup(ActionEvent event) {
-        Connection connection = Driver.registerUserGetConnection();
+        Connection connection = Driver.connection();
 
         try {
             if (signup_username.getText().isEmpty()) {

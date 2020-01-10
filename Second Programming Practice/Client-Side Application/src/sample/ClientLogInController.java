@@ -25,6 +25,9 @@ public class ClientLogInController implements Initializable {
     @FXML private PasswordField login_password;
     @FXML private TextField login_username;
 
+    public static ObservableList<User> userData = FXCollections.observableArrayList();
+
+
     @FXML
     private void login(ActionEvent event) throws SQLException, IOException {
         //checks if provided credentials exist in the database
@@ -58,6 +61,7 @@ public class ClientLogInController implements Initializable {
             if (!rs.next()) {
                 System.out.println("Wrong username or password");
             } else {
+                userData.add(new User());
                 valid = true;
             }
         } catch (Exception exc) {
@@ -67,6 +71,7 @@ public class ClientLogInController implements Initializable {
                 conn.close();
             }
         }
+//        userData.add(new User());
         return valid;
     }
 

@@ -13,6 +13,8 @@ public class ShoppingCart {
     private double PriceVAT;
     private IntegerProperty quantity;
     private double total;
+    private int myFirstOrderDiscount = 10;
+    private int happy2020discount = 20;
     private ArrayList<Item> shoppingCartArray = new ArrayList<>();
 
     public ShoppingCart(){
@@ -31,9 +33,7 @@ public class ShoppingCart {
             System.out.println("This method of picture doesn't work");
         }
         */
-
     }
-
 
     public ArrayList<Item> getShoppingCartArray(){
         return shoppingCartArray;
@@ -72,7 +72,17 @@ public class ShoppingCart {
         return total;
     }
 
+    public double getFinalFirstOrderDiscountPrice() {
+        calculateFinalFirstOrderDiscountPrice();
+        return total;
+    }
+
     public double getFinalPriceVAT() {
+        return PriceVAT;
+    }
+
+    public double getFinalDiscountPriceVAT() {
+        calculateFinalFirstOrderDiscountPrice();
         return PriceVAT;
     }
 
@@ -83,6 +93,15 @@ public class ShoppingCart {
         }
         //with VAT
         PriceVAT = total * Item.getVAT();
+    }
+
+    private void calculateFinalFirstOrderDiscountPrice() {
+        total = 0;
+        for(int i = 0; i < getShoppingCartArray().size(); i++){
+            total += getShoppingCartArray().get(i).getItemPrice();
+        }
+        //with VAT
+        PriceVAT = total * Item.getVAT() - myFirstOrderDiscount;
     }
 
     public int getQuantity() {
