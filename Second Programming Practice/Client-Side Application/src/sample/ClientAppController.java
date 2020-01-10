@@ -43,6 +43,7 @@ public class ClientAppController {
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private Button buyButton;
+    @FXML private Label discountCodeAppliedLabel;
 
     public static ObservableList<Item> itemList = FXCollections.observableArrayList();
     public static ObservableList<Item> cartList = FXCollections.observableArrayList();
@@ -276,22 +277,15 @@ public class ClientAppController {
         @FXML
     void discountCodeApplyAction(ActionEvent event) throws SQLException {
         if (discountCodeValidation(discountCodeField.getText())){
+
+            discountCodeAppliedLabel.setText("Discount code applied successfully!");
+
             String price = String.format("%.2f", shoppingCart.getFinalFirstOrderDiscountPrice());
             subtotalPriceLabel.setText(price);
             price = String.format("%.2f", shoppingCart.getFinalDiscountPriceVAT());
             totalPriceLabel.setText(price);
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Discount code applied!");
-            alert.setHeaderText(null);
-            alert.setContentText("You have successfully applied your discount code!");
-            alert.showAndWait();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Incorrect discount code");
-            alert.setContentText("The discount code you entered is invalid");
-            alert.showAndWait();
+            discountCodeAppliedLabel.setText("The discount code you entered is invalid");
         }
 
     }
