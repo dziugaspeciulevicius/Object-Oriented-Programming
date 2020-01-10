@@ -60,6 +60,11 @@ public class Driver {
         System.out.println("DB OK");
     }
 
+
+    public static void addToOrder(){
+
+    }
+
     public static Connection registerUserGetConnection() {
         String connect_string = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";
         Connection connection = null;

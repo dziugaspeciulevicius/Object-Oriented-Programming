@@ -9,15 +9,29 @@ public class ShoppingCart {
     private StringProperty itemName;
     private StringProperty itemDescription;
     private ObjectProperty picture;
-    private double price;
+    private DoubleProperty price;
     private double PriceVAT;
+    private IntegerProperty quantity;
+    private double total;
     private ArrayList<Item> shoppingCartArray = new ArrayList<>();
 
-    public ShoppingCart(String itemName, String itemDescription, double itemPrice) {
+    public ShoppingCart(){
+        this(null,null,0,0);
     }
 
-    public ShoppingCart() {
-        this(null, null,0.0);
+
+    public ShoppingCart(String itemName,String itemDescription,double price, int quantity){
+        this.itemName = new SimpleStringProperty(itemName);
+        this.itemDescription= new SimpleStringProperty(itemDescription);
+        this.price = new SimpleDoubleProperty(price);
+        this.quantity=new SimpleIntegerProperty(quantity);
+        /*try {
+            this.picture = new FileInputStream(String.valueOf(picture));
+        } catch (FileNotFoundException e) {
+            System.out.println("This method of picture doesn't work");
+        }
+        */
+
     }
 
 
@@ -29,13 +43,33 @@ public class ShoppingCart {
         shoppingCartArray.add(item);
     }
 
+    public String getItemName() {
+        return itemName.get();
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName.set(itemName);
+    }
+
     public StringProperty itemNameProperty() {
         return itemName;
     }
 
+    public double getPrice() {
+        return price.get();
+    }
+
+    public DoubleProperty priceProperty() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price.set(price);
+    }
+
     public double getFinalPrice() {
         calculateFinalPrice();
-        return price;
+        return total;
     }
 
     public double getFinalPriceVAT() {
@@ -43,11 +77,23 @@ public class ShoppingCart {
     }
 
     private void calculateFinalPrice() {
-        price = 0;
+        total = 0;
         for(int i = 0; i < getShoppingCartArray().size(); i++){
-            price += getShoppingCartArray().get(i).getItemPrice();
+            total += getShoppingCartArray().get(i).getItemPrice();
         }
         //with VAT
-        PriceVAT = price * Item.getVAT();
+        PriceVAT = total * Item.getVAT();
+    }
+
+    public int getQuantity() {
+        return quantity.get();
+    }
+
+    public IntegerProperty quantityProperty() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity.set(quantity);
     }
 }

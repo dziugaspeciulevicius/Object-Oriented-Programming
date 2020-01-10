@@ -2,7 +2,7 @@ package sample;
 
 import javafx.beans.property.*;
 
-public class Item {
+public class Item extends ShoppingCart {
     private StringProperty itemName;
     private StringProperty itemDescription;
     private SimpleObjectProperty itemImage;
