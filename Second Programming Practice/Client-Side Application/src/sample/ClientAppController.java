@@ -269,8 +269,8 @@ public class ClientAppController {
             connection.close();
             System.out.println("Order is inserted in database successfully");
         } catch (Exception e) {
-//            System.out.println(e);
-//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.out.println(e);
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
 }
 

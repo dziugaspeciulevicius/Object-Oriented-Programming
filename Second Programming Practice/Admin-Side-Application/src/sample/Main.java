@@ -8,14 +8,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-//    public Main() {
-//        Driver.getConnection();
-//    }
-
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("clientLogin.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("clientApp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("adminLogIn.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         Driver.getConnection();
