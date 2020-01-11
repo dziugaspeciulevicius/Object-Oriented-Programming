@@ -5,12 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 
-import java.io.*;
+import javax.security.auth.login.LoginContext;
 import java.sql.*;
 
 public class ClientAppController {
@@ -46,11 +44,11 @@ public class ClientAppController {
     @FXML private Label discountCodeAppliedLabel;
 
     public static ObservableList<Item> itemList = FXCollections.observableArrayList();
-    public static ObservableList<Item> cartList = FXCollections.observableArrayList();
+    public static ObservableList<ShoppingCart> cartList = FXCollections.observableArrayList();
     public static ObservableList<Item> getItemList(){
         return itemList;
     }
-    public static ObservableList<Item> getCartList(){
+    public static ObservableList<ShoppingCart> getCartList(){
         return cartList;
     }
     ShoppingCart shoppingCart = new ShoppingCart();
@@ -70,8 +68,10 @@ public class ClientAppController {
                 (observable, oldValue, newValue)-> showItems(newValue));
         productTable.setItems(getItemList());
 
-        //orderTable.getSelectionModel().selectedItemProperty().addListener(
-        //(observable, oldValue, newValue)-> showShoppingCart(newValue));
+
+        orderTable.getSelectionModel().selectedItemProperty().addListener(
+        (observable, oldValue, newValue)-> showShoppingCart(newValue));
+        orderTable.setItems(getCartList());
         //This caused for prices to show 0.00 euros
     }
 
@@ -122,7 +122,6 @@ public class ClientAppController {
                 conn.commit();
                 shoppingCart.setShoppingCartArray(selection);
                 orderTable.getItems().add(new ShoppingCart(selection.getItemName(), selection.getItemDescription(), selection.getItemPrice(), selection.getItemInventory()));
-                cartList.add(selection);
                 conn.close();
             System.out.println("Item added successfully");
             }catch ( Exception e ) {
@@ -167,21 +166,10 @@ public class ClientAppController {
 
     @FXML
     void buyButtonAction(ActionEvent event) {
+        ShoppingCart shoppingCart = new ShoppingCart();
         Connection connection = Driver.addToOrder();
 
-        ShoppingCart shoppingCart = new ShoppingCart();
-//        Connection conn;
-//        Statement stmt = null;
-//        PreparedStatement ps =null;
-//        String username = ClientLogInController.userData.get(0).getUsername();
-//        String password = ClientLogInController.userData.get(0).getPassword();
-//        double total = shoppingCart.getFinalPriceVAT();
-        Connection conn;
-        Statement stmt = null;
-        PreparedStatement ps = null;
-
-        try {
-            if (lastNameTextField.getText().isEmpty()) {
+        if (lastNameTextField.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("Last name field is empty");
@@ -222,57 +210,103 @@ public class ClientAppController {
                 return;
             }
 
-            String first_name = firstNameTextField.getText();
-            String last_name = lastNameTextField.getText();
-            String country = countryTextField.getText();
-            String city = cityTextField.getText();
-            String address = addressTextField.getText();
-            String apartment = apartmentTextField.getText();
-            String postal_code = postalCodeTextField.getText();
-//            String item_name = shoppingCart.getItemName();
-//            double item_cost = shoppingCart.getFinalPriceVAT();
+        String first_name = firstNameTextField.getText();
+        String last_name = lastNameTextField.getText();
+        String country = countryTextField.getText();
+        String city = cityTextField.getText();
+        String address = addressTextField.getText();
+        String apartment = apartmentTextField.getText();
+        String postal_code = postalCodeTextField.getText();
+//        String item = cartList.get(0).getItemName();
 
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db");
+        for (int i = 0; i < cartList.size(); i++) {
+            String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code, item_name)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, first_name);
+                preparedStatement.setString(2, last_name);
+                preparedStatement.setString(3, country);
+                preparedStatement.setString(4, city);
+                preparedStatement.setString(5, address);
+                preparedStatement.setString(6, apartment);
+                preparedStatement.setString(7, postal_code);
+                preparedStatement.setString(8, cartList.get(i).getItemName());
+                preparedStatement.executeUpdate();
 
-            connection.setAutoCommit(false);
-            stmt = connection.createStatement();
-
-                stmt.executeUpdate("INSERT INTO Orders (first_name, last_name, country, city, address, apartment," +
-                        "postal_code) VALUES('" + first_name + "','" + last_name +"','" + country +"','" + city +"','" + address +"','" + apartment +"'" +
-                        ",'" + postal_code +"')");
-//            for (int i = 0; i <cartList.size() ; i++) {
-//            }
-
-
-
-
-
-//            for (int i = 0; i < cartList.size(); i++) {
-//                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code," +
-//                        "item_name, item_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-//                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//                preparedStatement.setString(1, first_name);
-//                preparedStatement.setString(2, last_name);
-//                preparedStatement.setString(3, country);
-//                preparedStatement.setString(4, city);
-//                preparedStatement.setString(5, address);
-//                preparedStatement.setString(6, apartment);
-//                preparedStatement.setString(7, postal_code);
-//                preparedStatement.setString(8, cartList.get(i).getItemName());
-//                preparedStatement.setString(9, String.valueOf(item_cost));
-//                preparedStatement.executeUpdate();
-//            }
-
-            ps.execute();
-            connection.commit();
-            connection.close();
-            System.out.println("Order is inserted in database successfully");
-        } catch (Exception e) {
-            System.out.println(e);
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Order successful!");
+                alert.setHeaderText(null);
+                alert.setContentText("You have ordered successfully and now all you need to do is wait!");
+                alert.showAndWait();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-}
+    }
+
+
+//    @FXML
+//    void buyButtonAction(ActionEvent event) {
+//        Driver.addToOrder();
+//        ShoppingCart shoppingCart = new ShoppingCart();
+//        Connection conn;
+//        Statement stmt = null;
+//        PreparedStatement ps = null;
+//        double total = shoppingCart.getFinalPriceVAT();
+//        try {
+//
+//            String first_name = firstNameTextField.getText();
+//            String last_name = lastNameTextField.getText();
+//            String country = countryTextField.getText();
+//            String city = cityTextField.getText();
+//            String address = addressTextField.getText();
+//            String apartment = apartmentTextField.getText();
+//            String postal_code = postalCodeTextField.getText();
+//            String item = cartList.get(0).getItemName();
+////            String item = shoppingCart.getItemName();
+//            double item_cost = cartList.get(0).getFinalPriceVAT();
+////            double item_cost = shoppingCart.getFinalPriceVAT();
+//            Class.forName("org.sqlite.JDBC");
+//            //connection = DriverManager.getConnection("jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db");
+//            //connection.setAutoCommit(false);
+//            //stmt = connection.createStatement();
+//
+//            for (int i = 0; i < cartList.size(); i++) {
+//                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code, item_name, item_cost) VALUES ('" + first_name + "', '" + last_name + "', '" + country + "', '" + city + "', " +
+//                        "'" + address + "', '" + apartment + "', '" + postal_code + "', '" + cartList.get(i).getItemName() + "', '" + cartList.get(i).getFinalPriceVAT() + "'";
+//                //stmt.executeUpdate("INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code, item_name, item_cost)" +
+//                //        "VALUES ('" + first_name + "', '" + last_name + "', '" + country + "', '" + city + "', " +
+//                //        "'" + address + "', '" + apartment + "', '" + postal_code + "', '" + cartList.get(i).getItemName() + "', '" + cartList.get(i).getFinalPriceVAT() + "')");
+//
+//
+//                ResultSet resultSet = stmt.executeQuery(sql);
+////                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code," +
+////                        "item_name, item_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+////                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+////                preparedStatement.setString(1, first_name);
+////                preparedStatement.setString(2, last_name);
+////                preparedStatement.setString(3, country);
+////                preparedStatement.setString(4, city);
+////                preparedStatement.setString(5, address);
+////                preparedStatement.setString(6, apartment);
+////                preparedStatement.setString(7, postal_code);
+////                preparedStatement.setString(8, cartList.get(i).getItemName());
+////                preparedStatement.setString(9, String.valueOf(item_cost));
+////                preparedStatement.executeUpdate();
+//            }
+//            ps.execute();
+//            //connection.commit();
+//            //connection.close();
+//            stmt.close();
+//            System.out.println("Order is inserted in database successfully");
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//        }
+//}
+
+
 
         @FXML
     void discountCodeApplyAction(ActionEvent event) throws SQLException {

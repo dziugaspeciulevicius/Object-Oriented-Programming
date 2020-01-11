@@ -73,10 +73,8 @@ public class Driver {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         return connection;
     }
-
 
     public static Connection connection() {
         String connect_string = "jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db";

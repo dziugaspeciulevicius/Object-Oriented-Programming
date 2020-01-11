@@ -87,39 +87,13 @@
                   <Text fill="WHITE" layoutX="1164.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 1em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #3B969B;" text="Your basket:" wrappingWidth="92.15240478515625" />
                   <Button fx:id="buyButton" layoutX="887.0" layoutY="534.0" mnemonicParsing="false" onAction="#buyButtonAction" prefHeight="52.0" prefWidth="207.0" style="-fx-background-color: #3B969B; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 50px;" text="BUY" />
                   <Label layoutX="681.0" layoutY="275.0" style="-fx-font-size: 0.9em; -fx-font-family: Quicksand; -fx-text-fill: #3B969B;" text="Make sure your details are correct before you place an order!" />
-                  <TextField fx:id="discountCodeField" layoutX="676.0" layoutY="322.0" prefHeight="40.0" prefWidth="311.0" promptText="Discount code" />
-                  <Button fx:id="discountCodeApplyButton" layoutX="1003.0" layoutY="323.0" mnemonicParsing="false" onAction="#discountCodeApplyAction" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: #3B969B; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10px;" text="Apply" />
-                  <TextField fx:id="addressTextField" layoutX="675.0" layoutY="177.0" prefHeight="25.0" prefWidth="199.0" promptText="Address">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="cityTextField" layoutX="677.0" layoutY="237.0" prefHeight="25.0" prefWidth="197.0" promptText="City">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="countryTextField" layoutX="676.0" layoutY="207.0" prefHeight="25.0" prefWidth="198.0" promptText="Country">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="apartmentTextField" layoutX="887.0" layoutY="176.0" prefHeight="25.0" prefWidth="159.0" promptText="Apartment no. (Optional)">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
+                  <Button fx:id="discountCodeApplyButton" layoutX="1004.0" layoutY="318.0" mnemonicParsing="false" onAction="#discountCodeApplyAction" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: #3B969B; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10px;" text="Apply" />
                   <Button fx:id="deleteButton" layoutX="1158.0" layoutY="328.0" mnemonicParsing="false" onAction="#deleteItemAction" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #FE9992; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 50px;" text="Delete item">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
                   <Label layoutX="676.0" layoutY="411.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Subtotal (no VAT):" />
-                  <TextField fx:id="postalCodeTextField" layoutX="889.0" layoutY="206.0" prefHeight="25.0" prefWidth="156.0" promptText="Postal code">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
                   <Label layoutX="671.0" layoutY="115.0" style="-fx-font-size: 1.1em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Shipping address:">
                      <font>
                         <Font size="16.0" />
@@ -131,16 +105,42 @@
                   <Separator layoutX="668.0" layoutY="391.0" prefHeight="0.0" prefWidth="640.0" />
                   <Label layoutX="674.0" layoutY="448.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Shipping:" />
                   <Label layoutX="1224.0" layoutY="456.0" style="-fx-font-size: 1.3em; -fx-font-family: Quicksand; -fx-font-weight: Bold; -fx-text-fill: #3B969B;" text="Free" textAlignment="RIGHT" />
-                  <TextField fx:id="lastNameTextField" layoutX="888.0" layoutY="143.0" prefHeight="25.0" prefWidth="159.0" promptText="Last name">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </TextField>
                   <TextField fx:id="firstNameTextField" layoutX="676.0" layoutY="144.0" prefHeight="25.0" prefWidth="199.0" promptText="First name (Optional)">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </TextField>
+                  <TextField fx:id="lastNameTextField" layoutX="888.0" layoutY="143.0" prefHeight="25.0" prefWidth="159.0" promptText="Last name">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="addressTextField" layoutX="675.0" layoutY="177.0" prefHeight="25.0" prefWidth="199.0" promptText="Address">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="apartmentTextField" layoutX="887.0" layoutY="176.0" prefHeight="25.0" prefWidth="159.0" promptText="Apartment no. (Optional)">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="countryTextField" layoutX="676.0" layoutY="207.0" prefHeight="25.0" prefWidth="198.0" promptText="Country">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="postalCodeTextField" layoutX="889.0" layoutY="206.0" prefHeight="25.0" prefWidth="156.0" promptText="Postal code">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cityTextField" layoutX="677.0" layoutY="237.0" prefHeight="25.0" prefWidth="197.0" promptText="City">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="discountCodeField" layoutX="677.0" layoutY="319.0" prefHeight="40.0" prefWidth="311.0" promptText="Discount code" />
                   <Label fx:id="discountCodeAppliedLabel" layoutX="683.0" layoutY="365.0" prefHeight="21.0" prefWidth="279.0" style="-fx-text-fill: #3B969B;" />
                </children>
             </AnchorPane>
