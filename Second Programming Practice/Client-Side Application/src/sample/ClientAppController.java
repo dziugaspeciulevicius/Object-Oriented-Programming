@@ -42,6 +42,7 @@ public class ClientAppController {
     @FXML private TextField lastNameTextField;
     @FXML private Button buyButton;
     @FXML private Label discountCodeAppliedLabel;
+    @FXML private Label discountLabel;
 
     public static ObservableList<Item> itemList = FXCollections.observableArrayList();
     public static ObservableList<ShoppingCart> cartList = FXCollections.observableArrayList();
@@ -170,45 +171,45 @@ public class ClientAppController {
         Connection connection = Driver.addToOrder();
 
         if (lastNameTextField.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Last name field is empty");
-                alert.setContentText("Please fill last name field and try again!");
-                alert.showAndWait();
-                return;
-            }
-            if (addressTextField.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Address field is empty");
-                alert.setContentText("Please fill address field and try again!");
-                alert.showAndWait();
-                return;
-            }
-            if (countryTextField.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Country field is empty");
-                alert.setContentText("Please fill country field and try again!");
-                alert.showAndWait();
-                return;
-            }
-            if (postalCodeTextField.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Postal code field is empty");
-                alert.setContentText("Please fill postal code field and try again!");
-                alert.showAndWait();
-                return;
-            }
-            if (cityTextField.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("City field is empty");
-                alert.setContentText("Please fill city field and try again!");
-                alert.showAndWait();
-                return;
-            }
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Last name field is empty");
+            alert.setContentText("Please fill last name field and try again!");
+            alert.showAndWait();
+            return;
+        }
+        if (addressTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Address field is empty");
+            alert.setContentText("Please fill address field and try again!");
+            alert.showAndWait();
+            return;
+        }
+        if (countryTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Country field is empty");
+            alert.setContentText("Please fill country field and try again!");
+            alert.showAndWait();
+            return;
+        }
+        if (postalCodeTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Postal code field is empty");
+            alert.setContentText("Please fill postal code field and try again!");
+            alert.showAndWait();
+            return;
+        }
+        if (cityTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("City field is empty");
+            alert.setContentText("Please fill city field and try again!");
+            alert.showAndWait();
+            return;
+        }
 
         String first_name = firstNameTextField.getText();
         String last_name = lastNameTextField.getText();
@@ -245,70 +246,7 @@ public class ClientAppController {
         }
     }
 
-
-//    @FXML
-//    void buyButtonAction(ActionEvent event) {
-//        Driver.addToOrder();
-//        ShoppingCart shoppingCart = new ShoppingCart();
-//        Connection conn;
-//        Statement stmt = null;
-//        PreparedStatement ps = null;
-//        double total = shoppingCart.getFinalPriceVAT();
-//        try {
-//
-//            String first_name = firstNameTextField.getText();
-//            String last_name = lastNameTextField.getText();
-//            String country = countryTextField.getText();
-//            String city = cityTextField.getText();
-//            String address = addressTextField.getText();
-//            String apartment = apartmentTextField.getText();
-//            String postal_code = postalCodeTextField.getText();
-//            String item = cartList.get(0).getItemName();
-////            String item = shoppingCart.getItemName();
-//            double item_cost = cartList.get(0).getFinalPriceVAT();
-////            double item_cost = shoppingCart.getFinalPriceVAT();
-//            Class.forName("org.sqlite.JDBC");
-//            //connection = DriverManager.getConnection("jdbc:sqlite:D:\\MY FILES\\Studies\\3 SEMESTER\\Object-Oriented-Programming\\Second Programming Practice\\data.db");
-//            //connection.setAutoCommit(false);
-//            //stmt = connection.createStatement();
-//
-//            for (int i = 0; i < cartList.size(); i++) {
-//                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code, item_name, item_cost) VALUES ('" + first_name + "', '" + last_name + "', '" + country + "', '" + city + "', " +
-//                        "'" + address + "', '" + apartment + "', '" + postal_code + "', '" + cartList.get(i).getItemName() + "', '" + cartList.get(i).getFinalPriceVAT() + "'";
-//                //stmt.executeUpdate("INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code, item_name, item_cost)" +
-//                //        "VALUES ('" + first_name + "', '" + last_name + "', '" + country + "', '" + city + "', " +
-//                //        "'" + address + "', '" + apartment + "', '" + postal_code + "', '" + cartList.get(i).getItemName() + "', '" + cartList.get(i).getFinalPriceVAT() + "')");
-//
-//
-//                ResultSet resultSet = stmt.executeQuery(sql);
-////                String sql = "INSERT INTO Orders (first_name, last_name, country, city, address, apartment, postal_code," +
-////                        "item_name, item_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-////                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-////                preparedStatement.setString(1, first_name);
-////                preparedStatement.setString(2, last_name);
-////                preparedStatement.setString(3, country);
-////                preparedStatement.setString(4, city);
-////                preparedStatement.setString(5, address);
-////                preparedStatement.setString(6, apartment);
-////                preparedStatement.setString(7, postal_code);
-////                preparedStatement.setString(8, cartList.get(i).getItemName());
-////                preparedStatement.setString(9, String.valueOf(item_cost));
-////                preparedStatement.executeUpdate();
-//            }
-//            ps.execute();
-//            //connection.commit();
-//            //connection.close();
-//            stmt.close();
-//            System.out.println("Order is inserted in database successfully");
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-//        }
-//}
-
-
-
-        @FXML
+    @FXML
     void discountCodeApplyAction(ActionEvent event) throws SQLException {
         if (discountCodeValidation(discountCodeField.getText())){
 
@@ -318,6 +256,8 @@ public class ClientAppController {
             subtotalPriceLabel.setText(price);
             price = String.format("%.2f", shoppingCart.getFinalDiscountPriceVAT());
             totalPriceLabel.setText(price);
+
+            discountLabel.setText("-10.00");
         } else {
             discountCodeAppliedLabel.setText("The discount code you entered is invalid");
         }

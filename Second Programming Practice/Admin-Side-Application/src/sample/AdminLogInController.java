@@ -33,7 +33,7 @@ public class AdminLogInController {
     @FXML
     void login(ActionEvent event) throws SQLException, IOException {
         if (adminDetailValidation(login_adminUsername.getText(), login_adminPassword.getText())) {
-            Parent appWindow = FXMLLoader.load(getClass().getResource("adminApp.fxml"));
+            Parent appWindow = FXMLLoader.load(getClass().getResource("ordersWindow.fxml"));
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
 

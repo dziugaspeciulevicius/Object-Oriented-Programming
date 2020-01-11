@@ -14,6 +14,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         Driver.getConnection();
+        Driver.showOrders();
+        Driver.showItems();
+        Driver.showAdmins();
     }
 
 
