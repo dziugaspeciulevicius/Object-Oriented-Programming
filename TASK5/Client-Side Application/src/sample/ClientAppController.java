@@ -257,6 +257,7 @@ public class ClientAppController {
             price = String.format("%.2f", shoppingCart.getFinalDiscountPriceVAT());
             totalPriceLabel.setText(price);
 
+
             discountLabel.setText("-10.00");
         } else {
             discountCodeAppliedLabel.setText("The discount code you entered is invalid");
